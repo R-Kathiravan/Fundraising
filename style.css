@@ -35,12 +35,9 @@
      background-color: white;
  }
 
- .logo a {
-     font-size: xx-large;
-     color: cadetblue;
-     font-weight: 900;
-     padding: 16px;
-     text-decoration: none;
+ .logo img {
+      width: 150px;
+       padding: 10px;
  }
 
  .menu-items {
