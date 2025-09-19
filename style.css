@@ -779,8 +779,7 @@
      /* Makes the heart icon pulse slightly */
  }
 
- /* --- Responsive Adjustments --- */
- @media (max-width: 768px) {
+  @media (max-width: 768px) {
      .cta-content {
          flex-direction: column;
          text-align: center;
@@ -799,6 +798,7 @@
  .faq-section {
      padding: 80px 15px;
      background-color: #ffffff;
+     overflow-x: hidden;
  }
 
  .faq-accordion {
