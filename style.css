@@ -2,21 +2,41 @@
 
  :root {
      --primary-color: #007BFF;
-     /* A vibrant blue - for buttons and highlights */
      --primary-hover-color: #0056b3;
      --secondary-color: #f8f9fa;
-     /* Light grey background for the section */
      --text-color: #333;
      --heading-color: #111;
      --card-background: #ffffff;
      --card-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
      --border-radius: 12px;
+     --black: black;
+     --white: white;
+     --faq-q:#2c3e50;
+     --fap-a:#7f8c8d;
  }
 
+ html.dark-mode {
+    --primary-color: #64b5f6;
+    --primary-hover-color: #90caf9;
+    --secondary-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --card-background: #1e1e1e;
+    --card-shadow: 0 4px 25px rgba(255, 255, 255, 0.05);
+    --border-radius: 12px;  
+    --black: #ffffff;
+    --white: #121212;
+    --faq-q: #e2e8f0;
+    --fap-a: #a0aec0;
+}
  * {
      margin: 0;
      padding: 0;
      font-family: 'Poppins', sans-serif;
+ }
+
+ body {
+     background-color: var(--white);
  }
 
  header {
@@ -32,12 +52,12 @@
      /* flex-wrap: wrap; */
      align-items: center;
      padding: 16px 10px;
-     background-color: white;
+     background-color: var(--white);
  }
 
  .logo img {
-      width: 150px;
-       padding: 10px;
+     width: 150px;
+     padding: 10px;
  }
 
  .menu-items {
@@ -49,7 +69,7 @@
 
  .menu-items a {
      text-decoration: none;
-     color: black;
+     color: var(--black);
      font-size: 16px;
      transition: all 0.4s ease;
  }
@@ -71,10 +91,23 @@
      color: rgb(15, 11, 211);
      transform: scale(1.1);
  }
- .btn-close{
-    display: none;
+
+ .btn-close {
+     display: none;
+ }
+.theme-toggle {
+     width: 50px;
+     height: 40px;
+     border-radius: 10px;
+     border-color: #00000000;
+     cursor: pointer;
+     background-color: var(--black);
+     color: var(--white);
  }
 
+ .theme-toggle i {
+     color: var(--black);
+ }
  .hero {
      /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/home-hero1.png'); */
      background-image: url('./assets/home-hero1.png');
@@ -119,7 +152,7 @@
 
      .btn-close {
          display: block;
-          cursor: pointer;
+         cursor: pointer;
      }
 
 
@@ -203,17 +236,24 @@
      color: white;
      border: none;
  }
+
  @media (max-width:478px) {
-    .hero-content h1{
-        font-size: 24px;
-    }
-    .hero-content p{
-        font-size: 14px;
-    }
-    .hero-content a{
-        font-size: 14px !important;
-        padding: 10px !important;
-    }
+     .hero-content h1 {
+         font-size: 24px;
+     }
+
+     .hero-content p {
+         font-size: 14px;
+     }
+
+     .hero-content a {
+         font-size: 14px !important;
+         padding: 10px !important;
+     }
+ }
+ .head{
+    color: var(--black);
+    /* text-align: center; */
  }
 
  .featured-campaigns {
@@ -221,7 +261,7 @@
  }
 
  .featured-campaigns-p {
-     color: #333;
+     color: var(--text-color);
      padding: 20px;
  }
 
@@ -232,7 +272,7 @@
  }
 
  .campaigns-card {
-     background: white;
+     background: var(--white);
      border-radius: 12px;
      box-shadow: 0 6px 18px rgba(12, 24, 40, 0.06);
      overflow: hidden;
@@ -257,12 +297,13 @@
  .campaigns-title {
      font-weight: 600;
      font-size: 16px;
-     margin: 0
+     margin: 0;
+     color: var(--black);
  }
 
  .campaigns-para {
      font-size: 14px;
-     color: #333;
+     color: var(--text-color);
      margin: 0
  }
 
@@ -278,7 +319,8 @@
  }
 
  .campaigns-amounts {
-     font-size: 14px
+     font-size: 14px;
+     color: var(--black);
  }
 
  .campaigns-amounts .raised {
@@ -309,7 +351,7 @@
  }
 
  .campaigns-btn {
-      color: #060606;
+     color: var(--black);
      padding: 10px 14px;
      border-radius: 8px;
      border: 0;
@@ -318,9 +360,10 @@
      text-decoration: none;
      transition: all 0.4s ease-in;
  }
- .campaigns-btn:hover{
- background-color: #007BFF;
- color: white;
+
+ .campaigns-btn:hover {
+     background-color: #007BFF;
+     color: white;
  }
 
  .campaigns-btn.secondary {
@@ -329,8 +372,9 @@
      border: 1px solid rgba(11, 116, 222, 0.12);
      text-decoration: none;
  }
- .campaigns-btn.secondary:hover{
-    background-color: green;
+
+ .campaigns-btn.secondary:hover {
+     background-color: green;
  }
 
  .campaigns-pill {
@@ -341,23 +385,23 @@
      color: var(--muted)
  }
 
- 
-  .how-it-works {
+
+ .how-it-works {
      padding: 80px 15px;
      text-align: center;
-     background-color: #f8f9fa;
+     background-color: var(--white);
  }
 
-  .how-it-works .head {
+ .how-it-works .head {
      font-size: 36px;
      font-weight: 700;
-     color: #2c3e50;
-      margin-bottom: 10px;
+     color: var(--heading-color);
+     margin-bottom: 10px;
  }
 
  .how-it-works .sub-head {
      font-size: 18px;
-     color: #7f8c8d;
+     color: var(--text-color);
      max-width: 600px;
      margin: 0 auto 50px auto;
  }
@@ -372,7 +416,7 @@
  }
 
  .works-card {
-     background-color: #ffffff;
+     background-color: var(--white);
      padding: 40px 30px;
      border-radius: 12px;
      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.07);
@@ -382,7 +426,7 @@
 
  .works-card:hover {
      transform: translateY(-8px);
-     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+     box-shadow: 0 10px 30px rgba(91, 27, 165, 0.638);
  }
 
  .works-icon {
@@ -390,12 +434,12 @@
      width: 90px;
      height: 90px;
      margin: 0 auto 25px auto;
-     background-color: #ecf0f1;
+     background-color: var(--white);
      border-radius: 50%;
      display: flex;
      align-items: center;
      justify-content: center;
-     border: 3px solid #ffffff;
+     border: 3px solid var(--white);
      box-shadow: 0 0 0 4px #e0e0e0;
  }
 
@@ -528,6 +572,7 @@
      display: flex;
      flex-direction: column;
      flex-grow: 1;
+     color: var(--black);
  }
 
  .story-content h3 {
@@ -545,11 +590,12 @@
  }
 
  .story-impact-metric {
-     background-color: #e9f5ff;
+     background-color: var(--white);
      border-left: 4px solid var(--primary-color);
      padding: 10px 15px;
      margin-bottom: 20px;
      font-size: 15px;
+
  }
 
  .btn-story {
@@ -570,7 +616,7 @@
 
  .testimonial-section {
      padding: 80px 0;
-     background-color: #fff;
+     background-color: var(--white);
  }
 
  .testimonial-card {
@@ -606,7 +652,7 @@
      font-size: 22px;
      font-style: italic;
      line-height: 1.6;
-     color: #444;
+     color: var(--text-color);
      margin-bottom: 30px;
  }
 
@@ -628,6 +674,7 @@
      display: flex;
      flex-direction: column;
      gap: 15px;
+     color: var(--black);
  }
 
  .testimonial-selector {
@@ -643,12 +690,12 @@
  }
 
  .testimonial-selector:hover {
-     background-color: #f0f0f0;
+     background-color: var(--white);
      opacity: 1;
  }
 
  .testimonial-selector.active {
-     background-color: #e9f5ff;
+     background-color: var(--white);
      border-color: var(--primary-color);
      opacity: 1;
  }
@@ -711,10 +758,9 @@
 
  .cta-section {
      padding: 60px 15px;
-     /* You can use your primary color for the background */
      background-color: #2c3e50;
-     /* Dark, soft blue */
      color: #ffffff;
+     overflow-x: hidden;
  }
 
  .cta-content {
@@ -728,7 +774,6 @@
 
  .cta-text h2 {
      font-family: 'Poppins', sans-serif;
-     /* Assumes you're using this font */
      font-size: 32px;
      font-weight: 700;
      margin: 0 0 10px 0;
@@ -741,19 +786,16 @@
      margin: 0;
  }
 
- /* --- The Donate Button --- */
  .btn-donate {
      display: inline-flex;
      align-items: center;
      gap: 12px;
      background-color: #ffffff;
      color: #2c3e50;
-     /* Should match the section's background color */
      font-size: 18px;
      font-weight: 700;
      padding: 18px 35px;
      border-radius: 50px;
-     /* Pill-shaped button */
      text-decoration: none;
      transition: all 0.3s ease;
      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -761,7 +803,6 @@
 
  .btn-donate:hover {
      background-color: #f1c40f;
-     /* A bright, contrasting hover color like yellow */
      color: #2c3e50;
      transform: translateY(-5px);
      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -769,14 +810,9 @@
 
  .btn-donate svg {
      transition: transform 0.3s ease;
- }
+ }  
 
- .btn-donate:hover svg {
-     transform: scale(1.2);
-     /* Makes the heart icon pulse slightly */
- }
-
-  @media (max-width: 768px) {
+ @media (max-width: 768px) {
      .cta-content {
          flex-direction: column;
          text-align: center;
@@ -794,7 +830,7 @@
 
  .faq-section {
      padding: 80px 15px;
-     background-color: #ffffff;
+     background-color: var(--white);
      overflow-x: hidden;
  }
 
@@ -817,7 +853,7 @@
      font-family: 'Poppins', sans-serif;
      font-size: 18px;
      font-weight: 600;
-     color: #2c3e50;
+     color: var(--faq-q);
      cursor: pointer;
      display: flex;
      justify-content: space-between;
@@ -840,7 +876,7 @@
      margin: 0;
      font-size: 16px;
      line-height: 1.7;
-     color: #7f8c8d;
+     color: var(--fap-a);
  }
 
  .icon-plus-minus {

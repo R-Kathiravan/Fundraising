@@ -7,6 +7,9 @@
     <title>Fundraising | Home</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings_night_sight" />
+
 </head>
 
 <body>
@@ -17,7 +20,7 @@
             </div>
             <nav class="menu-items">
                 <a href="index.html">Home</a>
-                <a href="404page.html">About US</a>
+                <a href="about.html">About US</a>
                 <a href="404page.html">Browse Campaigns</a>
                 <a href="404page.html">Start a Fundraiser</a>
                 <a href="404page.html">How It Works</a>
@@ -25,6 +28,9 @@
                 <a href="404page.html" id="login">Login/signup</a>
                 <a class="btn-close">Close</a>
             </nav>
+            <button class="btn theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
+                    settings_night_sight
+                </span></button>
             <div class="hamburger">
                 &#9776
             </div>
@@ -184,7 +190,7 @@
             </div>
 
             <div class="stories-grid">
-                <article class="story-card"  data-aos="zoom-in" data-aos-delay="100">
+                <article class="story-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="story-image">
                         <img src="./assets/home-stories-1.jpg" alt="Happy child receiving educational supplies">
                         <span class="story-category">Education</span>
@@ -236,7 +242,7 @@
             </div>
         </div>
     </section>
-    <section id="testimonials" class="testimonial-section"  data-aos="zoom-in" data-aos-delay="100">
+    <section id="testimonials" class="testimonial-section" data-aos="zoom-in" data-aos-delay="100">
         <div class="container">
             <div class="section-header">
                 <span class="subtitle">Testimonials</span>
@@ -328,7 +334,7 @@
             </div>
         </div>
     </section>
-    <section id="faq-section" class="faq-section"  data-aos="fade-down" data-aos-delay="100">
+    <section id="faq-section" class="faq-section" data-aos="fade-down" data-aos-delay="100">
         <div class="container">
             <div class="section-header">
                 <span class="subtitle">Quick Answers</span>
@@ -394,10 +400,11 @@
         </div>
     </section>
     <footer>
-        <div class="footer-container"  data-aos="fade-up" data-aos-delay="100">
+        <div class="footer-container" data-aos="fade-up" data-aos-delay="100">
             <div class="footer-column" id="footer-about">
-                <a class="footer-logo" href="index.html"><a href="index.html" class="logo"><img src="./assets/stackly-logo1.png"></a>
-</a>
+                <a class="footer-logo" href="index.html"><a href="index.html" class="logo"><img
+                            src="./assets/stackly-logo1.png"></a>
+                </a>
                 <p class="footer-tagline">Funding Futures, One Campaign at a Time.</p>
                 <div class="follow-us">
                     <a href="404page.html" title="Google"> <img src="https://img.icons8.com/color/48/google-logo.png"
@@ -413,7 +420,7 @@
                 <h4>Quick Links</h4>
                 <div class="footer-menu">
                     <a href="index.html">Home</a>
-                    <a href="404page.html">About Us</a>
+                    <a href="about.html">About Us</a>
                     <a href="404page.html">Browse Campaigns</a>
                     <a href="404page.html">How It Works</a>
                     <a href="404page.html">Contact Us</a>
@@ -446,7 +453,7 @@
                     href="404page.html">Terms of Service</a></p>
         </div>
     </footer>
-      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({
             duration: 800,
@@ -509,6 +516,28 @@
                     }
                 });
             });
+        });
+         const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        function applyTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                htmlElement.classList.add('dark-mode');
+            } else {
+                htmlElement.classList.remove('dark-mode');
+            }
+        }
+
+        applyTheme();
+
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark-mode');
+
+            if (htmlElement.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
         });
     </script>
     <script src="script.js"></script>
