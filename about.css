@@ -282,8 +282,13 @@
  @media (max-width:478px) {
     .newsletter-form{
         flex-wrap: wrap;
+        flex-direction: column;
         gap: 20px;
     }
+     .newsletter-form a {
+        width: 100px;
+        text-align: center;
+     }
  }
 
  .newsletter-form input {

@@ -11,24 +11,25 @@
      --border-radius: 12px;
      --black: black;
      --white: white;
-     --faq-q:#2c3e50;
-     --fap-a:#7f8c8d;
+     --faq-q: #2c3e50;
+     --fap-a: #7f8c8d;
  }
 
  html.dark-mode {
-    --primary-color: #64b5f6;
-    --primary-hover-color: #90caf9;
-    --secondary-color: #1e1e1e;
-    --text-color: #e0e0e0;
-    --heading-color: #ffffff;
-    --card-background: #1e1e1e;
-    --card-shadow: 0 4px 25px rgba(255, 255, 255, 0.05);
-    --border-radius: 12px;  
-    --black: #ffffff;
-    --white: #121212;
-    --faq-q: #e2e8f0;
-    --fap-a: #a0aec0;
-}
+     --primary-color: #64b5f6;
+     --primary-hover-color: #90caf9;
+     --secondary-color: #1e1e1e;
+     --text-color: #e0e0e0;
+     --heading-color: #ffffff;
+     --card-background: #1e1e1e;
+     --card-shadow: 0 4px 25px rgba(255, 255, 255, 0.05);
+     --border-radius: 12px;
+     --black: #ffffff;
+     --white: #121212;
+     --faq-q: #e2e8f0;
+     --fap-a: #a0aec0;
+ }
+
  * {
      margin: 0;
      padding: 0;
@@ -95,7 +96,8 @@
  .btn-close {
      display: none;
  }
-.theme-toggle {
+
+ .theme-toggle {
      width: 50px;
      height: 40px;
      border-radius: 10px;
@@ -108,6 +110,7 @@
  .theme-toggle i {
      color: var(--black);
  }
+
  .hero {
      /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/home-hero1.png'); */
      background-image: url('./assets/home-hero1.png');
@@ -251,9 +254,10 @@
          padding: 10px !important;
      }
  }
- .head{
-    color: var(--black);
-    /* text-align: center; */
+
+ .head {
+     color: var(--black);
+     /* text-align: center; */
  }
 
  .featured-campaigns {
@@ -811,7 +815,7 @@
 
  .btn-donate svg {
      transition: transform 0.3s ease;
- }  
+ }
 
  @media (max-width: 768px) {
      .cta-content {
@@ -1026,6 +1030,26 @@
 
  .newsletter-form {
      display: flex;
+ }
+
+ @media (max-width:478px) {
+     .newsletter-form {
+         flex-wrap: wrap;
+         flex-direction: column;
+         gap: 20px;
+     }
+
+     .newsletter-form a {
+         width: 100px;
+         text-align: center;
+     }
+
+     .newsletter-form input {
+         border-radius: 5px !important;
+     }
+     .newsletter-form a{
+        border-radius: 5px !important;
+     }
  }
 
  .newsletter-form input {
