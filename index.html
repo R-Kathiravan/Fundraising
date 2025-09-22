@@ -37,15 +37,25 @@
         </div>
     </header>
     <div class="hero">
-        <div class="hero-content">
-            <h1>Raise funds for what matters most.</h1>
-            <p>Start a fundraiser in minutes or support causes you care about.</p>
+
+        <div class="hero-text">
+            <h1>Together We Build Hope</h1>
+            <p>Join us in transforming lives through kindness and generosity. Every small contribution paves the way for
+                a brighter future.</p>
             <div class="hero-btn">
                 <a href="404page.html">Start Fundraising</a>
                 <a href="404page.html">Donate Now</a>
             </div>
         </div>
+
+        <div class="hero-image">
+
+            <img src="./assets/hero1.avif" alt="Cause 1" class="active">
+            <img src="./assets/hero2.avif" alt="Cause 2">
+            <img src="./assets/hero3.avif" alt="Cause 3">
+        </div>
     </div>
+
     <div class="featured-campaigns">
         <h1 class="head">Featured Campaigns</h1>
         <p class="featured-campaigns-p">Every contribution makes a difference. Explore these campaigns and be part of
@@ -517,7 +527,7 @@
                 });
             });
         });
-         const themeToggle = document.getElementById('theme-toggle');
+        const themeToggle = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
         function applyTheme() {
             const savedTheme = localStorage.getItem('theme');
@@ -539,6 +549,16 @@
                 localStorage.setItem('theme', 'light');
             }
         });
+        const slides = document.querySelectorAll(".hero-image img");
+        let current = 0;
+
+        function nextSlide() {
+            slides[current].classList.remove("active");
+            current = (current + 1) % slides.length;
+            slides[current].classList.add("active");
+        }
+
+        setInterval(nextSlide, 4000); // 
     </script>
     <script src="script.js"></script>
 </body>
