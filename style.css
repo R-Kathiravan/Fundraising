@@ -390,6 +390,7 @@
      padding: 80px 15px;
      text-align: center;
      background-color: var(--white);
+     overflow-x: hidden;
  }
 
  .how-it-works .head {
