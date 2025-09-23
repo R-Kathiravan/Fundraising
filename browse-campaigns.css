@@ -167,6 +167,188 @@ header {
 
 }
 
+ footer {
+     background-color: #2c3e50;
+     color: #bdc3c7;
+     padding-top: 60px;
+ }
+
+ .footer-container {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 15px;
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 40px;
+ }
+
+ .footer-column {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .footer-column h4 {
+     font-size: 18px;
+     color: #ffffff;
+     margin-bottom: 20px;
+     position: relative;
+     padding-bottom: 10px;
+ }
+
+ .footer-column h4::after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 40px;
+     height: 2px;
+     background-color: #3498db;
+ }
+
+ .footer-logo {
+     font-size: 32px;
+     font-weight: 700;
+     color: #ffffff;
+     text-decoration: none;
+     margin-bottom: 10px;
+ }
+
+ .footer-tagline {
+     margin: 0 0 20px 0;
+     line-height: 1.6;
+ }
+
+ .follow-us a {
+     display: inline-block;
+     margin-right: 10px;
+     transition: transform 0.3s ease;
+ }
+
+ .follow-us a:hover {
+     transform: translateY(-4px);
+ }
+
+ .follow-us img {
+     width: 36px;
+     height: auto;
+ }
+
+ .footer-menu a {
+     color: #bdc3c7;
+     text-decoration: none;
+     margin-bottom: 12px;
+     display: block;
+     transition: color 0.3s ease, padding-left 0.3s ease;
+ }
+
+ .footer-menu a:hover {
+     color: #ffffff;
+     padding-left: 5px;
+ }
+
+ .contact-us p {
+     margin: 0 0 12px 0;
+ }
+
+ .contact-us span {
+     font-weight: 700;
+     color: #ffffff;
+     margin-right: 8px;
+ }
+
+ .contact-us a {
+     color: #bdc3c7;
+     text-decoration: none;
+     transition: color 0.3s ease;
+ }
+
+ .contact-us a:hover {
+     color: #ffffff;
+ }
+
+ .signup-news-letter p {
+     margin: 0 0 20px 0;
+     line-height: 1.6;
+ }
+
+ .newsletter-form {
+     display: flex;
+ }
+
+ @media (max-width:478px) {
+     .newsletter-form {
+         flex-wrap: wrap;
+         flex-direction: column;
+         gap: 20px;
+     }
+
+     .newsletter-form a {
+         width: 100px;
+         text-align: center;
+     }
+
+     .newsletter-form input {
+         border-radius: 5px !important;
+     }
+
+     .newsletter-form a {
+         border-radius: 5px !important;
+     }
+ }
+
+ .newsletter-form input {
+     flex-grow: 1;
+     border: 1px solid #4a627a;
+     background-color: #3b5066;
+     padding: 12px;
+     border-radius: 5px 0 0 5px;
+     color: #ffffff;
+     outline: none;
+ }
+
+ .newsletter-form input::placeholder {
+     color: #95a5a6;
+ }
+
+ .newsletter-form a {
+     padding: 12px 20px;
+     text-decoration: none;
+     border: none;
+     background-color: #3498db;
+     color: #ffffff;
+     font-weight: 700;
+     cursor: pointer;
+     border-radius: 0 5px 5px 0;
+     transition: background-color 0.3s ease;
+ }
+
+ .newsletter-form button:hover {
+     background-color: #2980b9;
+ }
+
+
+ .footer-bottom-bar {
+     margin-top: 40px;
+     padding: 20px 15px;
+     text-align: center;
+     background-color: rgba(0, 0, 0, 0.2);
+ }
+
+ .footer-bottom-bar p {
+     margin: 0;
+     font-size: 14px;
+ }
+
+ .footer-bottom-bar a {
+     color: #ffffff;
+     text-decoration: none;
+     font-weight: 600;
+ }
+
+ .footer-bottom-bar a:hover {
+     text-decoration: underline;
+ }
+
 .hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/browse-campaign-hero.jpg');
     height: 80vh;
@@ -542,10 +724,12 @@ header {
     justify-content: center;
     margin: 2%;
 }
-.cta h1{
+
+.cta h1 {
     font-size: 2rem;
 }
-.cta a{
+
+.cta a {
     padding: 16px;
     border: 1px solid;
     text-decoration: none;
@@ -553,7 +737,149 @@ header {
     color: white;
     transition: all 0.4s;
 }
-.cta a:hover{
+
+.cta a:hover {
     background-color: white;
     color: #667eea;
+}
+
+/* --- Campaign Details Panel --- */
+#campaign-details {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transition: right 0.4s ease-in-out;
+    z-index: 1000;
+}
+
+#campaign-details.active {
+    right: 0;
+}
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.details-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 4px solid #f5f5f5;
+    border-radius: 0 0 10px 10px;
+}
+
+.details-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Header */
+.details-header h2 {
+    font-size: 1.5rem;
+    margin: 0 0 5px;
+    color: #333;
+}
+
+.details-header .organizer {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Stats */
+.details-stats {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #e5e5e5;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #81C784);
+    border-radius: 5px;
+}
+
+.stats-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+/* Body */
+.details-body h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.details-body p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Footer */
+.details-footer {
+    margin-top: auto;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.details-footer .donate-btn {
+    background: #ff6b35;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.details-footer .donate-btn:hover {
+    background: #e65c2e;
+}
+
+#campaign-details .close-btn {
+    position: absolute;
+    /* top: 15px; */
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+ @media (max-width: 768px) {
+    #campaign-details {
+        max-width: 100%;
+    }
+
+    .details-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .details-body p {
+        font-size: 0.9rem;
+    }
 }
