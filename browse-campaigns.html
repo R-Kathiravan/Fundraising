@@ -55,18 +55,13 @@
                     <option value="goal-desc">Goal: High to Low</option>
                     <option value="goal-asc">Goal: Low to High</option>
                 </select>
-                <!-- <div class="view-toggle">
-                    <button id="grid-btn" class="active"><i class="fas fa-th-large"></i></button>
-                    <button id="list-btn"><i class="fas fa-bars"></i></button>
-                </div> -->
             </div>
         </div>
-        <div id="campaigns-wrapper" class="campaigns-grid">
+        <div id="campaigns-wrapper" class="campaigns-grid" data-aos="fade-down">
         </div>
         <div id="campaign-details" class="details-panel">
             <span class="close-btn">&times;</span>
             <div class="details-content">
-                <!-- Content will be injected dynamically -->
             </div>
         </div>
         <p id="no-results">No campaigns found matching your criteria.</p>
@@ -97,116 +92,17 @@
             </div>
         </div>
     </section>
-    <section class="urgent-campaings">
+    <section class="urgent-campaings" id="urgent-campaings">
         <h1 class="head">Urgent Campaigns</h1>
-        <div class="campaigns-list" id="campaigns-list">
+        <div class="campaigns-list" id="campaigns-list" data-aos="zoom-in">
         </div>
-        <!-- <div class="campaigns-list" id="campaigns-list">
-            <div class="campaign-item">
-                <div class="campaign-image">
-                    <img src="./assets/campaigns-img1.jpg" alt="${data.category}">
-                    <span class="category-badge">Medical</span>
-                </div>
-                <div class="campaign-content">
-                    <h3>Cancer Patient</h3>
-                    <p class="organizer">Trust Foundation</p>
-                    <p class="description">A Child was Affected by cancer</p>
-                    <div class="progress-bar">
-                        <div style="width: 50%;"></div>
-                    </div>
-                    <div class="stats">
-                        <div>
-                            <p class="raised">2,00,000</p>
-                            <p class="goal">raised of ₹1,00,000</p>
-                        </div>
-                        <p class="donors">200 Doners</p>
-                    </div>
-                    <button class="donate-btn">Donate Now</button>
-                </div>
-            </div>
-        </div>
-        <div class="campaigns-list" id="campaigns-list">
-            <div class="campaign-item">
-                <div class="campaign-image">
-                    <img src="./assets/campaigns-img2.avif" alt="${data.category}">
-                    <span class="category-badge">Flood</span>
-                </div>
-                <div class="campaign-content">
-                    <h3>Flood Relief for Assam Villages</h3>
-                    <p class="organizer">Health Foundation</p>
-                    <p class="description">Families affected by recent floods need immediate food, shelter and
-                        medical kits. Support rescue efforts.</p>
-                    <div class="progress-bar">
-                        <div style="width: 30%;"></div>
-                    </div>
-                    <div class="stats">
-                        <div>
-                            <p class="raised">1,50,000</p>
-                            <p class="goal">raised of ₹50,000</p>
-                        </div>
-                        <p class="donors">300 Doners</p>
-                    </div>
-                    <button class="donate-btn">Donate Now</button>
-                </div>
-            </div>
-        </div>
-        <div class="campaigns-list" id="campaigns-list">
-            <div class="campaign-item">
-                <div class="campaign-image">
-                    <img src="./assets/campaigns-img3.webp" alt="${data.category}">
-                    <span class="category-badge">Medical</span>
-                </div>
-                <div class="campaign-content">
-                    <h3>Clean Water for 100 Villages</h3>
-                    <p class="organizer">Trust Foundation</p>
-                    <p class="description">Install handpumps and filtration units to provide safe drinking water to
-                        remote villages.</p>
-                    <div class="progress-bar">
-                        <div style="width: 60%;"></div>
-                    </div>
-                    <div class="stats">
-                        <div>
-                            <p class="raised">2,00,000</p>
-                            <p class="goal">raised of ₹1,40,000</p>
-                        </div>
-                        <p class="donors">500 Doners</p>
-                    </div>
-                    <button class="donate-btn">Donate Now</button>
-                </div>
-            </div>
-        </div>
-        <div class="campaigns-list" id="campaigns-list">
-            <div class="campaign-item">
-                <div class="campaign-image">
-                    <img src="./assets/campaigns-img4.jpg" alt="${data.category}">
-                    <span class="category-badge">Medical</span>
-                </div>
-                <div class="campaign-content">
-                    <h3>Medical Camp for Senior Citizens</h3>
-                    <p class="organizer">Trust Foundation</p>
-                    <p class="description">Organize free check-ups, medicines and health awareness camps for elderly
-                        people in rural areas.</p>
-                    <div class="progress-bar">
-                        <div style="width: 25%;"></div>
-                    </div>
-                    <div class="stats">
-                        <div>
-                            <p class="raised">1,20,000</p>
-                            <p class="goal">raised of ₹3,00,000</p>
-                        </div>
-                        <p class="donors">234 Doners</p>
-                    </div>
-                    <button class="donate-btn">Donate Now</button>
-                </div>
-            </div>
-        </div> -->
     </section>
-    <section class="cta">
+    <section class="cta" data-aos="fade-down-right">
         <h1>Have a cause to share? Start your own campaign today!</h1>
         <a href="404page.html">Start a Campaign</a>
     </section>
     <footer>
-        <div class="footer-container">
+        <div class="footer-container" data-aos="fade-up">
             <div class="footer-column" id="footer-about">
                 <a class="footer-logo" href="index.html"><a href="index.html" class="logo"><img
                             src="./assets/stackly-logo1.png"></a>
@@ -274,7 +170,7 @@
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
             const pageInfo = document.getElementById('page-info');
-
+            const UrgentCampaigns = document.getElementById('urgent-campaings');
             const modal = document.getElementById('donate-modal');
             const modalCloseBtn = document.getElementById('modal-close-btn');
             const modalTitle = document.getElementById('modal-title');
@@ -288,6 +184,17 @@
                     modal.style.display = 'flex';
                     document.body.classList.add('modal-open');
                 }
+            });
+
+            UrgentCampaigns.addEventListener('click', function (e) {
+                if (e.target.classList.contains('donate-btn')) {
+                    const campaignItem = e.target.closest('.campaign-item');
+                    const title = campaignItem.querySelector('h3').textContent;
+                    modalTitle.textContent = `Donate to "${title}"`;
+                    modal.style.display = 'flex';
+                    document.body.classList.add('modal-open');
+                }
+
             });
 
             function closeModal() {
@@ -306,24 +213,24 @@
 
             const campaignData = [
                 {
-                    date: "2025-09-22", goal: 100000, raised: 75000, donors: 312, category: 'Health', title: 'Medical Aid for Flood Victims', organizer: 'by Hope Foundation', desc: 'Providing essential medical supplies and support to families affected by the recent floods.', img: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?q=80&w=1170', desc2: "The recent floods have devastated thousands of families, leaving them without access to proper healthcare and medicines. Hospitals and clinics in the affected areas are overwhelmed, and many people are at risk of waterborne diseases. Our team is working round the clock to deliver essential first aid kits, antibiotics, and emergency care supplies. With your support, we can ensure that no family is left untreated during this critical time. Every contribution directly helps save lives and restore hope.", img2: './assets/campaigns-medical-aid.jpg'
+                 id:'flood',   date: "2025-09-22", goal: 100000, raised: 75000, donors: 312, category: 'Health', title: 'Medical Aid for Flood Victims', organizer: 'by Hope Foundation', desc: 'Providing essential medical supplies and support to families affected by the recent floods.', img: './assets/campaigns-water1.avif', desc2: "The recent floods have devastated thousands of families, leaving them without access to proper healthcare and medicines. Hospitals and clinics in the affected areas are overwhelmed, and many people are at risk of waterborne diseases. Our team is working round the clock to deliver essential first aid kits, antibiotics, and emergency care supplies. With your support, we can ensure that no family is left untreated during this critical time. Every contribution directly helps save lives and restore hope.", img2: './assets/campaigns-medical-aid.jpg'
                     , organizer: 'by Hope Foundation', desc: 'Providing essential medical supplies and support to families affected by the recent floods'
                 },
-                { date: "2025-08-15", goal: 500000, raised: 200000, donors: 450, category: 'Education', title: 'Build a School in Rural India', organizer: 'by Vidya Initiative', desc: 'Help us construct a safe and modern school for 200 underprivileged children.', img: 'https://images.unsplash.com/photo-1488521787991-ed7b2f28a727?q=80&w=1170', desc2: "In this remote village, children walk miles every day just to access temporary classrooms under tin roofs. Many of them drop out early because of unsafe conditions and lack of proper infrastructure. By building a well-equipped, modern school, we can provide a safe environment where learning can thrive. The facility will include classrooms, a library, and sanitation facilities, creating a foundation for a brighter future. Your help can transform the lives of 200 underprivileged children and generations to come.", img2: './assets/campaigns-school.jpg' },
+                {id:'school', date: "2025-08-15", goal: 500000, raised: 200000, donors: 450, category: 'Education', title: 'Build a School in Rural India', organizer: 'by Vidya Initiative', desc: 'Help us construct a safe and modern school for 200 underprivileged children.', img:  './assets/campaigns-school1.jpg', desc2: "In this remote village, children walk miles every day just to access temporary classrooms under tin roofs. Many of them drop out early because of unsafe conditions and lack of proper infrastructure. By building a well-equipped, modern school, we can provide a safe environment where learning can thrive. The facility will include classrooms, a library, and sanitation facilities, creating a foundation for a brighter future. Your help can transform the lives of 200 underprivileged children and generations to come.", img2: './assets/campaigns-school.jpg' },
                 {
-                    date: "2025-09-01", goal: 50000, raised: 45000, donors: 820, category: 'Environment', title: 'Plant 10,000 Trees', organizer: 'by Green Earth Org', desc: 'Join our mission to reforest local areas and combat climate change, one tree at a time.', img: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1274', desc2: "Deforestation and rising pollution levels have left local communities vulnerable to climate change and poor air quality. By planting 10,000 trees in the next year, we aim to restore biodiversity, improve soil fertility, and create a sustainable ecosystem for future generations. These trees will not only absorb carbon dioxide but also provide shade, food, and shelter for wildlife. This project empowers volunteers and local farmers to actively participate in reforestation. Your contribution will help us combat climate change one tree at a time.", img2: './assets/campaigns-plant.webp'
+                    id:'tree',date: "2025-09-01", goal: 50000, raised: 45000, donors: 820, category: 'Environment', title: 'Plant 10,000 Trees', organizer: 'by Green Earth Org', desc: 'Join our mission to reforest local areas and combat climate change, one tree at a time.', img: './assets/campaigns-plant1.jpg', desc2: "Deforestation and rising pollution levels have left local communities vulnerable to climate change and poor air quality. By planting 10,000 trees in the next year, we aim to restore biodiversity, improve soil fertility, and create a sustainable ecosystem for future generations. These trees will not only absorb carbon dioxide but also provide shade, food, and shelter for wildlife. This project empowers volunteers and local farmers to actively participate in reforestation. Your contribution will help us combat climate change one tree at a time.", img2: './assets/campaigns-plant.webp'
                 },
                 {
-                    date: "2025-07-20", goal: 250000, raised: 137500, donors: 615, category: 'Animals', title: 'Rescue Stray Animals', organizer: 'by Paws & Care', desc: 'Support our shelter in providing food, medical care, and homes for abandoned animals.', img: 'https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?q=80&w=1170', desc2: "Every day, countless stray animals are left abandoned on the streets, facing hunger, accidents, and diseases. Our shelter currently cares for over 300 dogs and cats, but resources are running thin. With your support, we can expand our shelter space, provide life-saving medical treatments, and facilitate adoptions. Each rescued animal deserves a chance to live a safe and loving life. By donating, you are not just helping an animal — you are giving them a second chance at happiness.", img2: './assets/campaigns-dog.jpg'
+                    id:'dogs',date: "2025-07-20", goal: 250000, raised: 137500, donors: 615, category: 'Animals', title: 'Rescue Stray Animals', organizer: 'by Paws & Care', desc: 'Support our shelter in providing food, medical care, and homes for abandoned animals.', img: './assets/campaigns-dog1.webp', desc2: "Every day, countless stray animals are left abandoned on the streets, facing hunger, accidents, and diseases. Our shelter currently cares for over 300 dogs and cats, but resources are running thin. With your support, we can expand our shelter space, provide life-saving medical treatments, and facilitate adoptions. Each rescued animal deserves a chance to live a safe and loving life. By donating, you are not just helping an animal — you are giving them a second chance at happiness.", img2: './assets/campaigns-dog.jpg'
                 },
                 {
-                    date: "2025-09-23", goal: 75000, raised: 15000, donors: 95, category: 'Community', title: 'Winter Clothing Drive', organizer: 'by Warm Hearts', desc: 'Help provide warm clothing and blankets to homeless individuals during the cold months.', img: 'https://images.unsplash.com/photo-1576842323221-27a3a2a715f5?q=80&w=1170', desc2: "As the cold season approaches, hundreds of homeless individuals in our community are at risk of severe illness due to lack of warm clothing. Many sleep on the streets with only thin sheets to cover themselves. Our drive aims to distribute jackets, blankets, socks, and gloves to those most in need. Together, we can bring comfort and dignity to people struggling through the harsh winter. A small donation from you can mean warmth and survival for someone tonight.", img2: './assets/campaigns-winter.png'
+                    id:'homeless',date: "2025-09-23", goal: 75000, raised: 15000, donors: 95, category: 'Community', title: 'Winter Clothing Drive', organizer: 'by Warm Hearts', desc: 'Help provide warm clothing and blankets to homeless individuals during the cold months.', img: './assets/campaigns-homeless1.webp', desc2: "As the cold season approaches, hundreds of homeless individuals in our community are at risk of severe illness due to lack of warm clothing. Many sleep on the streets with only thin sheets to cover themselves. Our drive aims to distribute jackets, blankets, socks, and gloves to those most in need. Together, we can bring comfort and dignity to people struggling through the harsh winter. A small donation from you can mean warmth and survival for someone tonight.", img2: './assets/campaigns-homeless.webp'
                 },
                 {
-                    date: "2025-06-10", goal: 300000, raised: 280000, donors: 1200, category: 'Health', title: 'Clean Water Project', organizer: 'by AquaLife', desc: 'Fund the installation of water purification systems in a remote village.', img: 'https://images.unsplash.com/photo-1521791055326-2a38722c81a5?q=80&w=1170', desc2: "In this rural village, families have no choice but to drink contaminated water, leading to widespread illnesses like cholera and typhoid. Women and children walk several kilometers daily just to fetch unsafe water. Our project will install solar-powered purification systems to provide clean, safe drinking water for over 1,000 households. Access to clean water not only improves health but also frees children to attend school instead of fetching water. Your support ensures a healthier, brighter future for the entire community.", img2: './assets/campaigns-water.webp'
+                    id:'cleanWater',date: "2025-06-10", goal: 300000, raised: 280000, donors: 1200, category: 'Health', title: 'Clean Water Project', organizer: 'by AquaLife', desc: 'Fund the installation of water purification systems in a remote village.', img: './assets/campaigns-water2.jpg', desc2: "In this rural village, families have no choice but to drink contaminated water, leading to widespread illnesses like cholera and typhoid. Women and children walk several kilometers daily just to fetch unsafe water. Our project will install solar-powered purification systems to provide clean, safe drinking water for over 1,000 households. Access to clean water not only improves health but also frees children to attend school instead of fetching water. Your support ensures a healthier, brighter future for the entire community.", img2: './assets/campaigns-water.webp'
                 },
                 {
-                    date: "2025-08-05", goal: 150000, raised: 60000, donors: 250, category: 'Education', title: 'Digital Literacy for Seniors', organizer: 'by TechConnect', desc: 'Empower senior citizens with essential digital skills for todays world.', img: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1170', desc2: "Many senior citizens today feel left behind in the fast-paced digital world. They struggle with tasks like online banking, booking appointments, or even connecting with loved ones through video calls. Our program offers hands-on workshops to teach them essential digital skills, from using smartphones to staying safe online. This initiative bridges the generational gap, empowering seniors to live more independent and connected lives. By supporting this cause, you’re giving dignity and confidence back to our elders.", img2: './assets/campaigns-digital.webp'
+                    id:'senior-citizen',date: "2025-08-05", goal: 150000, raised: 60000, donors: 250, category: 'Education', title: 'Digital Literacy for Seniors', organizer: 'by TechConnect', desc: 'Empower senior citizens with essential digital skills for todays world.', img: './assets/campaigns-digital1.jpg', desc2: "Many senior citizens today feel left behind in the fast-paced digital world. They struggle with tasks like online banking, booking appointments, or even connecting with loved ones through video calls. Our program offers hands-on workshops to teach them essential digital skills, from using smartphones to staying safe online. This initiative bridges the generational gap, empowering seniors to live more independent and connected lives. By supporting this cause, you’re giving dignity and confidence back to our elders.", img2: './assets/campaigns-digital.webp'
                 }
             ];
 
@@ -334,7 +241,7 @@
                 item.dataset.goal = data.goal;
                 const progress = (data.raised / data.goal) * 100;
                 item.innerHTML = `
-                    <div class="campaign-image">
+                    <div class="campaign-image" id="${data.id}">
                         <img src="${data.img}" alt="${data.category}">
                         <span class="category-badge">${data.category}</span>
                     </div>
@@ -427,8 +334,6 @@
             initialize();
         });
 
-
-
         const wrapper = document.getElementById("campaigns-wrapper");
         const detailsPanel = document.getElementById("campaign-details");
         const detailsContent = detailsPanel.querySelector(".details-content");
@@ -463,9 +368,9 @@ ${data.img2 ? `<img src="${data.img2}" alt="${data.category}" class="details-ima
             <p>${data.desc2}</p>
         </section>
 
-        <div class="details-footer">
+       <!-- <div class="details-footer">
             <button class="donate-btn">Donate Now</button>
-        </div>
+        </div>-->
     </div>
 
 </div>
@@ -476,78 +381,82 @@ ${data.img2 ? `<img src="${data.img2}" alt="${data.category}" class="details-ima
         closeBtn.addEventListener("click", () => {
             detailsPanel.classList.remove("active");
         });
-       const urgentList = {
-    "urgentCampaigns": [
-        {
-            "id": 1,
-            "imageSrc": "./assets/campaigns-img1.jpg",
-            "img2": "./assets/campaigns-child.webp",
-            "imageWidth": 800,
-            "imageHeight": 533,
-            "category": "Medical",
-            "title": "Cancer Patient",
-            "organizer": "Trust Foundation",
-            "description": "A Child was Affected by cancer",
-            "desc2": "The patient requires immediate treatment and support to survive. The family is unable to afford the expensive medical care. Your contributions will help cover chemotherapy, medicines, and daily necessities. Every donation directly improves the quality of life and provides hope for recovery. Together, we can save a life and provide comfort during this difficult time.",
-            "progressPercentage": 50,
-            "amountRaised": 200000,
-            "goalAmount": 100000,
-            "donors": 200
-        },
-        {
-            "id": 2,
-            "imageSrc": "./assets/campaigns-img2.avif",
-            "img2": "./assets/campaigns-flood.jpg",
-            "imageWidth": 800,
-            "imageHeight": 533,
-            "category": "Flood",
-            "title": "Flood Relief for Assam Villages",
-            "organizer": "Health Foundation",
-            "description": "Families affected by recent floods need immediate food, shelter and medical kits. Support rescue efforts.",
-            "desc2": "Many homes were destroyed and thousands are displaced without basic necessities. Our team is providing emergency shelter, clean water, and medical supplies. Donations will help rebuild lives and ensure children and elders are safe. Your support accelerates rescue and relief efforts in critical areas. Together, we can restore hope and stability to the affected communities.",
-            "progressPercentage": 30,
-            "amountRaised": 150000,
-            "goalAmount": 50000,
-            "donors": 300
-        },
-        {
-            "id": 3,
-            "imageSrc": "./assets/campaigns-img3.webp",
-            "img2": "./assets/campaigns-water.webp",
-            "imageWidth": 800,
-            "imageHeight": 533,
-            "category": "Medical",
-            "title": "Clean Water for 100 Villages",
-            "organizer": "Trust Foundation",
-            "description": "Install handpumps and filtration units to provide safe drinking water to remote villages.",
-            "desc2": "Thousands of villagers struggle daily to access safe drinking water. Contaminated water leads to diseases and health problems. By installing handpumps and filtration systems, we can ensure access to clean water. Donations help build sustainable infrastructure and educate locals about hygiene practices. Your support will prevent illnesses and improve the quality of life for entire communities.",
-            "progressPercentage": 60,
-            "amountRaised": 200000,
-            "goalAmount": 140000,
-            "donors": 500
-        },
-        {
-            "id": 4,
-            "imageSrc": "./assets/campaigns-img4.jpg",
-            "img2": "./assets/campaigns-medical-camp.webp",
-            "imageWidth": 800,
-            "imageHeight": 533,
-            "category": "Medical",
-            "title": "Medical Camp for Senior Citizens",
-            "organizer": "Trust Foundation",
-            "description": "Organize free check-ups, medicines and health awareness camps for elderly people in rural areas.",
-            "desc2": "Elderly residents often lack access to basic medical care and awareness. Our camp provides free check-ups, essential medicines, and health guidance. Donations help expand the reach, purchase medical supplies, and support on-ground volunteers. Your contributions ensure seniors live healthier, more comfortable lives. Together, we can protect our elders and give them the care they deserve.",
-            "progressPercentage": 25,
-            "amountRaised": 120000,
-            "goalAmount": 300000,
-            "donors": 234
-        }
-    ]
-};
+        const urgentList = {
+            "urgentCampaigns": [
+                {
+                    "divId":'child',
+                    "id": 1,
+                    "imageSrc": "./assets/campaigns-img1.jpg",
+                    "img2": "./assets/campaigns-child.webp",
+                    "imageWidth": 800,
+                    "imageHeight": 533,
+                    "category": "Medical",
+                    "title": "Cancer Patient",
+                    "organizer": "Trust Foundation",
+                    "description": "A Child was Affected by cancer",
+                    "desc2": "The patient requires immediate treatment and support to survive. The family is unable to afford the expensive medical care. Your contributions will help cover chemotherapy, medicines, and daily necessities. Every donation directly improves the quality of life and provides hope for recovery. Together, we can save a life and provide comfort during this difficult time.",
+                    "progressPercentage": 50,
+                    "amountRaised": 200000,
+                    "goalAmount": 100000,
+                    "donors": 200
+                },
+                {
+                    "divId":'flood',
+                    "id": 2,
+                    "imageSrc": "./assets/campaigns-img2.avif",
+                    "img2": "./assets/campaigns-flood.jpg",
+                    "imageWidth": 800,
+                    "imageHeight": 533,
+                    "category": "Flood",
+                    "title": "Flood Relief for Assam Villages",
+                    "organizer": "Health Foundation",
+                    "description": "Families affected by recent floods need immediate food, shelter and medical kits. Support rescue efforts.",
+                    "desc2": "Many homes were destroyed and thousands are displaced without basic necessities. Our team is providing emergency shelter, clean water, and medical supplies. Donations will help rebuild lives and ensure children and elders are safe. Your support accelerates rescue and relief efforts in critical areas. Together, we can restore hope and stability to the affected communities.",
+                    "progressPercentage": 30,
+                    "amountRaised": 150000,
+                    "goalAmount": 50000,
+                    "donors": 300
+                },
+                {
+                    "divId":'drink-water',
+                    "id": 3,
+                    "imageSrc": "./assets/campaigns-img3.webp",
+                    "img2": "./assets/campaigns-water.webp",
+                    "imageWidth": 800,
+                    "imageHeight": 533,
+                    "category": "Medical",
+                    "title": "Clean Water for 100 Villages",
+                    "organizer": "Trust Foundation",
+                    "description": "Install handpumps and filtration units to provide safe drinking water to remote villages.",
+                    "desc2": "Thousands of villagers struggle daily to access safe drinking water. Contaminated water leads to diseases and health problems. By installing handpumps and filtration systems, we can ensure access to clean water. Donations help build sustainable infrastructure and educate locals about hygiene practices. Your support will prevent illnesses and improve the quality of life for entire communities.",
+                    "progressPercentage": 60,
+                    "amountRaised": 200000,
+                    "goalAmount": 140000,
+                    "donors": 500
+                },
+                {
+                    "divId":'medical',
+                    "id": 4,
+                    "imageSrc": "./assets/campaigns-img4.jpg",
+                    "img2": "./assets/campaigns-medical-camp.webp",
+                    "imageWidth": 800,
+                    "imageHeight": 533,
+                    "category": "Medical",
+                    "title": "Medical Camp for Senior Citizens",
+                    "organizer": "Trust Foundation",
+                    "description": "Organize free check-ups, medicines and health awareness camps for elderly people in rural areas.",
+                    "desc2": "Elderly residents often lack access to basic medical care and awareness. Our camp provides free check-ups, essential medicines, and health guidance. Donations help expand the reach, purchase medical supplies, and support on-ground volunteers. Your contributions ensure seniors live healthier, more comfortable lives. Together, we can protect our elders and give them the care they deserve.",
+                    "progressPercentage": 25,
+                    "amountRaised": 120000,
+                    "goalAmount": 300000,
+                    "donors": 234
+                }
+            ]
+        };
 
         function createCampaignHTML(campaign, index) {
             return `
-    <div class="campaign-item" data-index="${index}">
+    <div class="campaign-item" data-index="${index}" id="${campaign.divId}">
       <div class="campaign-image">
         <img src="${campaign.imageSrc}" alt="${campaign.category}">
         <span class="category-badge">${campaign.category}</span>
@@ -569,11 +478,7 @@ ${data.img2 ? `<img src="${data.img2}" alt="${data.category}" class="details-ima
         <button class="donate-btn">Donate Now</button>
       </div>
     </div>`;
-       campaign.addEventListener("click", (e) => {
-                    if (!e.target.classList.contains("donate-btn")) {
-                        showCampaignDetails(data);
-                    }
-                });
+
         }
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -582,58 +487,63 @@ ${data.img2 ? `<img src="${data.img2}" alt="${data.category}" class="details-ima
             const detailsContent = detailsPanel.querySelector('.details-content');
             const closeBtn = detailsPanel.querySelector('.close-btn');
 
-            // Render campaigns
+            campaignsContainer.addEventListener('click', function (e) {
+                const campaignItem = e.target.closest('.campaign-item');
+                if (!campaignItem) return;
+                if (e.target.classList.contains('donate-btn')) {
+                    const campaignIndex = campaignItem.dataset.index;
+                    openDonateModal(urgentList.urgentCampaigns[campaignIndex]);
+                    return;
+                }
+                const campaignIndex = campaignItem.dataset.index;
+                showCampaignDetails(urgentList.urgentCampaigns[campaignIndex]);
+            });
+
             urgentList.urgentCampaigns.forEach((campaign, index) => {
                 campaignsContainer.insertAdjacentHTML('beforeend', createCampaignHTML(campaign, index));
             });
-
-             campaignsContainer.addEventListener('click', (e) => {
-                const card = e.target.closest('.campaign-item');
-                if (!card) return;
-
-                const index = card.dataset.index;
-                const data = urgentList.urgentCampaigns[index];
-                const progress = data.progressPercentage;
+            function showCampaignDetails(campaign) {
+                const detailsContent = document.querySelector('#campaign-details .details-content');
+                const progress = campaign.progressPercentage;
 
                 detailsContent.innerHTML = `
-          <div class="details-container">
+      <div class="details-container">
+        <img src="${campaign.imageSrc}" alt="${campaign.category}" class="details-image">
 
-    <img src="${data.imageSrc}" alt="${data.category}" class="details-image">
-
-    <div class="details-content">
-        <div class="details-header">
-            <h2>${data.title}</h2>
-            <p class="organizer">by <strong>${data.organizer}</strong></p>
-        </div>
-
-        <section class="details-stats">
-            <div class="progress-bar">
-                <div class="progress" style="width:${progress}%;"></div>
+        <div class="details-content">
+            <div class="details-header">
+                <h2>${campaign.title}</h2>
+                <p class="organizer">by <strong>${campaign.organizer}</strong></p>
             </div>
-            <div class="stats-text">
-                <p class="raised"><b>₹${data.amountRaised.toLocaleString('en-IN')}</b> raised of ₹${data.goalAmount.toLocaleString('en-IN')}</p>
-                <p class="donors">${data.donors} Donors</p>
-            </div>
-        </section>
 
-        <section class="details-body">
-            <h3>About this Campaign</h3>
-            <p>${data.description}</p>
-${data.img2 ? `<img src="${data.img2}" alt="${data.category}" class="details-image">` : ''}
-            <p>${data.desc2}</p>
-        </section>
+            <section class="details-stats">
+                <div class="progress-bar">
+                    <div class="progress" style="width:${progress}%;"></div>
+                </div>
+                <div class="stats-text">
+                    <p class="raised"><b>₹${campaign.amountRaised.toLocaleString('en-IN')}</b> raised of ₹${campaign.goalAmount.toLocaleString('en-IN')}</p>
+                    <p class="donors">${campaign.donors} Donors</p>
+                </div>
+            </section>
 
-        <div class="details-footer">
-            <button class="donate-btn">Donate Now</button>
+            <section class="details-body">
+                <h3>About this Campaign</h3>
+                <p>${campaign.description}</p>
+                ${campaign.img2 ? `<img src="${campaign.img2}" alt="${campaign.category}" class="details-image">` : ''}
+                <p>${campaign.desc2 || ''}</p>
+            </section>
+
+          <!--  <div class="details-footer">
+                <button class="donate-btn">Donate Now</button>
+            </div>-->
         </div>
-    </div>
-
-</div> `;
+      </div>
+    `;
 
                 detailsPanel.classList.add('active');
-            });
+            }
 
-             closeBtn.addEventListener('click', () => {
+            closeBtn.addEventListener('click', () => {
                 detailsPanel.classList.remove('active');
             });
         });
@@ -642,7 +552,10 @@ ${data.img2 ? `<img src="${data.img2}" alt="${data.category}" class="details-ima
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="./script.js"></script>
     <script>
-        const themeToggle = document.getElementById('theme-toggle');
+        AOS.init({
+            duration: 800,
+            once: true
+        }); const themeToggle = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
         function applyTheme() {
             const savedTheme = localStorage.getItem('theme');
