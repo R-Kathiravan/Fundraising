@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings_night_sight" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
@@ -37,11 +38,18 @@
         </div>
     </header>
     <div class="hero">
+        <div class="particles"></div>
 
+        <!-- Floating Emojis -->
+        <div class="floating-emoji emoji-1">💰</div>
+        <div class="floating-emoji emoji-2">❤️</div>
+        <div class="floating-emoji emoji-3">🌍</div>
+        <div class="floating-emoji emoji-4">🎁</div>
         <div class="hero-text">
             <h1>Together We Build Hope</h1>
             <p>Join us in transforming lives through kindness and generosity. Every small contribution paves the way for
                 a brighter future.</p>
+
             <div class="hero-btn">
                 <a href="404page.html">Start Fundraising</a>
                 <a href="browse-campaigns.html">Donate Now</a>
@@ -49,13 +57,71 @@
         </div>
 
         <div class="hero-image">
-
             <img src="./assets/hero1.avif" alt="Cause 1" class="active">
             <img src="./assets/hero2.avif" alt="Cause 2">
             <img src="./assets/hero3.avif" alt="Cause 3">
         </div>
     </div>
+    <section class="impact">
+        <h1 class="head">Our Impact</h1>
+        <ul class="impact-icons-list">
 
+            <li class="icon-item">
+                <div class="icon-circle green-bg">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <span class="icon-text">Sustainability</span>
+            </li>
+
+            <li class="icon-item">
+                <div class="icon-circle red-bg">
+                    <i class="fas fa-heart-pulse"></i>
+                </div>
+                <span class="icon-text">Wellness</span>
+            </li>
+
+            <li class="icon-item">
+                <div class="icon-circle grey-bg">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <span class="icon-text">Education</span>
+            </li>
+
+            <li class="icon-item">
+                <div class="icon-circle light-grey-bg">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <span class="icon-text">Support</span>
+            </li>
+        </ul>
+       <div class="impact-section">
+  <div class="impact-card">
+    <div class="icon"><i class="fas fa-heart"></i></div>
+    <h2 class="impact-number" data-target="3152">0</h2>
+    <p>Donors</p>
+  </div>
+
+  <div class="impact-card">
+    <div class="icon"><i class="fas fa-utensils"></i></div>
+    <h2 class="impact-number" data-target="12400">0</h2>
+    <p>Meals Delivered</p>
+  </div>
+
+  <div class="impact-card">
+    <div class="icon"><i class="fas fa-home"></i></div>
+    <h2 class="impact-number" data-target="875">0</h2>
+    <p>Communities Helped</p>
+  </div>
+
+  <div class="impact-card">
+    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+    <h2 class="impact-number" data-target="452">0</h2>
+    <p>Students Supported</p>
+  </div>
+</div>
+
+
+    </section>
     <div class="featured-campaigns">
         <h1 class="head">Featured Campaigns</h1>
         <p class="featured-campaigns-p">Every contribution makes a difference. Explore these campaigns and be part of
@@ -558,8 +624,66 @@
             slides[current].classList.add("active");
         }
 
-        setInterval(nextSlide, 4000); // 
+        setInterval(nextSlide, 1500); // 
+
+
+        function createParticles() {
+            const container = document.querySelector('.particles');
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+
+                 const size = Math.random() * 6 + 2; // 2-8px
+                const opacity = Math.random() * 0.8 + 0.2; // 0.2-1
+                const delay = Math.random() * 2; // 0-2s delay
+                const duration = Math.random() * 10 + 10; // 10-20s speed
+
+                particle.style.cssText = `
+            width: ${size}px;
+            height: ${size}px;
+            top: ${Math.random() * 100}%; /* Random vertical position */
+            left: ${Math.random() * 100}%; /* Random horizontal position */
+            opacity: ${opacity};
+            animation-delay: ${delay}s;
+            animation-duration: ${duration}s;
+            background: rgba(255, 255, 255, ${opacity}); /* Match opacity */
+        `;
+
+                container.appendChild(particle);
+            }
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', createParticles);
+
     </script>
+    <script>
+const counters = document.querySelectorAll('.impact-number');
+
+counters.forEach(counter => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+
+    const increment = target / 200; // controls speed
+    if(count < target){
+      counter.innerText = Math.ceil(count + increment);
+      requestAnimationFrame(updateCount);
+    } else {
+      counter.innerText = target; // final value
+    }
+  }
+
+   const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) updateCount();
+    });
+  }, {threshold: 0.5});
+
+  observer.observe(counter);
+});
+</script>
+
     <script src="script.js"></script>
 </body>
 

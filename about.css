@@ -358,6 +358,7 @@
      text-align: center;
      font-size: 36px;
      color: var(--black);
+     position: relative;
  }
 
  .hero-bg {
