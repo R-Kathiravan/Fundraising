@@ -33,11 +33,13 @@
  * {
      margin: 0;
      padding: 0;
-     font-family: 'Poppins', sans-serif;
  }
 
  body {
      background-color: var(--white);
+     transition: all 0.3s ease-in;
+     overflow-x: hidden;
+     font-family: 'Poppins', sans-serif;
  }
 
  body {
@@ -45,11 +47,18 @@
      -ms-overflow-style: none;
  }
 
+ p {
+     font-family: 'Merriweather', serif;
+     line-height: 30px;
+     text-indent: 20px;
+ }
 
  header {
      position: fixed;
      width: 100%;
-     z-index: 10;
+     z-index: 50;
+     font-weight: 500;
+     font-style: normal;
  }
 
  .menu {
@@ -365,7 +374,6 @@
      }
  }
 
- /* Responsive */
  @media(max-width:768px) {
      .impact-section {
          flex-direction: column;
@@ -470,14 +478,10 @@
  @media (max-width:1300px) {}
 
  @media (max-width: 900px) {
-     header {
-         /* position: sticky; */
-     }
 
      .hero {
          position: relative;
          height: 100vh;
-         /* padding-top: 10rem !important; */
      }
 
      .hero-text {
@@ -529,79 +533,9 @@
      opacity: 0;
  }
 
- .floating-emoji {
-     position: absolute;
-     font-size: 2rem;
-     z-index: 2;
-     animation: floatEmoji 6s ease-in-out infinite;
-     opacity: 0.7;
-     pointer-events: none;
- }
-
- .emoji-1 {
-     top: 15%;
-     left: 10%;
-     animation-delay: 0s;
-     color: #feca57;
- }
-
- .emoji-2 {
-     top: 25%;
-     right: 15%;
-     animation-delay: 2s;
-     color: #ff6b6b;
- }
-
- .emoji-3 {
-     bottom: 20%;
-     left: 20%;
-     animation-delay: 4s;
-     color: #48dbfb;
- }
-
- .emoji-4 {
-     top: 60%;
-     right: 25%;
-     animation-delay: 1s;
-     color: #ff9ff3;
- }
-
- @keyframes floatParticle {
-
-     0%,
-     100% {
-         transform: translateY(0) rotate(0deg);
-         opacity: 0;
-     }
-
-     10%,
-     90% {
-         opacity: 1;
-     }
-
-     50% {
-         transform: translateY(-100px) rotate(180deg);
-     }
- }
-
- @keyframes floatEmoji {
-
-     0%,
-     100% {
-         transform: translateY(0) rotate(0deg) scale(1);
-     }
-
-     50% {
-         transform: translateY(-30px) rotate(10deg) scale(1.1);
-     }
- }
 
 
  @media (max-width: 768px) {
-     .floating-emoji {
-         font-size: 1.5rem;
-     }
-
      .particle {
 
          transform: scale(0.8);
@@ -615,6 +549,7 @@
      opacity: 0.7;
      animation: floatIcons 10s linear infinite;
      color: #fff;
+     z-index: 20;
  }
 
  @keyframes floatIcons {
@@ -632,7 +567,7 @@
  }
 
  .floating-icons i:nth-child(1) {
-     top: 10%;
+     top: 25%;
      left: 20%;
      animation-delay: 0s;
  }
