@@ -25,7 +25,7 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">About US</a>
                 <a href="browse-campaigns.html">Browse Campaigns</a>
-                <a href="404page.html">Start a Fundraiser</a>
+                <a href="start-fundraifing.html">Start a Fundraiser</a>
                 <a href="404page.html">How It Works</a>
                 <a href="404page.html">Contact US</a>
                 <a href="404page.html" id="login">Login/signup</a>
@@ -126,13 +126,14 @@
 
 
     </section>
-    <div class="featured-campaigns">
+    <div class="featured-campaigns gradient-wave-bg">
         <h1 class="head">Featured Campaigns</h1>
         <p class="featured-campaigns-p">Every contribution makes a difference. Explore these campaigns and be part of
             the change.</p>
         <div class="grid">
             <div class="campaigns-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="campaigns-image" style="    background-image: url('./assets/campaigns-img1.jpg');"></div>
+                <span class="urgent-badge">Urgent</span>
                 <div class="campaigns-content">
                     <h3 class="campaigns-title">Help Ramesh Fight Cancer</h3>
                     <p class="campaigns-para">Ramesh, a 10-year-old boy, needs help for chemotherapy and hospital
@@ -260,6 +261,7 @@
         </div>
     </section>
 
+
     <section id="impact-stories" class="stories-section">
         <div class="container">
             <div class="section-header">
@@ -270,7 +272,9 @@
             </div>
 
             <div class="stories-grid">
-                <article class="story-card" data-aos="zoom-in" data-aos-delay="100">
+                <article class="story-card" data-image="./assets/home-stories-1.jpg"
+                    data-title="Asha's Journey to the Classroom"
+                    data-story="Thanks to the unwavering support from donors across the country, 10-year-old Asha received everything she needed to return to her studies with confidence. The campaign successfully funded not just her tuition, but also her uniform, books, and a school bag filled with supplies. Today, she's not just attending school—she's excelling, consistently ranking at the top of her class with a newfound passion for mathematics and science. Her dream is to become a teacher to help other children in her village. This is the real impact of providing a child with the tools for education.">
                     <div class="story-image">
                         <img src="./assets/home-stories-1.jpg" alt="Happy child receiving educational supplies">
                         <span class="story-category">Education</span>
@@ -282,27 +286,31 @@
                         <div class="story-impact-metric">
                             <strong>Impact:</strong> 500+ children equipped for school this year.
                         </div>
-                        <a href="404page.html" class="btn-story">Read Her Story</a>
+                        <a class="btn-story">Read Her Story</a>
                     </div>
                 </article>
 
-                <article class="story-card" data-aos="zoom-in" data-aos-delay="100">
+                <article class="story-card" data-image="./assets/home-stories-2.jpg"
+                    data-title="Water of Life for Sunapur Village"
+                    data-story="For decades, the residents of Sunapur village faced a daily struggle for clean water, leading to widespread waterborne diseases that particularly affected children and the elderly. The 'Water for Sunapur' campaign brought together hundreds of donors to fund the construction of a deep tube well and a purification system. Since its inauguration three months ago, the well has been providing clean, safe drinking water to over 2,000 people. Local health officials have reported a staggering 80% drop in cases of cholera and typhoid, transforming the health and future of the entire community.">
                     <div class="story-image">
                         <img src="./assets/home-stories-2.jpg" alt="Community members around a new clean water well">
                         <span class="story-category">Clean Water</span>
                     </div>
                     <div class="story-content">
                         <h3>Water of Life for Sunapur Village</h3>
-                        <p>The village of Sunapur struggled with waterborne diseases for decades. The new well, funded
-                            by donors like you, now provides clean, safe drinking water to over 2,000 people.</p>
+                        <p>The new well, funded by donors like you, now provides clean, safe drinking water to over
+                            2,000 people.</p>
                         <div class="story-impact-metric">
                             <strong>Impact:</strong> Reduced waterborne diseases by 80% in the region.
                         </div>
-                        <a href="404page.html" class="btn-story">See The Project</a>
+                        <a class="btn-story">See The Project</a>
                     </div>
                 </article>
 
-                <article class="story-card" data-aos="zoom-in" data-aos-delay="100">
+                <article class="story-card" data-image="./assets/home-stories-3.webp"
+                    data-title="Mobile Clinic Reaches the Elderly"
+                    data-story="Many elderly individuals in remote villages are unable to travel to city hospitals for essential medical care. The 'Healthcare on Wheels' initiative funded a fully-equipped mobile medical clinic. This clinic now travels to dozens of isolated villages, providing free health check-ups, essential medicines, and chronic disease management for elderly patients. Our dedicated team of doctors and nurses has provided free medical care to over 1,500 individuals, bringing comfort and vital health services directly to their doorsteps.">
                     <div class="story-image">
                         <img src="./assets/home-stories-3.webp"
                             alt="Doctor providing medical care to an elderly patient">
@@ -310,18 +318,27 @@
                     </div>
                     <div class="story-content">
                         <h3>Mobile Clinic Reaches the Elderly</h3>
-                        <p>Our mobile medical clinic, operating on wheels, has reached remote villages to provide
-                            essential healthcare to elderly patients who cannot travel, offering free check-ups and
-                            medicine.</p>
+                        <p>Our mobile clinic has reached remote villages to provide essential healthcare to elderly
+                            patients who cannot travel.</p>
                         <div class="story-impact-metric">
                             <strong>Impact:</strong> Provided free medical care to 1,500+ isolated individuals.
                         </div>
-                        <a href="404page.html" class="btn-story">Learn More</a>
+                        <a class="btn-story">Learn More</a>
                     </div>
                 </article>
             </div>
         </div>
     </section>
+
+    <div id="panel-overlay" class="panel-overlay"></div>
+    <aside id="story-panel" class="story-panel">
+        <button id="close-panel-btn" class="close-panel-btn">&times;</button>
+        <img id="story-panel-image" class="story-panel-image" src="" alt="Story Image">
+        <div class="story-panel-content">
+            <h2 id="story-panel-title"></h2>
+            <p id="story-panel-text"></p>
+        </div>
+    </aside>
     <section id="testimonials" class="testimonial-section" data-aos="zoom-in" data-aos-delay="100">
         <div class="container">
             <div class="section-header">
@@ -502,6 +519,7 @@
                     <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
                     <a href="browse-campaigns.html">Browse Campaigns</a>
+                    <a href="start-fundraifing.html">Start a Fundraiser</a>
                     <a href="404page.html">How It Works</a>
                     <a href="404page.html">Contact Us</a>
                 </div>
@@ -685,9 +703,59 @@
 
             observer.observe(counter);
         });
+        // Impact Stories
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const storyButtons = document.querySelectorAll('.btn-story');
+            const storyPanel = document.getElementById('story-panel');
+            const panelOverlay = document.getElementById('panel-overlay');
+            const closePanelBtn = document.getElementById('close-panel-btn');
+            const body = document.body;
+
+            const panelImage = document.getElementById('story-panel-image');
+            const panelTitle = document.getElementById('story-panel-title');
+            const panelText = document.getElementById('story-panel-text');
+
+            const openPanel = (card) => {
+                const title = card.dataset.title;
+                const image = card.dataset.image;
+                const story = card.dataset.story;
+
+                panelImage.src = image;
+                panelTitle.textContent = title;
+                panelText.textContent = story;
+
+                storyPanel.classList.add('is-open');
+                panelOverlay.classList.add('is-active');
+                body.classList.add('panel-open');
+            };
+
+            const closePanel = () => {
+                storyPanel.classList.remove('is-open');
+                panelOverlay.classList.remove('is-active');
+                body.classList.remove('panel-open');
+            };
+
+            storyButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = e.target.closest('.story-card');
+                    openPanel(card);
+                });
+            });
+
+            closePanelBtn.addEventListener('click', closePanel);
+            panelOverlay.addEventListener('click', closePanel);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && storyPanel.classList.contains('is-open')) {
+                    closePanel();
+                }
+            });
+        });
     </script>
 
     <script src="script.js"></script>
+
 </body>
 
 </html>
