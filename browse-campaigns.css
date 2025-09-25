@@ -10,6 +10,7 @@
       transition: all 0.3s ease-in;
       overflow-x: hidden;
       font-family: 'Poppins', sans-serif;
+      padding-top: 70px;
   }
 
   body {
@@ -35,6 +36,7 @@
       --dim-txt: #333;
       --light-dim-txt: #777;
       --light-white: rgb(237, 237, 237);
+      --card-border: rgba(0, 0, 0, 0.348);
   }
 
   html.dark-mode {
@@ -42,13 +44,16 @@
       --black: white;
       --dim-txt: rgb(193, 190, 190);
       --light-dim-txt: rgb(144, 139, 139);
+      --card-shadow: 0 4px 8px rgba(0, 157, 255, 0.534);
       /* --light-white:rgb(83, 81, 81); */
+      --card-border: rgba(255, 255, 255, 0.232);
   }
 
   header {
       position: fixed;
       width: 100%;
       z-index: 10;
+      top: 0;
       font-weight: 500;
   }
 
@@ -116,7 +121,7 @@
   .theme-toggle i {
       color: var(--black);
   }
- 
+
   @media (max-width:768px) {
 
       .menu-items {
@@ -378,6 +383,14 @@
       font-size: 1.5rem;
       color: white;
   }
+  @media (max-width:478px) {
+    .hero h1{
+        font-size: 2.5rem;
+    }
+    .hero p{
+        font-size: 1rem;
+    }
+  }
 
   .container {
       max-width: 1200px;
@@ -453,6 +466,7 @@
       background-color: var(--white);
       border-radius: 8px;
       overflow: hidden;
+      border: 1px solid var(--card-border);
       box-shadow: var(--card-shadow);
       transition: transform 0.2s ease-in-out;
   }
@@ -554,7 +568,7 @@
 
   .campaigns-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
       margin: 2%;
   }
