@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundraising || Start</title>
-    <link rel="stylesheet" href="start-fundraifing.css">
+    <link rel="stylesheet" href="start-fundraising.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings_night_sight" />
@@ -25,13 +25,13 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">About US</a>
                 <a href="browse-campaigns.html">Browse Campaigns</a>
-                <a href="start-fundraifing.html">Start a Fundraiser</a>
-                <a href="404page.html">How It Works</a>
+                <a href="start-fundraising.html" class="active-menu">Start a Fundraiser</a>
+                <a href="how-it-works.html">How It Works</a>
                 <a href="404page.html">Contact US</a>
                 <a href="404page.html" id="login">Login/signup</a>
                 <a class="btn-close">Close</a>
             </nav>
-            <button class="btn theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
+            <button class="toogle-btn theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
                     settings_night_sight
                 </span></button>
             <div class="hamburger">
@@ -73,7 +73,8 @@
                 <div class="form-group">
                     <label for="fundraiser-title">Fundraiser Title</label>
                     <input type="text" id="fundraiser-title" class="form-control"
-                        placeholder="E.g., Help Sarah's Medical Recovery">
+                        placeholder="E.g., Help Sarah's Medical Recovery" required>
+                    <div id="fundraiser-title-error" class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <label for="category">Category</label>
@@ -83,15 +84,17 @@
                         <option value="emergency">Emergency</option>
                         <option value="community">Community</option>
                         <option value="memorial">Memorial</option>
+                        <!-- <option value="other">Others</option> -->
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="goal-amount">Fundraising Goal (₹)</label>
                     <input type="number" id="goal-amount" class="form-control" placeholder="500000">
+                    <div id="goal-amount-error" class="error-message"></div>
                 </div>
                 <div class="button-group">
                     <div></div>
-                    <button class="btn btn-primary" onclick="goToStep(2)">Next: Tell Your Story</button>
+                    <button class="btn btn-primary" onclick="handleStepNavigation(2)">Next: Tell Your Story</button>
                 </div>
             </div>
 
@@ -102,14 +105,16 @@
                     <label for="description">Fundraiser Description</label>
                     <textarea id="description" class="form-control"
                         placeholder="Explain why you need help, who benefits, and what the funds will be used for."></textarea>
+                    <div id="description-error" class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <label for="cover-image">Upload Cover Image</label>
                     <input type="file" id="cover-image" class="form-control">
+                    <div id="cover-image-error" class="error-message"></div>
                 </div>
                 <div class="button-group">
                     <button class="btn btn-secondary" onclick="goToStep(1)">Previous</button>
-                    <button class="btn btn-primary" onclick="goToStep(3)">Next: Finalize</button>
+                    <button class="btn btn-primary" onclick="handleStepNavigation(3)">Next: Finalize</button>
                 </div>
             </div>
 
@@ -119,18 +124,22 @@
                 <div class="form-group">
                     <label for="organizer-name">Your Full Name (Organizer)</label>
                     <input type="text" id="organizer-name" class="form-control">
+                    <div id="organizer-name-error" class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <label for="upi-id">Your UPI ID (for receiving funds)</label>
                     <input type="text" id="upi-id" class="form-control" placeholder="yourname@bank">
+                    <div id="upi-id-error" class="error-message"></div>
                 </div>
                 <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
                     <input type="checkbox" id="terms">
-                    <label for="terms" style="margin-bottom:0;">I agree to the terms and conditions.</label>
+                    <label for="terms" style="margin-bottom:0;">I agree to the<a href="404page.html"> terms and
+                            conditions.</a></label>
                 </div>
+                <div id="terms-error" class="error-message"></div>
                 <div class="button-group">
                     <button class="btn btn-secondary" onclick="goToStep(2)">Previous</button>
-                    <button class="btn btn-primary" onclick="showPreview()">Preview & Submit</button>
+                    <button class="btn btn-primary" onclick="handlePreview()">Preview & Submit</button>
                 </div>
             </div>
 
@@ -186,7 +195,8 @@
                     <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
                     <a href="browse-campaigns.html">Browse Campaigns</a>
-                    <a href="404page.html">How It Works</a>
+                    <a href="start-fundraising.html">Start a Fundraiser</a>
+                    <a href="how-it-works.html">How It Works</a>
                     <a href="404page.html">Contact Us</a>
                 </div>
             </div>
@@ -218,6 +228,7 @@
         </div>
     </footer>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
     <script>
         AOS.init({
             duration: 800,
@@ -249,6 +260,88 @@
     <script>
         let currentStep = 1;
         const totalSteps = 4;
+
+        const showError = (inputId, message) => {
+            const input = document.getElementById(inputId);
+            const errorDiv = document.getElementById(`${inputId}-error`);
+            input.classList.add('is-invalid');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        };
+
+        const clearError = (inputId) => {
+            const input = document.getElementById(inputId);
+            const errorDiv = document.getElementById(`${inputId}-error`);
+            if (input) input.classList.remove('is-invalid');
+            if (errorDiv) errorDiv.style.display = 'none';
+        };
+
+        const clearAllErrors = () => {
+            document.querySelectorAll('.form-control').forEach(el => el.classList.remove('is-invalid'));
+            document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+        }
+
+        function validateStep(step) {
+            clearAllErrors();
+            let isValid = true;
+            if (step === 1) {
+                const title = document.getElementById('fundraiser-title').value;
+                const goal = document.getElementById('goal-amount').value;
+                if (!title.trim()) {
+                    showError('fundraiser-title', 'Fundraiser title is required.');
+                    isValid = false;
+                }
+                if (!goal || parseFloat(goal) <= 0) {
+                    showError('goal-amount', 'Please enter a valid, positive goal amount.');
+                    isValid = false;
+                }
+            } else if (step === 2) {
+                const description = document.getElementById('description').value;
+                const image = document.getElementById('cover-image').files;
+                if (!description.trim()) {
+                    showError('description', 'A story or description is required.');
+                    isValid = false;
+                }
+                if (image.length === 0) {
+                    showError('cover-image', 'Please select a cover image.');
+                    isValid = false;
+                }
+            } else if (step === 3) {
+                const name = document.getElementById('organizer-name').value;
+                const upi = document.getElementById('upi-id').value;
+                const terms = document.getElementById('terms').checked;
+                if (!name.trim()) {
+                    showError('organizer-name', 'Organizer name is required.');
+                    isValid = false;
+                }
+                if (!upi.trim() || !upi.includes('@')) {
+                    showError('upi-id', 'Please enter a valid UPI ID (e.g., yourname@bank).');
+                    isValid = false;
+                }
+                if (!terms) {
+                    const errorDiv = document.getElementById('terms-error');
+                    errorDiv.textContent = 'You must agree to the terms and conditions.';
+                    errorDiv.style.display = 'block';
+                    isValid = false;
+                } else {
+                    document.getElementById('terms-error').style.display = 'none';
+                }
+            }
+            return isValid;
+        }
+
+        function handleStepNavigation(nextStep) {
+            if (validateStep(currentStep)) {
+                goToStep(nextStep);
+            }
+        }
+
+        function handlePreview() {
+            if (validateStep(3)) {
+                showPreview();
+            }
+        }
+
 
         function goToStep(step) {
             if (step < 1 || step > totalSteps) return;
@@ -310,7 +403,7 @@
                 </div>
             `;
 
-             const previewImage = document.getElementById('preview-image');
+            const previewImage = document.getElementById('preview-image');
             if (imageInput.files && imageInput.files[0]) {
                 const reader = new FileReader();
                 reader.onload = function (e) {

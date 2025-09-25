@@ -127,7 +127,7 @@
  }
 
 
- @media (max-width:700px) {
+ @media (max-width:768px) {
 
      .menu-items {
          display: none;

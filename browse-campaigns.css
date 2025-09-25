@@ -116,21 +116,8 @@
   .theme-toggle i {
       color: var(--black);
   }
-
-  /* .hero {
-     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/home-hero1.png');
-     background-image: url('./assets/home-hero1.png');
-     height: 80vh;
-     background-position: center center;
-     background-size: cover;
-     background-repeat: no-repeat;
-     display: flex;
-     flex-direction: column;
-     align-items: flex-start;
-     justify-content: center;
- } */
-
-  @media (max-width:700px) {
+ 
+  @media (max-width:768px) {
 
       .menu-items {
           display: none;

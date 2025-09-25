@@ -110,25 +110,20 @@
             display: none;
         }
 
-        @media (max-width:700px) {
+
+        @media (max-width:768px) {
 
             .menu-items {
                 display: none;
             }
 
-            /* .hamburger {
-                display: block;
-                cursor: pointer;
-                margin-right: 20px;
-            } */
-
             .menu-items {
                 flex-direction: column;
-                background: black;
+                background: #0e0d0dcc;
                 position: fixed;
                 top: 0;
                 right: -350px;
-                width: 250px;
+                width: 180px;
                 height: 100%;
                 padding: 60px 20px;
                 transition: right 0.3s ease;
@@ -147,20 +142,20 @@
 
             .btn-close {
                 display: block;
-                color: red;
+                cursor: pointer;
             }
 
 
             .hamburger {
                 display: block;
-                margin-right: 30px;
+                margin-right: 20px;
                 cursor: pointer;
                 color: var(--black);
 
             }
 
             .menu-items.show {
-                right: 0;
+                right: -30px;
                 display: flex;
                 flex-direction: column;
                 flex-wrap: wrap;
@@ -172,6 +167,13 @@
                 color: #b82e5e;
             }
 
+        }
+
+
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding-top: 60px;
         }
 
 
@@ -360,7 +362,7 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">About US</a>
                 <a href="browse-campaigns.html">Browse Campaigns</a>
-                <a href="start-fundraifing.html">Start a Fundraiser</a>
+                <a href="start-fundraising.html">Start a Fundraiser</a>
                 <a href="404page.html">How It Works</a>
                 <a href="404page.html">Contact US</a>
                 <!-- <a href="404page.html" id="login">Login/signup</a> -->
@@ -399,8 +401,8 @@
                     <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
                     <a href="browse-campaigns.html">Browse Campaigns</a>
-                    <a href="start-fundraifing.html">Start a Fundraiser</a>
-                    <a href="404page.html">How It Works</a>
+                    <a href="start-fundraising.html">Start a Fundraiser</a>
+                    <a href="how-it-works.html">How It Works</a>
                     <a href="404page.html">Contact Us</a>
                 </div>
             </div>

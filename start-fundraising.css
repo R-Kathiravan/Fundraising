@@ -11,7 +11,7 @@
       --body-font: 'Poppins', sans-serif;
       --border-radius: 12px;
       --border-color: #dee2e6;
-      --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.364);
       --white: white;
       --black: black;
   }
@@ -19,6 +19,8 @@
   html.dark-mode {
       --white: black;
       --black: white;
+      --border-color: #dee2e6;
+      --box-shadow: 0 8px 24px rgba(0, 255, 255, 0.364);
   }
 
   * {
@@ -31,6 +33,7 @@
       transition: all 0.3s ease-in;
       overflow-x: hidden;
       font-family: 'Poppins', sans-serif;
+      margin: 0;
   }
 
   body {
@@ -49,7 +52,7 @@
       width: 100%;
       z-index: 10;
       font-weight: 500;
-      height: 70px;
+      margin: 0 !important;
   }
 
   .menu {
@@ -103,6 +106,10 @@
       display: none;
   }
 
+  /* .active-menu{
+     text-decoration:underline !important;
+  } */
+
   .theme-toggle {
       width: 50px;
       height: 40px;
@@ -118,7 +125,8 @@
   }
 
 
-  @media (max-width:700px) {
+
+  @media (max-width:768px) {
 
       .menu-items {
           display: none;
@@ -383,7 +391,6 @@
       text-decoration: none;
   }
 
-  /* --- Main Page Layout --- */
   .page-container {
       display: flex;
       max-width: 1200px;
@@ -406,7 +413,7 @@
   .stepper-nav h2 {
       font-family: var(--heading-font);
       font-size: 1.5rem;
-      margin-bottom: 30px;
+      margin-bottom: 30px !important;
       color: var(--black);
   }
 
@@ -470,7 +477,7 @@
       border-radius: 8px;
       padding: 15px;
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 30px !important;
   }
 
   .disclaimer i {
@@ -507,16 +514,16 @@
 
   .form-step h1 {
       font-family: var(--heading-font);
-      margin-bottom: 10px;
+      margin-bottom: 10px !important;
   }
 
   .form-step p {
       color: var(--secondary-color);
-      margin-bottom: 30px;
+      margin-bottom: 30px !important;
   }
 
   .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 20px !important;
   }
 
   .form-group label {
@@ -534,6 +541,13 @@
       font-family: var(--body-font);
       background-color: var(--white);
       color: var(--black);
+      transition: all 0.3s ease-in;
+  }
+
+  .form-control:focus {
+      outline: none;
+      box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      border: 1px solid rgba(81, 203, 238, 1);
   }
 
   textarea.form-control {
@@ -717,11 +731,10 @@
       background-color: #6c757d;
   }
 
-  /* --- Responsive Design --- */
   @media (max-width: 992px) {
       .page-container {
           flex-direction: column;
-          margin: 20px;
+          /* margin: 20px; */
       }
 
       .stepper-nav {
@@ -739,4 +752,12 @@
       .form-content {
           padding: 30px 20px;
       }
+  }
+
+  .error-message {
+      color: red;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 5px;
+      display: none;
   }
