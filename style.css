@@ -13,6 +13,7 @@
      --white: white;
      --faq-q: #2c3e50;
      --fap-a: #7f8c8d;
+     --border-color:rgba(0, 0, 0, 0.185);
  }
 
  html.dark-mode {
@@ -28,6 +29,7 @@
      --white: #121212;
      --faq-q: #e2e8f0;
      --fap-a: #a0aec0;
+     --border-color:rgba(255, 255, 255, 0.333);
  }
 
  * {
@@ -602,20 +604,8 @@
      padding: 3%;
      position: relative;
      padding: 80px 20px;
-     background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+     /* background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); */
  }
-
- /* .gradient-wave-bg {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-}
-
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-} */
 
  .featured-campaigns-p {
      color: var(--text-color);
@@ -632,9 +622,10 @@
  .campaigns-card {
      background: var(--white);
      border-radius: 12px;
-     box-shadow: 0 6px 18px rgba(12, 24, 40, 0.06);
+     box-shadow: 0 6px 18px var(--card-background);
      overflow: hidden;
      display: flex;
+     border: 1px solid var(--border-color);
      flex-direction: column;
      position: relative;
  }
@@ -881,6 +872,7 @@
  .stories-section {
      padding: 80px 0;
      background-color: var(--secondary-color);
+     margin: 3%;
  }
 
  .section-header {
