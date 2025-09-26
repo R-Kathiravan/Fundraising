@@ -13,7 +13,7 @@
      --white: white;
      --faq-q: #2c3e50;
      --fap-a: #7f8c8d;
-     --border-color:rgba(0, 0, 0, 0.185);
+     --border-color: rgba(0, 0, 0, 0.185);
  }
 
  html.dark-mode {
@@ -29,7 +29,7 @@
      --white: #121212;
      --faq-q: #e2e8f0;
      --fap-a: #a0aec0;
-     --border-color:rgba(255, 255, 255, 0.333);
+     --border-color: rgba(255, 255, 255, 0.333);
  }
 
  * {
@@ -252,6 +252,23 @@
  .hero-head {
      position: relative;
      overflow-x: hidden;
+     font-size: 3rem;
+     font-weight: bold;
+     text-transform: uppercase;
+     background: linear-gradient(90deg,
+             #ffffff 0%,
+             #a8ff78 20%,
+             #78ffd6 40%,
+             #ffffff 60%,
+             #a8ff78 80%,
+             #78ffd6 100%);
+     background-size: 200% auto;
+     color: #000;
+     background-clip: text;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+
+     animation: shine1 5s linear infinite;
  }
 
  .hero-head::-webkit-scrollbar {
@@ -286,6 +303,17 @@
          left: 100%;
      }
  }
+
+ @keyframes shine1 {
+     0% {
+         background-position: -200% center;
+     }
+
+     100% {
+         background-position: 200% center;
+     }
+ }
+
 
  .hero-image {
      width: 55%;
@@ -735,6 +763,7 @@
      border-radius: 8px;
      border: 0;
      cursor: pointer;
+     border: 2px solid transparent;
      font-weight: 600;
      text-decoration: none;
      transition: all 0.4s ease-in;
@@ -1595,7 +1624,7 @@
      transition: all 0.3s ease;
  }
 
-  .panel-overlay {
+ .panel-overlay {
      position: fixed;
      top: 0;
      left: 0;

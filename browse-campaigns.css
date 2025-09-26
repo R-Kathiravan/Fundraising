@@ -30,11 +30,11 @@
       --primary-color: #007bff;
       --secondary-color: #28a745;
       --light-gray: #f8f9fa;
-      --gray: #6c757d;
+      --gray: #1c1e1f;
       --border-color: #dee2e6;
       --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       --dim-txt: #333;
-      --light-dim-txt: #777;
+      --light-dim-txt: #232323;
       --light-white: rgb(237, 237, 237);
       --card-border: rgba(0, 0, 0, 0.348);
   }
