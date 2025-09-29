@@ -26,7 +26,7 @@
             </div>
             <nav class="menu-items">
                 <a href="index.html">Home</a>
-                <a href="about.html">About US</a>
+                <a href="about.html">About Us</a>
                 <a href="browse-campaigns.html" class="active-menu">Browse Campaigns</a>
                 <a href="start-fundraising.html">Start a Fundraiser</a>
                 <a href="how-it-works.html">How It Works</a>
@@ -84,13 +84,14 @@
                 <form id="donate-form">
                     <div class="form-group">
                         <label for="amount">Amount (₹)</label>
-                        <input type="number" id="amount" placeholder="500" required>
+                        <input type="number" id="amount" placeholder="Please enter amount grater than 50" min="50"
+                            required>
                     </div>
                     <div class="form-group">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" placeholder="Your Name" required>
                     </div>
-                    <button type="submit" class="confirm-donation-btn">Confirm Donation</button>
+                    <button type="submit" class="confirm-donation-btn" id="donateBtn">Confirm Donation</button>
                 </form>
             </div>
         </div>
@@ -213,8 +214,42 @@
                 e.preventDefault();
                 alert('Thank you for your donation!');
                 closeModal();
+                const value = parseInt(donateInput.value, 10);
+                if (isNaN(value) || value < 50) {
+                    donateBtn.disabled = true;
+                    alert("Please donate greater than Rs:50")
+
+                }
+            });
+            const donateBtn = document.getElementById('donateBtn');
+            const donateInput = document.getElementById('amount');
+
+            donateBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const value = parseInt(donateInput.value, 10);
+
+                if (isNaN(value)) {
+                    alert(" Please enter a valid amount.");
+                } else if (value <= 0) {
+                    alert(" Amount must be greater than 0.");
+                } else if (value < 50) {
+                    alert(" Minimum donation is ₹50.");
+                } else {
+                    alert(" Thank you for your generous donation of ₹" + value + "!");
+                    donateInput.value = ""; // clear input after successful donation
+                }
             });
 
+            donateInput.addEventListener('input', () => {
+                const value = parseInt(donateInput.value, 10);
+
+                if (isNaN(value) || value < 50) {
+                    donateBtn.style.display = 'none';
+                } else {
+                    donateBtn.style.display = 'inline-block';
+                }
+            });
             const campaignData = [
                 {
                     id: 'flood', date: "2025-09-22", goal: 100000, raised: 75000, donors: 312, category: 'Health', title: 'Medical Aid for Flood Victims', organizer: 'by Hope Foundation', desc: 'Providing essential medical supplies and support to families affected by the recent floods.', img: './assets/campaigns-water1.avif', desc2: "The recent floods have devastated thousands of families, leaving them without access to proper healthcare and medicines. Hospitals and clinics in the affected areas are overwhelmed, and many people are at risk of waterborne diseases. Our team is working round the clock to deliver essential first aid kits, antibiotics, and emergency care supplies. With your support, we can ensure that no family is left untreated during this critical time. Every contribution directly helps save lives and restore hope.", img2: './assets/campaigns-medical-aid.jpg'
@@ -581,6 +616,7 @@ ${data.img2 ? `<img src="${data.img2}" alt="${data.category}" class="details-ima
                 localStorage.setItem('theme', 'light');
             }
         });
+
     </script>
 </body>
 

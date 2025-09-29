@@ -23,12 +23,12 @@
             </div>
             <nav class="menu-items">
                 <a href="index.html">Home</a>
-                <a href="about.html">About US</a>
+                <a href="about.html">About Us</a>
                 <a href="browse-campaigns.html">Browse Campaigns</a>
                 <a href="start-fundraising.html">Start a Fundraiser</a>
                 <a href="how-it-works.html">How It Works</a>
-                <a href="contact-us.html">Contact US</a>
-                <a href="404page.html" id="login">Login/signup</a>
+                <a href="contact-us.html">Contact Us</a>
+                <a href="login.html" id="login">Login/signup</a>
                 <a class="btn-close">Close</a>
             </nav>
             <button class="btn theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
@@ -165,7 +165,7 @@
                         <div class="campaigns-progress" data-percent="50"></div>
                     </div>
                     <div class="campaigns-meta">
-                        <div class="campaigns-amounts"><span class="raised">₹7,00,000</span> raised of ₹3,50,000</div>
+                        <div class="campaigns-amounts"><span class="raised">₹3,50,000</span> raised of ₹7,00,000</div>
                         <div class="campaigns-pill">50%</div>
                     </div>
                 </div>
@@ -228,8 +228,8 @@
                         <div class="campaigns-progress" data-percent="29"></div>
                     </div>
                     <div class="campaigns-meta">
-                        <div class="campaigns-amounts"><span class="raised">₹5,00,000</span> raised of ₹1,65,000</div>
-                        <div class="campaigns-pill">29%</div>
+                        <div class="campaigns-amounts"><span class="raised">₹1,65,000</span> raised of ₹5,00,000</div>
+                        <div class="campaigns-pill">33%</div>
                     </div>
                 </div>
                 <div class="campaigns-card-footer">
@@ -751,6 +751,40 @@
                     closePanel();
                 }
             });
+        });
+        //Share Campaigns
+        const shareBtn = document.querySelector(".shareBtn");
+        const fallbackShare = document.querySelector(".fallback-share");
+
+        const shareData = {
+            title: "Help Build a School",
+            text: "Together we can make education accessible for all children.",
+            url: window.location.href
+        };
+
+        shareBtn.addEventListener("click", async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                    console.log("Shared successfully!");
+                } catch (err) {
+                    console.log("Share cancelled:", err);
+                }
+            } else {
+                 fallbackShare.style.display = "block";
+
+                 document.getElementById("whatsapp").href =
+                    `https://wa.me/?text=${encodeURIComponent(shareData.text + " " + shareData.url)}`;
+
+                document.getElementById("facebook").href =
+                    `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareData.url)}`;
+
+                document.getElementById("twitter").href =
+                    `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareData.text)}&url=${encodeURIComponent(shareData.url)}`;
+
+                document.getElementById("email").href =
+                    `mailto:?subject=${encodeURIComponent(shareData.title)}&body=${encodeURIComponent(shareData.text + " " + shareData.url)}`;
+            }
         });
     </script>
 
