@@ -45,8 +45,9 @@
       --dim-txt: rgb(193, 190, 190);
       --light-dim-txt: rgb(144, 139, 139);
       --card-shadow: 0 4px 8px rgba(0, 157, 255, 0.534);
-      /* --light-white:rgb(83, 81, 81); */
       --card-border: rgba(255, 255, 255, 0.232);
+      --gray: #a8acae;
+
   }
 
   header {
