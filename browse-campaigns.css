@@ -394,11 +394,11 @@
       }
   }
 
-  .container {
+  /* .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
-  }
+  } */
 
   header {
       text-align: center;
@@ -643,11 +643,11 @@
       font-weight: bold;
   }
 
-  .container {
+  /* .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
-  }
+  } */
 
   .modal-overlay {
       position: fixed;
@@ -662,7 +662,7 @@
       z-index: 1000;
   }
 
-  .modal-content {
+  .modal-content-form {
       background-color: var(--white);
       padding: 30px;
       border-radius: 8px;
@@ -681,7 +681,7 @@
       cursor: pointer;
   }
 
-  .modal-content h2 {
+  .modal-content-form h2 {
       margin-top: 0;
   }
 
