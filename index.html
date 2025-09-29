@@ -132,7 +132,7 @@
         <p class="featured-campaigns-p">Every contribution makes a difference. Explore these campaigns and be part of
             the change.</p>
         <div class="grid">
-            <div class="campaigns-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="campaigns-card" data-aos="fade-up" data-aos-delay="100"  data-campaign-title="Help Ramesh's Fight Against Cancer" data-campaign-url="https://example.com/campaign/Help Ramesh Fight Cancer">
                 <div class="campaigns-image" style="    background-image: url('./assets/campaigns-img1.jpg');"></div>
                 <span class="urgent-badge">Urgent</span>
                 <div class="campaigns-content">
@@ -151,10 +151,10 @@
                 </div>
                 <div class="campaigns-card-footer">
                     <a href="browse-campaigns.html#child" class="campaigns-btn">Donate Now</a>
-                    <a href="404page.html" class="campaigns-btn secondary">Share</a>
+                    <a   class="campaigns-btn secondary share-btn" id="share-btn">Share</a>
                 </div>
             </div>
-            <div class="campaigns-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="campaigns-card" data-aos="fade-up" data-aos-delay="200"  data-campaign-title="Sponsor Education for 50 Children" data-campaign-url="https://example.com/campaign/Sponsor Education for 50 Children">
                 <div class="campaigns-image" style="background-image: url('./assets/campaigns-img2.jpg');"></div>
                 <div class="campaigns-content">
                     <h3 class="campaigns-title">Sponsor Education for 50 Children</h3>
@@ -172,10 +172,10 @@
                 </div>
                 <div class="campaigns-card-footer">
                     <a href="browse-campaigns.html#school" class="campaigns-btn">Donate Now</a>
-                    <a href="404page.html" class="campaigns-btn secondary">Share</a>
+                    <a  class="campaigns-btn secondary share-btn" id="share-btn">Share</a>
                 </div>
             </div>
-            <div class="campaigns-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="campaigns-card" data-aos="fade-up" data-aos-delay="300"  data-campaign-title=" Flood Relief for Assam Villages" data-campaign-url="https://example.com/campaign/ Flood Relief for Assam Villages">
                 <div class="campaigns-image" style="background-image: url('./assets/campaigns-img2.avif');"></div>
                 <div class="campaigns-content">
                     <h3 class="campaigns-title"> Flood Relief for Assam Villages</h3>
@@ -193,10 +193,10 @@
                 </div>
                 <div class="campaigns-card-footer">
                     <a href="browse-campaigns.html#flood" class="campaigns-btn">Donate Now</a>
-                    <a href="404page.html" class="campaigns-btn secondary">Share</a>
+                    <a   class="campaigns-btn secondary share-btn" id="share-btn">Share</a>
                 </div>
             </div>
-            <div class="campaigns-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="campaigns-card" data-aos="fade-up" data-aos-delay="400"  data-campaign-title="Clean Water for 100 Villages" data-campaign-url="https://example.com/campaign/Clean Water for 100 Villages">
                 <div class="campaigns-image" style="background-image: url('./assets/campaigns-img3.webp');"></div>
                 <div class="campaigns-content">
                     <h3 class="campaigns-title">Clean Water for 100 Villages</h3>
@@ -214,10 +214,10 @@
                 </div>
                 <div class="campaigns-card-footer">
                     <a href="browse-campaigns.html#drink-water" class="campaigns-btn">Donate Now</a>
-                    <a href="404page.html" class="campaigns-btn secondary">Share</a>
+                    <a   class="campaigns-btn secondary share-btn" id="share-btn">Share</a>
                 </div>
             </div>
-            <div class="campaigns-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="campaigns-card" data-aos="fade-up" data-aos-delay="500"  data-campaign-title="Medical Camp for Senior Citizens" data-campaign-url="https://example.com/campaign/Medical Camp for Senior Citizens">
                 <div class="campaigns-image" style="background-image: url('./assets/campaigns-img4.jpg');"></div>
                 <div class="campaigns-content">
                     <h3 class="campaigns-title">Medical Camp for Senior Citizens</h3>
@@ -235,9 +235,14 @@
                 </div>
                 <div class="campaigns-card-footer">
                     <a href="browse-campaigns.html#medical" class="campaigns-btn">Donate Now</a>
-                    <a href="404page.html" class="campaigns-btn secondary">Share</a>
+                    <a   class="campaigns-btn secondary share-btn" id="share-btn">Share</a>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="share-model">
+        <div class="share-model-container">
+
         </div>
     </div>
     <section class="how-it-works">
@@ -552,8 +557,42 @@
                     href="404page.html">Terms of Service.</a></p>
         </div>
     </footer>
+    <!-- Share Popup Model -->
+    <div class="share-modal-overlay" id="share-modal">
+        <div class="share-modal-container">
+            <div class="share-modal-header">
+                <h3>Help Spread the Word</h3>
+                <p id="share-modal-campaign-title"></p>
+            </div>
 
+            <div class="copy-link-section">
+                <input type="text" id="share-link-input" readonly>
+                <button id="copy-link-btn">Copy</button>
+            </div>
 
+            <p class="social-share-title">Share with your community</p>
+
+            <div class="social-share-grid">
+                <a href="#" id="whatsapp-share" target="_blank" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="#" id="facebook-share" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="#" id="twitter-share" target="_blank" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+                <a href="#" id="email-share" class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Login Model -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeLoginModal">&times;</span>
@@ -761,40 +800,57 @@
                 }
             });
         });
+
+
         //Share Campaigns
-        // const shareBtn = document.querySelector(".shareBtn");
-        //const fallbackShare = document.querySelector(".fallback-share");
+        document.addEventListener('DOMContentLoaded', () => {
+            const shareButtons = document.querySelectorAll('.share-btn');
+            const modal = document.getElementById('share-modal');
+            const modalCampaignTitle = document.getElementById('share-modal-campaign-title');
+            const shareLinkInput = document.getElementById('share-link-input');
+            const copyLinkBtn = document.getElementById('copy-link-btn');
+            const whatsappLink = document.getElementById('whatsapp-share');
+            const facebookLink = document.getElementById('facebook-share');
+            const twitterLink = document.getElementById('twitter-share');
+            const emailLink = document.getElementById('email-share');
 
-        // const shareData = {
-        //     title: "Help Build a School",
-        //     text: "Together we can make education accessible for all children.",
-        //     url: window.location.href
-        // };
+            shareButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const card = e.target.closest('.campaigns-card');
+                    const campaignTitle = card.dataset.campaignTitle;
+                    const campaignUrl = card.dataset.campaignUrl;
 
-        // shareBtn.addEventListener("click", async () => {
-        //     if (navigator.share) {
-        //         try {
-        //             await navigator.share(shareData);
-        //             console.log("Shared successfully!");
-        //         } catch (err) {
-        //             console.log("Share cancelled:", err);
-        //         }
-        //     } else {
-        //         fallbackShare.style.display = "block";
+                    modalCampaignTitle.textContent = `Sharing: "${campaignTitle}"`;
+                    shareLinkInput.value = campaignUrl;
 
-        //         document.getElementById("whatsapp").href =
-        //             `https://wa.me/?text=${encodeURIComponent(shareData.text + " " + shareData.url)}`;
+                    const encodedUrl = encodeURIComponent(campaignUrl);
+                    const encodedText = encodeURIComponent(`Check out this fundraiser for "${campaignTitle}"`);
 
-        //         document.getElementById("facebook").href =
-        //             `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareData.url)}`;
+                    whatsappLink.href = `https://api.whatsapp.com/send?text=${encodedText}%20${encodedUrl}`;
+                    facebookLink.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+                    twitterLink.href = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`;
+                    emailLink.href = `mailto:?subject=${encodedText}&body=I found this fundraiser and thought you might want to support it: ${campaignUrl}`;
 
-        //         document.getElementById("twitter").href =
-        //             `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareData.text)}&url=${encodeURIComponent(shareData.url)}`;
+                    modal.style.display = 'flex';
+                });
+            });
 
-        //         document.getElementById("email").href =
-        //             `mailto:?subject=${encodeURIComponent(shareData.title)}&body=${encodeURIComponent(shareData.text + " " + shareData.url)}`;
-        //     }
-        // });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            copyLinkBtn.addEventListener('click', () => {
+                shareLinkInput.select();
+                document.execCommand('copy');
+
+                copyLinkBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyLinkBtn.textContent = 'Copy';
+                }, 2000);
+            });
+        });
     </script>
 
     <script src="script.js"></script>

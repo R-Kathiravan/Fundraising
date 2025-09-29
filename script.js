@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function attachFormJS() {
-        // DOM Elements
         const loginTab = document.getElementById('login-tab');
         const signupTab = document.getElementById('signup-tab');
         const loginForm = document.getElementById('login-form');
@@ -46,13 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const goToSignup = document.getElementById('go-to-signup');
         const goToLogin = document.getElementById('go-to-login');
 
-        // Password toggle elements
         const loginPasswordToggle = document.getElementById('login-password-toggle');
         const loginPasswordInput = document.getElementById('login-password');
         const signupPasswordToggle = document.getElementById('signup-password-toggle');
         const signupPasswordInput = document.getElementById('signup-password');
 
-        // Switch between login and signup forms
         loginTab.addEventListener('click', function () {
             switchToLogin();
         });
@@ -85,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
             loginForm.classList.remove('active');
         }
 
-        // Toggle password visibility
         loginPasswordToggle.addEventListener('click', function () {
             togglePasswordVisibility(loginPasswordInput, loginPasswordToggle);
         });
@@ -104,11 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Form validation
         loginForm.addEventListener('submit', function (e) {
             e.preventDefault();
             if (validateLoginForm()) {
-                // Simulate successful login
                 alert('Login successful! Redirecting to your dashboard...');
                 loginForm.reset();
             }
@@ -117,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
         signupForm.addEventListener('submit', function (e) {
             e.preventDefault();
             if (validateSignupForm()) {
-                // Simulate successful signup
                 alert('Account created successfully! Welcome to FundraiseHub.');
                 signupForm.reset();
                 switchToLogin();
@@ -129,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('login-email').value.trim();
             const password = document.getElementById('login-password').value;
 
-            // Validate email
             if (!email) {
                 showError('login-email-error', 'Email is required');
                 isValid = false;
@@ -140,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 hideError('login-email-error');
             }
 
-            // Validate password
             if (!password) {
                 showError('login-password-error', 'Password is required');
                 isValid = false;
@@ -158,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const password = document.getElementById('signup-password').value;
             const confirmPassword = document.getElementById('signup-confirm-password').value;
 
-            // Validate name
             if (!name) {
                 showError('signup-name-error', 'Full name is required');
                 isValid = false;
@@ -166,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 hideError('signup-name-error');
             }
 
-            // Validate email
             if (!email) {
                 showError('signup-email-error', 'Email is required');
                 isValid = false;
@@ -177,7 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 hideError('signup-email-error');
             }
 
-            // Validate password
             if (!password) {
                 showError('signup-password-error', 'Password is required');
                 isValid = false;
@@ -188,7 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 hideError('signup-password-error');
             }
 
-            // Validate confirm password
             if (!confirmPassword) {
                 showError('signup-confirm-password-error', 'Please confirm your password');
                 isValid = false;

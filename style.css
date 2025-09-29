@@ -1758,3 +1758,117 @@
      font-size: 22px;
      cursor: pointer;
  }
+
+
+ /* Share Model */
+ .share-modal-overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.6);
+     display: none;
+     /* Hidden by default */
+     align-items: center;
+     justify-content: center;
+     z-index: 1000;
+ }
+
+ .share-modal-container {
+     background: white;
+     border-radius: var(--border-radius);
+     width: 90%;
+     max-width: 450px;
+     padding: 30px;
+     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+ }
+
+ .share-modal-header {
+     text-align: center;
+     margin-bottom: 20px;
+ }
+
+ .share-modal-header h3 {
+     font-size: 1.5rem;
+     margin-bottom: 5px;
+ }
+
+ .share-modal-header p {
+     color: #6c757d;
+     font-size: 0.9rem;
+ }
+
+ .copy-link-section {
+     display: flex;
+     margin-bottom: 25px;
+ }
+
+ #share-link-input {
+     flex-grow: 1;
+     padding: 10px;
+     border: 1px solid #dee2e6;
+     border-radius: 8px 0 0 8px;
+     font-size: 0.9rem;
+     background-color: #f8f9fa;
+ }
+
+ #copy-link-btn {
+     padding: 0 20px;
+     border: 1px solid var(--primary-color);
+     background: var(--primary-color);
+     color: white;
+     border-radius: 0 8px 8px 0;
+     font-weight: 600;
+     cursor: pointer;
+ }
+
+ .social-share-title {
+     text-align: center;
+     font-weight: 600;
+     margin-bottom: 20px;
+     color: #6c757d;
+ }
+
+ .social-share-grid {
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+ }
+
+ .social-icon {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     text-decoration: none;
+     color: #343a40;
+     font-weight: 600;
+     font-size: 0.9rem;
+ }
+
+ .social-icon i {
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     display: grid;
+     place-items: center;
+     color: white;
+     font-size: 1.5rem;
+     margin-bottom: 8px;
+ }
+
+ .fa-whatsapp {
+     background-color: #25D366;
+ }
+
+ .fa-facebook-f {
+     background-color: #1877F2;
+ }
+
+ .fa-twitter {
+     background-color: #1DA1F2;
+ }
+
+ .fa-envelope {
+     background-color: #6c757d;
+ }
