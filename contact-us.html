@@ -27,10 +27,10 @@
                 <a href="start-fundraising.html">Start a Fundraiser</a>
                 <a href="how-it-works.html">How It Works</a>
                 <a href="contact-us.html">Contact Us</a>
-                <a href="404page.html" id="login">Login/signup</a>
+                <a id="loginBtn">Login/signup</a>
                 <a class="btn-close">Close</a>
             </nav>
-            <button class="btn theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
+            <button class="theme-btn  theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
                     settings_night_sight
                 </span></button>
             <div class="hamburger">
@@ -272,6 +272,12 @@
                     href="404page.html">Terms of Service.</a></p>
         </div>
     </footer>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLoginModal">&times;</span>
+            <div id="loginContainer"><!-- Login form --></div>
+        </div>
+    </div>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script.js"></script>
     <script>
