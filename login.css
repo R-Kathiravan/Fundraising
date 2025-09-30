@@ -14,7 +14,7 @@
       padding: 20px;
   } */
 
-  .container {
+  .form-main-container {
       width: 100%;
       max-width: 900px;
       background: white;
@@ -293,7 +293,7 @@
   }
 
   @media (min-width: 768px) {
-      .container {
+      .form-main-container {
           flex-direction: row;
       }
 
