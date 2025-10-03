@@ -1,14 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundraising || 404 Page</title>
 </head>
+
 <body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap');
+
+        :root {
+            --white: white;
+            --black: black;
+            --header-gradient: linear-gradient(90deg, #007CF0, #00DFD8);
+        }
+
+        html.dark-mode {
+            --white: black;
+            --black: white;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            transition: all 0.3s ease-in;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            padding-top: 70px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .header-cls {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 10px;
+            /* background-color: var(--white); */
+            /* background-color: rgba(0, 0, 255, 0.538); */
+            background: var(--header-gradient);
+        }
+
+        .logo img {
+            width: 180px;
+            padding: 10px;
+        }
+
+        .menu-items {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .menu-items a {
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease-in;
+        }
+
+        .menu-items a:hover {
+            color: rgb(0, 234, 255);
+            transform: translateY(-4px);
+        }
+
+        .home-nav {
+            position: relative;
+        }
+
+        .home-select {
+            position: absolute;
+            display: none;
+            top: 100%;
+            left: 0%;
+            width: 150px;
+            background-color: rebeccapurple;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .home-select a {
+            color: rgb(248, 248, 248) !important;
+        }
+
+        .home-nav:hover .home-select {
+            display: block;
+        }
+
+        .menu-sett {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-login {
+            display: none;
+        }
+
+        .sign-in-menu a {
+            text-decoration: none;
+            padding: 10px 10px;
+            border: 2px solid;
+            border-radius: 25px;
+            margin-right: 20px;
+            color: white;
+            transition: all 0.4s ease-in;
+            margin-left: 30px;
+        }
+
+        .sign-in-menu a:hover {
+            background-color: rgb(249, 249, 255);
+            color: blue;
+        }
+
+        .theme-toggle {
+            padding: 10px 10px;
+            background-color: transparent;
+            border-color: rgba(0, 0, 0, 0);
+            color: white;
+            cursor: pointer;
+        }
+
+        .theme-toggle:hover {
+            border: 3px solid blue;
+            border-radius: 30px;
+        }
+
+        .theme-toggle span {
+            font-size: 28px;
+        }
+
+        .hamburger {
+            display: none;
+            color: white !important;
+        }
+
+        .close-btn {
+            display: none;
+        }
+
+        @media (max-width:768px) {
+
+            .menu-items {
+                display: none;
+            }
+
+            .sign-in-menu {
+                display: none;
+            }
+
+            .menu-items {
+                flex-direction: column;
+                background: #0e0d0dcc;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 180px;
+                height: 100%;
+                padding: 60px 20px;
+                transition: right 0.3s ease;
+                z-index: 999;
+
+            }
+
+            .menu-login {
+                display: block;
+            }
+
+            .menu-items a {
+                color: white;
+            }
+
+            .menu-items button {
+                color: rgb(255, 255, 255);
+            }
+
+            .close-btn {
+                display: block;
+                color: rgb(0, 0, 0);
+                background-color: #0385ff00;
+                cursor: pointer;
+                border-color: #00000000;
+                border: 2px solid;
+            }
+
+            .hamburger {
+                display: block;
+                margin-right: 20px;
+                cursor: pointer;
+                color: var(--black);
+            }
+
+            .menu-items.show {
+                right: -30px;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-content: flex-start;
+            }
+
+            .sign-in-menu.show {
+                display: block;
+                margin-top: 20px;
+                color: white;
+            }
+
+            .hamburger:hover {
+                color: #b82e5e;
+            }
+
+        }
+
+
+        .footer {
+            margin-top: 3%;
+            background: linear-gradient(135deg, #0a0f29, #1a1a1a);
+
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px 10px;
+
+        }
+
+        .follow-us img {
+            width: 50px;
+        }
+
+        .footer-tagline {
+            color: wheat;
+            text-indent: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer h1 {
+            color: #facc15 !important;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            text-indent: 25px;
+            transition: all .2s ease-in;
+            color: #a5b4fc;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+            color: #6366f1;
+        }
+
+        .footer-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-contact-info li {
+            list-style: none;
+            color: #d1d5db;
+        }
+
+        .footer-contact-info a {
+            color: #a5b4fc;
+            text-decoration: none;
+        }
+
+        .footer-contact-info a:hover {
+            color: #6366f1;
+            text-decoration: underline;
+        }
+
+        .footer-legel-link {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-legel-link a {
+            text-decoration: none;
+            color: #a5b4fc;
+        }
+
+        .footer-legel-link a:hover {
+            color: #6366f1;
+            text-decoration: underline;
+        }
+
+        .footer-newsletter {
+            display: flex;
+            flex-direction: column;
+            /* gap: 10px; */
+        }
+
+        .news-letter h2 {
+            color: #0febff;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            padding: 16px 10px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid white;
+            transition: all 0.3s ease-in;
+        }
+
+        .newsletter-form button {
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            border-color: transparent;
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            transition: all 0.3s ease-in;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #007CF0;
+            border-color: transparent;
+        }
+
+        .footer-copyright {
+            padding: 20px 10px;
+            text-align: center;
+            color: whitesmoke;
+        }
+
+        .page-content {
+            text-align: center;
+            padding: 7%;
+            color: var(--black);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-content span {
+            color: red;
+            font-size: 48px;
+        }
+
+        .page-content a {
+            padding: 20px 10px;
+            background-color: transparent;
+            border: 1px solid;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .page-content a:hover {
+            border-radius: 0%;
+            background-color: #6366f1;
+            color: white;
+        }
+    </style>
+    <header>
+        <div class="header-cls">
+            <div class="logo">
+                <img src="./asstes/stackly-logo1.png" alt="Stackly Logo">
+            </div>
+            <div class="menu-items">
+                <div class="home-nav">
+                    <a>Home</a>
+                    <div class="home-select">
+                        <a href="../index.html">Home Page 1</a>
+                    </div>
+                </div>
+                <a href="404page.html">Features</a>
+                <a href="404page.html">Campaigns</a>
+                <a href="404page.html">About</a>
+                <a href="404page.html">Blog</a>
+                <a href="404page.html">Support</a>
+                <A href="404page.html" class="menu-login">Login/Signup</A>
+                <a class="close-btn">Close</a>
+            </div>
+            <div class="menu-sett">
+                <div class="sign-in-menu">
+                    <a href="404page.html">Login/Signup</a>
+                </div>
+                <!-- <div class="dark-light-mode">
+                    <button class="theme-toggle" id="theme-toggle"> <span class="material-symbols-outlined">
+                            brightness_4
+                        </span>
+                    </button>
+                </div> -->
+            </div>
+            <div class="hamburger">
+                &#9776
+            </div>
+        </div>
+    </header>
     <div class="page-content">
-        <h1>404 Page Not Found!</h1>
+        <h1><span>404!</span><br><br> Page Not Found!</h1>
         <a href="./index.html">Back To Home</a>
     </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo logo">
+                <img src="./asstes/stackly-logo1.png" class="logo" alt="LOGO">
+                <p class="footer-tagline">Together We Fund the Future.</p>
+                <div class="follow-us">
+                    <a href="404page.html" title="Google"> <img src="https://img.icons8.com/color/48/google-logo.png"
+                            alt="google-logo" /></a>
+                    <a href="404page.html" title="Facebook"><img
+                            src="https://img.icons8.com/cute-clipart/64/facebook.png" alt="facebook" /></a>
+                    <a href="404page.html" title="Twitter"><img src="https://img.icons8.com/fluency/50/twitter.png"
+                            alt="twitter" /></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h1>Quick Links</h1>
+                <a href="index.html">Home</a>
+                <a href="404page.html">Features</a>
+                <a href="404page.html">Campaigns</a>
+                <a href="404page.html">About</a>
+                <a href="404page.html">Blog</a>
+                <a href="404page.html">Support</a>
+            </div>
+            <div class="footer-contact-info">
+                <h1>Contact Info</h1>
+                <li>Address: <a href="https://www.google.com/maps/search/?api=1&query=stackly+Salem,+Tamil+Nadu">Salem
+                        TN</a></li>
+                <li>Contact Number: <a href="tel:+91 9876543210">9876543210</a></li>
+                <li>Mail To: <a href="mailto: info@thestackly.com">info@thestackly.com</a></li>
+            </div>
+            <div class="footer-legel-link">
+                <h1>Legel Links</h1>
+                <li><a href="404page.html">Privacy Policy</a></li>
+                <li><a href="404page.html">Terms of Service</a></li>
+            </div>
+            <div class="footer-newsletter">
+                <h1>Newsletter</h1>
+                <div class="news-letter">
+                    <h2>Sign up to our Newsletter</h2>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" onclick="window.location.href='404page.html'">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+        <div class="footer-copyright">
+            <p>© 2025 Stackly. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- <script src="script.js"></script> -->
 </body>
+
 </html>
