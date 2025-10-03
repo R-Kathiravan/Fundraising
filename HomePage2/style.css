@@ -6,9 +6,9 @@
      --header-gradient: linear-gradient(90deg, #007CF0, #00DFD8);
      --features-card-bg: linear-gradient(135deg, #0000 18.75%, #f3f3f3 0 31.25%, #0000 0),
          repeating-linear-gradient(45deg, #f3f3f3 -6.25% 6.25%, #ffffff 0 18.75%);
-    --features-card-border:rgb(255, 255, 255);
-    --dim-txt:#3f4041;
-    --light-dim:#333;
+     --features-card-border: rgb(255, 255, 255);
+     --dim-txt: #3f4041;
+     --light-dim: #333;
  }
 
  html.dark-mode {
@@ -17,9 +17,9 @@
      --header-gradient: linear-gradient(90deg, #1E40AF, #7C3AED);
      --features-card-bg: linear-gradient(135deg, #0000 18.75%, #1a1a1a 0 31.25%, #0000 0),
          repeating-linear-gradient(45deg, #1a1a1a -6.25% 6.25%, #0d0d0d 0 18.75%);
-    --features-card-border:rgb(40, 39, 39);
-    --dim-txt:#d0d2d3;
-    --light-dim:#f8ecec;
+     --features-card-border: rgb(40, 39, 39);
+     --dim-txt: #d0d2d3;
+     --light-dim: #f8ecec;
  }
 
  body {
@@ -421,8 +421,10 @@
      transform: translateY(-3px) scale(1.05);
      cursor: pointer;
  }
- .features-card-head{
-    color: var(--light-dim);;
+
+ .features-card-head {
+     color: var(--light-dim);
+     ;
  }
 
  .features-icon .fa-solid,
@@ -690,7 +692,7 @@
  }
 
  .cta-container {
-     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./asstes/cta-bg.jpg');
+     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/cta-bg.jpg');
      height: 70vh;
      display: flex;
      flex-direction: column;
@@ -800,6 +802,10 @@
      display: flex;
      flex-direction: column;
      gap: 20px;
+ }
+
+ .footer-legel-link li {
+     list-style: none;
  }
 
  .footer-legel-link a {
