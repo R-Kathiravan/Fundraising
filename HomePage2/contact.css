@@ -433,10 +433,11 @@
  .contact-gif img {
      width: 400px;
  }
+
  @media (max-width:478px) {
-    .contact-gif img{
-        width: 250px;
-    }
+     .contact-gif img {
+         width: 250px;
+     }
  }
 
  .form-group {
