@@ -128,11 +128,13 @@ header {
     color: white;
     transition: all 0.4s ease-in;
     margin-left: 30px;
+    cursor: pointer;
 }
 
 .sign-in-menu a:hover {
     background-color: rgb(249, 249, 255);
     color: blue;
+    border-color: white;
 }
 
 .theme-toggle {
@@ -144,8 +146,8 @@ header {
 }
 
 .theme-toggle:hover {
-    border: 3px solid blue;
-    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 255, 0.597);
+    border-radius: 50px;
 }
 
 .theme-toggle span {
@@ -431,9 +433,6 @@ header {
 
 .filter-section {
     padding: 0 20px 60px 20px;
-    /* Add padding below, no padding on top */
-    background-color: #f8f9fa;
-    /* Match hero background */
 }
 
 .filter-controls {
@@ -480,12 +479,8 @@ header {
     border-color: #dc3545;
 }
 
-/* --- Campaign Grid Section --- */
 .campaign-grid-section {
     padding: 0 20px 100px 20px;
-    /* background-color: var(--white); */
-    /* background: radial-gradient(circle at 15% 30%, rgba(255, 183, 197, 0.25), transparent 60%),
-         radial-gradient(circle at 80% 70%, rgba(102, 204, 255, 0.25), transparent 60%); */
 }
 
 .campaign-grid {
@@ -629,7 +624,7 @@ header {
 }
 
 /* --- Modal Styles --- */
-.modal-overlay {
+.donate-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -645,12 +640,12 @@ header {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.modal-overlay:not(.hidden) {
+.donate-modal-overlay:not(.hidden) {
     opacity: 1;
     visibility: visible;
 }
 
-.modal-content {
+.donate-modal-content {
     background-color: #fff;
     border-radius: 15px;
     max-width: 700px;
@@ -662,11 +657,11 @@ header {
     transition: transform 0.3s ease;
 }
 
-.modal-overlay:not(.hidden) .modal-content {
+.donate-modal-overlay:not(.hidden) .donate-modal-content {
     transform: scale(1);
 }
 
-.modal-close {
+.donate-modal-close {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -677,11 +672,11 @@ header {
     color: #6c757d;
 }
 
-.modal-body {
+.donate-modal-body {
     padding: 40px;
 }
 
-.modal-body .card-image {
+.donate-modal-body .card-image {
     width: 100%;
     height: 300px;
     object-fit: cover;
@@ -691,18 +686,18 @@ header {
     background-position: center;
 }
 
-.modal-body h2 {
+.donate-modal-body h2 {
     font-size: 2rem;
     margin-bottom: 10px;
 }
 
-.modal-body p {
+.donate-modal-body p {
     line-height: 1.7;
     color: #556278;
     margin-bottom: 20px;
 }
 
-.modal-meta {
+.donate-modal-meta {
     display: flex;
     gap: 20px;
     font-size: 0.9rem;
@@ -711,13 +706,13 @@ header {
     flex-wrap: wrap;
 }
 
-.modal-meta span {
+.donate-modal-meta span {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.modal-progress-summary {
+.donate-modal-progress-summary {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -727,11 +722,11 @@ header {
     border-radius: 10px;
 }
 
-.circular-progress-container {
+.donate-circular-progress-container {
     flex-shrink: 0;
 }
 
-.circular-progress {
+.donate-circular-progress {
     position: relative;
     height: 100px;
     width: 100px;
@@ -741,7 +736,7 @@ header {
     background: conic-gradient(from 0deg, #28a745 calc(var(--value, 0) * 1%), #e9ecef 0);
 }
 
-.circular-progress:before {
+.donate-circular-progress:before {
     content: "";
     position: absolute;
     height: 80%;
@@ -750,14 +745,14 @@ header {
     border-radius: 50%;
 }
 
-.progress-value {
+.donate-progress-value {
     position: relative;
     font-size: 1.5rem;
     font-weight: 700;
     color: #1a2b48;
 }
 
-.modal-stats {
+.donate-modal-stats {
     flex-grow: 1;
 }
 
@@ -1014,4 +1009,58 @@ header {
     .cta-image-wrapper {
         margin-top: 40px;
     }
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    overflow-y: auto;
+    justify-content: center;
+    padding: 5px;
+}
+
+.modal-content {
+    border-radius: 12px;
+    overflow-y: auto;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+@media (max-width:768px) {
+    .modal-content {
+        margin-top: 5%;
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
 }

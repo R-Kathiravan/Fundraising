@@ -26,13 +26,13 @@
                 <a href="about.html">About</a>
                 <a href="donate-campaigns.html">Donate Campaigns</a>
                 <a href="create-campaign.html">Create Campaign</a>
-                <a href="404page.html">Support</a>
-                <A href="404page.html" class="menu-login">Login/Signup</A>
+                <a href="contact.html">Contact</a>
+                <A class="menu-login loginBtn">Login/Signup</A>
                 <a class="close-btn">Close</a>
             </div>
             <div class="menu-sett">
                 <div class="sign-in-menu">
-                    <a href="404page.html">Login/Signup</a>
+                    <a class="loginBtn">Login/Signup</a>
                 </div>
                 <div class="dark-light-mode">
                     <button class="theme-toggle" id="theme-toggle"> <span class="material-symbols-outlined">
@@ -196,7 +196,7 @@
                     <h3>Start a Campaign</h3>
                     <p>Have a cause you're passionate about? Launch your own fundraiser in minutes and rally support.
                     </p>
-                    <a href="404page.html" class="btn btn-primary">Start Your Campaign</a>
+                    <a href="create-campaign.html" class="btn btn-primary">Start Your Campaign</a>
                 </div>
 
                 <div class="cta-part donate-cta" data-aos="fade-up" data-aos-delay="200">
@@ -205,7 +205,7 @@
                     </div>
                     <h3>Support a Cause</h3>
                     <p>Explore verified campaigns and make a secure donation to a cause that matters to you.</p>
-                    <a href="404page.html" class="btn btn-secondary">Donate Now</a>
+                    <a href="donate-campaigns.html" class="btn btn-secondary">Donate Now</a>
                 </div>
             </div>
         </div>
@@ -231,7 +231,7 @@
                 <a href="about.html">About</a>
                 <a href="donate-campaigns.html">Donate Campaigns</a>
                 <a href="create-campaign.html">Create Campaign</a>
-                <a href="404page.html">Support</a>
+                <a href="contact.html">Contact</a>
             </div>
             <div class="footer-contact-info" data-aos="fade-up" data-aos-delay="300">
                 <h1>Contact Info</h1>
@@ -263,6 +263,12 @@
             <p>© 2025 Stackly. All Rights Reserved.</p>
         </div>
     </footer>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLoginModal">&times;</span>
+            <div id="loginContainer"><!-- Login form --></div>
+        </div>
+    </div>
     <script src="script.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

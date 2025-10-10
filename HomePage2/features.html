@@ -26,13 +26,13 @@
                 <a href="about.html">About</a>
                 <a href="donate-campaigns.html">Donate Campaigns</a>
                 <a href="create-campaign.html">Create Campaign</a>
-                <a href="404page.html">Support</a>
-                <A href="404page.html" class="menu-login">Login/Signup</A>
+                <a href="contact.html">Contact</a>
+                <a class="menu-login loginBtn">Login/Signup</a>
                 <a class="close-btn">Close</a>
             </div>
             <div class="menu-sett">
                 <div class="sign-in-menu">
-                    <a href="404page.html">Login/Signup</a>
+                    <a class="loginBtn">Login/Signup</a>
                 </div>
                 <div class="dark-light-mode">
                     <button class="theme-toggle" id="theme-toggle"> <span class="material-symbols-outlined">
@@ -53,8 +53,8 @@
                 built for
                 fundraisers like you.</p>
             <div class="hero-buttons" data-aos="fade" data-aos-delay="300">
-                <a href="404page.html" class="cta-primary">Start Your Campaign</a>
-                <a href="404page.html" class="cta-secondary">Book a Demo</a>
+                <a href="create-campaign.html" class="cta-primary">Start Your Campaign</a>
+                <a href="donate-campaigns.html" class="cta-secondary">Explore Campaign</a>
             </div>
         </div>
     </section>
@@ -188,8 +188,8 @@
                     <p class="animate-item">Join thousands of individuals and organizations making a real difference.
                         Your cause is just a few clicks away from reaching a global audience.</p>
                     <div class="cta-buttons animate-item" data-aos="fade-up">
-                        <a href="404page.html" class="btn btn-primary">Get Started for Free</a>
-                        <a href="404page.html" class="btn btn-secondary">Explore Features</a>
+                        <a href="create-campaign.html" class="btn btn-primary">Start Campaign</a>
+                        <a href="donate-campaigns.html" class="btn btn-secondary">Explore Campaigns</a>
                     </div>
                     <div class="cta-social-proof animate-item" data-aos="fade-up-left">
                         <span><i class="fas fa-check"></i> No setup fees</span>
@@ -221,7 +221,7 @@
                 <a href="about.html">About</a>
                 <a href="donate-campaigns.html">Donate Campaigns</a>
                 <a href="create-campaign.html">Create Campaign</a>
-                <a href="404page.html">Support</a>
+                <a href="contact.html">Contact</a>
             </div>
             <div class="footer-contact-info" data-aos="fade-up" data-aos-delay="300">
                 <h1>Contact Info</h1>
@@ -246,13 +246,18 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <hr>
         <div class="footer-copyright">
             <p>© 2025 Stackly. All Rights Reserved.</p>
         </div>
     </footer>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLoginModal">&times;</span>
+            <div id="loginContainer"><!-- Login form --></div>
+        </div>
+    </div>
     <script src="script.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

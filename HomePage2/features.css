@@ -114,11 +114,13 @@
       color: white;
       transition: all 0.4s ease-in;
       margin-left: 30px;
+      cursor: pointer;
   }
 
   .sign-in-menu a:hover {
       background-color: rgb(249, 249, 255);
       color: blue;
+      border-color: white;
   }
 
   .theme-toggle {
@@ -130,8 +132,8 @@
   }
 
   .theme-toggle:hover {
-      border: 3px solid blue;
-      border-radius: 30px;
+      border: 1px solid rgba(0, 0, 255, 0.597);
+      border-radius: 50px;
   }
 
   .theme-toggle span {
@@ -910,4 +912,58 @@
       .cta-buttons {
           flex-direction: column;
       }
+  }
+
+
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(3px);
+      overflow-y: auto;
+      justify-content: center;
+      padding: 5px;
+  }
+
+  .modal-content {
+      border-radius: 12px;
+      overflow-y: auto;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+  }
+
+  @media (max-width:768px) {
+      .modal-content {
+          margin-top: 5%;
+      }
+  }
+
+
+  @keyframes fadeIn {
+      from {
+          transform: scale(0.9);
+          opacity: 0;
+      }
+
+      to {
+          transform: scale(1);
+          opacity: 1;
+      }
+  }
+
+
+  .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      cursor: pointer;
   }

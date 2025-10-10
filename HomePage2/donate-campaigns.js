@@ -43,9 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- MODAL FUNCTIONALITY ---
-    const modalOverlay = document.querySelector('.modal-overlay');
-    const modalCloseBtn = document.querySelector('.modal-close');
+    const modalOverlay1 = document.querySelector('.donate-modal-overlay');
+    const modalCloseBtn1 = document.querySelector('.donate-modal-close');
     const campaignGrid = document.querySelector('.campaign-grid');
 
     const formatDate = (dateString) => {
@@ -82,27 +81,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const stats = card.querySelector('.campaign-stats').innerHTML;
 
-                const modalBody = modalOverlay.querySelector('.modal-body');
+                const modalBody = modalOverlay1.querySelector('.donate-modal-body');
                 modalBody.innerHTML = `
                     <div class="card-image" style="background-image: ${image};"></div>
                     <h2>${title}</h2>
-                    <div class="modal-meta">
+                    <div class="donate-modal-meta">
                         <span><i class="fas fa-user-circle"></i> by <strong>${uploadedBy}</strong></span>
                         <span><i class="fas fa-calendar-alt"></i> Started: ${startDate}</span>
                         <span><i class="fas fa-calendar-check"></i> Ends: ${endDate}</span>
                     </div>
-                    <div class="modal-progress-summary">
-                        <div class="circular-progress-container">
-                            <div class="circular-progress" style="--value: ${percentage}">
-                                <span class="progress-value">${percentage}%</span>
+                    <div class="donate-modal-progress-summary">
+                        <div class="donate-circular-progress-container">
+                            <div class="donate-circular-progress" style="--value: ${percentage}">
+                                <span class="donate-progress-value">${percentage}%</span>
                             </div>
                         </div>
-                        <div class="modal-stats campaign-stats">${stats}</div>
+                        <div class="donate-modal-stats campaign-stats">${stats}</div>
                     </div>
                     <p>${fullDescription}</p>
                 `;
 
-                modalOverlay.classList.remove('hidden');
+                modalOverlay1.classList.remove('hidden');
             }
 
             if (e.target.classList.contains('btn-donate') && !e.target.classList.contains('completed')) {
@@ -111,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const title = card.querySelector('h3').textContent;
                 const uploadedBy = card.dataset.uploadedBy;
 
-                const modalBody = modalOverlay.querySelector('.modal-body');
+                const modalBody = modalOverlay.querySelector('.donate-modal-body');
                 modalBody.innerHTML = `
                     <div class="donation-form-container">
                         <h2>Donate to "${title}"</h2>
@@ -133,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
 
-                modalOverlay.classList.remove('hidden');
+                modalOverlay1.classList.remove('hidden');
 
                 const presetBtns = modalBody.querySelectorAll('.preset-btn');
                 const amountInput = modalBody.querySelector('#donation-amount');
@@ -164,17 +163,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const closeModal = () => {
-        modalOverlay.classList.add('hidden');
+    const closeModal1 = () => {
+        modalOverlay1.classList.add('hidden');
     }
 
-    if (modalCloseBtn) {
-        modalCloseBtn.addEventListener('click', closeModal);
+    if (modalCloseBtn1) {
+        modalCloseBtn1.addEventListener('click', closeModal1);
     }
-    if (modalOverlay) {
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                closeModal();
+    if (modalOverlay1) {
+        modalOverlay1.addEventListener('click', (e) => {
+            if (e.target === modalOverlay1) {
+                closeModal1();
             }
         });
     }
