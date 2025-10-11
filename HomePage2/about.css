@@ -489,6 +489,7 @@
      background: var(--our-story-bg);
      /* background-color: #ffffff; */
      transition: background 0.5s ease;
+     overflow-x: hidden;
  }
 
  .our-story-container {

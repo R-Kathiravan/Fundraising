@@ -375,6 +375,11 @@
       padding: 20px;
       background-color: #00ff3cb1;
   }
+  @media (max-width:478px) {
+    .hero{
+        padding: 0 !important;
+    }
+  }
 
   .hero-content {
       color: white;
@@ -481,6 +486,7 @@
 
   .contact-info {
       margin: 3%;
+      overflow-x: hidden;
   }
 
   .contact-info h1 {
@@ -504,6 +510,7 @@
       width: 100%;
       height: 250px;
       border-radius: var(--border-radius);
+      overflow-x: hidden;
   }
 
   .contact-card-in {
@@ -660,6 +667,7 @@
 
   .faq-item {
       border-bottom: 1px solid #e0e0e0;
+      overflow-x: hidden;
   }
 
   .faq-question {

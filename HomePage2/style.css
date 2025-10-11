@@ -711,6 +711,11 @@
      max-width: 600px;
      color: white;
  }
+ @media (max-width:478px) {
+    .cta-container h1{
+        font-size: x-large;
+    }
+ }
 
  .cta-container a {
      padding: 16px 10px;

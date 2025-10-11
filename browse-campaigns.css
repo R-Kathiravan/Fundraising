@@ -752,6 +752,11 @@
       margin: 2%;
       overflow: hidden;
   }
+  @media (max-width:478px) {
+    .cta{
+        height: auto;
+    }
+  }
 
   .cta h1 {
       font-size: 2rem;

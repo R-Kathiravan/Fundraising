@@ -482,6 +482,11 @@ header {
 .campaign-grid-section {
     padding: 0 20px 100px 20px;
 }
+@media (max-width:478px) {
+    .campaign-grid-section{
+        padding: 0%;
+    }
+}
 
 .campaign-grid {
     display: grid;
@@ -756,7 +761,6 @@ header {
     flex-grow: 1;
 }
 
-/* --- Donation Form & Confirmation Styles --- */
 .donation-form-container,
 .donation-confirmation {
     text-align: center;
