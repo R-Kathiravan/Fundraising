@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const title = card.querySelector('h3').textContent;
                 const uploadedBy = card.dataset.uploadedBy;
 
-                const modalBody = modalOverlay.querySelector('.donate-modal-body');
+                const modalBody = modalOverlay1.querySelector('.donate-modal-body');
                 modalBody.innerHTML = `
                     <div class="donation-form-container">
                         <h2>Donate to "${title}"</h2>
@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <button class="btn-primary modal-close-confirm">Close</button>
                             </div>
                          `;
-                        modalBody.querySelector('.modal-close-confirm').addEventListener('click', closeModal);
+                        modalBody.querySelector('.modal-close-confirm').addEventListener('click', closeModal1);
                     } else {
                         alert('Please enter a valid donation amount (minimum ₹10).');
                     }
