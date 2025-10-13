@@ -571,13 +571,13 @@
 
  .testimonial-card .testimonial-content {
      position: absolute;
-     top: 0;
+     top: 150px;
      left: 0;
      width: 100%;
      height: 100%;
-     background: linear-gradient(-45deg, #295df8 0%, #0febff 100%);
+     background: linear-gradient(-45deg, #0040ff 0%, #0093a0db 100%);
      color: #e8e8e8;
-     padding: 20px;
+     /* padding: 20px; */
      line-height: 1.5;
      border-radius: 5px;
      pointer-events: none;
@@ -595,7 +595,7 @@
  }
 
  .testimonial-card:hover .testimonial-card-front {
-     transform: translateY(-30%);
+     transform: translateY(-61%);
  }
 
  .card:hover .testimonial-card-front {

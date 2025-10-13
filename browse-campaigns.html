@@ -22,7 +22,7 @@
     <header>
         <div class="menu">
             <div class="logo">
-                <a href="index.html"><img src="./assets/stackly-logo1.png"></a>
+                <a href="index.html"><img src="./assets/stackly-logo1.png" alt="Stackly Logo"></a>
             </div>
             <nav class="menu-items">
                 <a href="index.html">Home</a>
@@ -31,7 +31,7 @@
                 <a href="start-fundraising.html">Start a Fundraiser</a>
                 <a href="how-it-works.html">How It Works</a>
                 <a href="contact-us.html">Contact Us</a>
-                <a id="loginBtn">Login/signup</a>
+                <a id="loginBtn" tabindex="0">Login/signup</a>
                 <a class="btn-close">Close</a>
             </nav>
             <button class="theme-btn  theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
@@ -109,7 +109,7 @@
         <div class="footer-container" data-aos="fade-up">
             <div class="footer-column" id="footer-about">
                 <a class="footer-logo" href="index.html"><a href="index.html" class="logo"><img
-                            src="./assets/stackly-logo1.png"></a>
+                            src="./assets/stackly-logo1.png"alt="Stackly Logo"></a>
                 </a>
                 <p class="footer-tagline">Funding Futures, One Campaign at a Time.</p>
                 <div class="follow-us">
@@ -243,7 +243,7 @@
                     alert(" Minimum donation is ₹50.");
                 } else {
                     alert(" Thank you for your generous donation of ₹" + value + "!");
-                    donateInput.value = ""; // clear input after successful donation
+                    donateInput.value = "";
                 }
             });
 
@@ -282,6 +282,7 @@
             function createCampaignElement(data) {
                 const item = document.createElement('div');
                 item.className = 'campaign-item';
+                item.id = data.id;
                 item.dataset.date = data.date;
                 item.dataset.goal = data.goal;
                 const progress = (data.raised / data.goal) * 100;
@@ -374,6 +375,15 @@
             function initialize() {
                 state.allCampaigns = campaignData.map(createCampaignElement);
                 updateDisplay();
+                const hash = window.location.hash.substring(1);
+                if (hash) {
+                    const target = document.getElementById(hash);
+                    if (target) {
+                        target.scrollIntoView({ behavior: "smooth", block: "center" });
+                        target.classList.add('highlight');
+                    }
+                }
+
             }
 
             initialize();
@@ -591,6 +601,17 @@ ${data.img2 ? `<img src="${data.img2}" alt="${data.category}" class="details-ima
             closeBtn.addEventListener('click', () => {
                 detailsPanel.classList.remove('active');
             });
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const target = document.getElementById(hash);
+                if (target) {
+                    setTimeout(() => {
+                        target.scrollIntoView({ behavior: "smooth", block: "center" });
+                        target.classList.add("highlight");
+                     }, 300);
+                }
+            }
+
         });
 
     </script>

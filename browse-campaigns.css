@@ -973,3 +973,8 @@
       font-size: 22px;
       cursor: pointer;
   }
+
+  .campaign-item.highlight {
+  outline: 3px solid #f00105;
+  /* transition: outline 0.3s ease; */
+}

@@ -1,14 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- FILTER FUNCTIONALITY ---
-    const filterControls = document.querySelector('.filter-controls');
+     const filterControls = document.querySelector('.filter-controls');
     const campaignCards = document.querySelectorAll('.campaign-card');
 
     if (filterControls) {
         filterControls.addEventListener('click', (e) => {
             if (e.target.classList.contains('filter-category-btn')) {
-                // Update active button
-                filterControls.querySelector('.active').classList.remove('active');
+                 filterControls.querySelector('.active').classList.remove('active');
                 e.target.classList.add('active');
 
                 const filterValue = e.target.dataset.filter;
@@ -25,8 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- SEARCH FUNCTIONALITY ---
-    const searchInput = document.getElementById('search-input');
+     const searchInput = document.getElementById('search-input');
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
@@ -60,13 +57,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const card = e.target.closest('.campaign-card');
 
                 // const image = card.querySelector('.card-image').style.backgroundImage;
-                const image = card.getAttribute('data-image'); // or read inline style if you want
+                const image = card.getAttribute('data-image'); 
                 const title = card.querySelector('h3').textContent;
                 const uploadedBy = card.dataset.uploadedBy;
                 const startDate = formatDate(card.dataset.startDate);
                 const endDate = formatDate(card.dataset.endDate);
-                const fullDescription = `This is a more detailed description for the "${title}" campaign. Here, we can elaborate on the cause, the goals, the team behind it, and how the funds will be utilized to make a real impact. This section provides the transparency and narrative needed to inspire potential donors.`;
-
+                const desc = card.dataset.desc;
+                console.log(desc);
+                // const fullDescription = `This is a more detailed description for the "${title}" campaign. Here, we can elaborate on the cause, the goals, the team behind it, and how the funds will be utilized to make a real impact. This section provides the transparency and narrative needed to inspire potential donors.`;
+                const fullDescription = desc;
                 const statsElements = card.querySelectorAll('.campaign-stats div span');
                 const raisedAmountText = statsElements[0].textContent;
                 const goalAmountText = statsElements[1].textContent;
