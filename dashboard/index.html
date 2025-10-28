@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Fundraising Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    /* Selects all chart divs by their ID ending */
+    [id$="Chart"] {
+      min-height: 360px;
+    }
+  </style>
+</head>
+
+<body>
+  <i class="bx bx-menu hamburger" id="hamburgerbtn"></i>
+  <div class="sidebar">
+    <div class="logo-details">
+      <a href="#" onclick="displayItems('dashboard')">
+        <img src="../assets/stackly-logo1-crop.png" width="25" alt="LOGO"></a>
+      <a onclick="displayItems('dashboard')">
+        <h1 class="logo_name">Stackly</h1>
+      </a>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="#" onclick="displayItems('donors')">
+          <i class="bx bx-user"></i>
+          <span class="links_name">Donors</span>
+        </a>
+        <span class="tooltip">Donors</span>
+      </li>
+      <li>
+        <a href="#" onclick="displayItems('campaigns')">
+          <i class='bx bx-target-lock'></i>
+          <span class="links_name">Campaigns</span>
+        </a>
+        <span class="tooltip">Campaigns</span>
+      </li>
+      <li>
+        <a href="#" onclick="displayItems('analytics')">
+          <i class="bx bx-pie-chart-alt-2"></i>
+          <span class="links_name">Analytics</span>
+        </a>
+        <span class="tooltip">Analytics</span>
+      </li>
+      <!-- <li>
+        <a href="#" onclick="displayItems('settings')">
+          <i class="bx bx-cog"></i>
+          <span class="links_name">Setting</span>
+        </a>
+        <span class="tooltip">Setting</span>
+      </li> -->
+      <li class="profile">
+        <div class="profile-details">
+          <!-- <i class="bx bx-cog"></i> -->
+          <!-- <img src="../assets/user.png" alt="profileImg" /> -->
+          <div class="name_job">
+            <div class="name">Admin</div>
+            <div class="job">Host</div>
+          </div>
+        </div>
+        <i class='bx bx-group card-icon' style="color: #0084ff;" id="log_out"></i>
+      </li>
+    </ul>
+  </div>
+
+  <section class="home-section">
+
+    <div id="dashboard" class="section" style="display:none;">
+      <div class="page-header">
+        <div class="nav"><a href="../index.html">Home</a>/<span>Dashboard</span></div>
+        <h1>Dashboard Overview</h1>
+        <p>Welcome back, Admin! Here's your platform's performance.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <i class='bx bx-dollar-circle card-icon' style="color: #2ecc71;"></i>
+          <h3>Total Donations</h3>
+          <p>₹1,24,500</p>
+        </div>
+        <div class="stat-card">
+          <i class='bx bx-target-lock card-icon' style="color: #3498db;"></i>
+          <h3>Active Campaigns</h3>
+          <p>26</p>
+        </div>
+        <div class="stat-card">
+          <i class='bx bx-group card-icon' style="color: #e67e22;"></i>
+          <h3>Total Donors</h3>
+          <p>320</p>
+        </div>
+        <div class="stat-card">
+          <i class='bx bx-line-chart card-icon' style="color: #9b59b6;"></i>
+          <h3>Avg. Donation</h3>
+          <p>₹389.06</p>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-container">
+          <div id="donationGrowthChart"></div>
+        </div>
+        <div class="chart-container">
+          <div id="topCampaignsChart"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="donors" class="section" style="display:none;">
+      <div class="page-header">
+        <h1>Donor Management</h1>
+        <p>Manage and view your platform's donors. Total: <span id="user-count"></span></p>
+      </div>
+
+      <div class="charts-grid user-analytics-grid">
+        <div class="chart-container">
+          <div id="profileStatusChart"></div>
+        </div>
+        <div class="chart-container">
+          <div id="monthlySignupsChart"></div>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <h2>All Donors</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Profile Status</th>
+              <th>Joined At</th>
+              <th>Donated Campaigns</th>
+            </tr>
+          </thead>
+          <tbody id="user-table-body">
+          </tbody>
+        </table>
+      </div>
+      <div id="pagination-wrapper" class="pagination-container"></div>
+    </div>
+
+    <div id="campaigns" class="section" style="display:none;">
+      <div class="page-header">
+        <h1>Campaign Management</h1>
+        <p>Track all active and completed fundraising campaigns.</p>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Campaign Name</th>
+              <th>Category</th>
+              <th>Goal</th>
+              <th>Raised</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="campaign-table-body">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="analytics" class="section" style="display:none;">
+      <div class="page-header">
+        <h1>Detailed Analytics</h1>
+        <p>A deep dive into your fundraising metrics.</p>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-container">
+          <div id="donationsByCategoryChart"></div>
+        </div>
+        <div class="chart-container">
+          <div id="fundingGoalChart"></div>
+        </div>
+        <div class="chart-container">
+          <div id="paymentMethodsChart"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="settings" class="section" style="display:none;">
+      <div class="page-header">
+        <h1>Settings</h1>
+        <p>Manage your account and platform settings.</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+  <script>
+    let dashboardChartsRendered = false;
+    let donorsChartsRendered = false;
+    let analyticsChartsRendered = false;
+    function displayItems(sectionId) {
+      document.querySelectorAll('.section').forEach(sec => {
+        sec.style.display = 'none';
+      });
+
+      const activeSection = document.getElementById(sectionId);
+      if (activeSection) {
+        activeSection.style.display = 'block';
+      }
+
+      if (sectionId === 'dashboard' && !dashboardChartsRendered) {
+        renderDashboardCharts();
+        dashboardChartsRendered = true;
+      } else if (sectionId === 'donors' && !donorsChartsRendered) {
+        renderDonorsCharts();
+        donorsChartsRendered = true;
+      } else if (sectionId === 'analytics' && !analyticsChartsRendered) {
+        renderAnalyticsCharts();
+        analyticsChartsRendered = true;
+      }
+    }
+
+    const usersList = [
+      { id: 1, name: "Kathiravan", mailID: "kathiravan@gmail.com", profile: "N/A", joinedAt: "2025-05-12", totalPurchasedItems: 18 },
+      { id: 2, name: "Gayu", mailID: "gayu@gmail.com", profile: "N/A", joinedAt: "2026-05-13", totalPurchasedItems: 12 },
+      { id: 3, name: "Priya", mailID: "priya@example.com", profile: "Active", joinedAt: "2024-01-20", totalPurchasedItems: 45 },
+      { id: 4, name: "Arun", mailID: "arun@example.com", profile: "Active", joinedAt: "2023-11-30", totalPurchasedItems: 22 },
+      { id: 5, name: "Bhavna", mailID: "bhavna@example.com", profile: "Inactive", joinedAt: "2023-10-15", totalPurchasedItems: 5 },
+      { id: 6, name: "David", mailID: "david@example.com", profile: "Active", joinedAt: "2024-02-18", totalPurchasedItems: 31 },
+      { id: 7, name: "Catherine", mailID: "catherine@example.com", profile: "Active", joinedAt: "2024-03-01", totalPurchasedItems: 50 },
+      { id: 8, name: "Ganesh", mailID: "ganesh@example.com", profile: "N/A", joinedAt: "2025-06-10", totalPurchasedItems: 8 },
+      { id: 9, name: "Fathima", mailID: "fathima@example.com", profile: "Active", joinedAt: "2022-08-25", totalPurchasedItems: 102 },
+      { id: 10, name: "Hari", mailID: "hari@example.com", profile: "Inactive", joinedAt: "2023-05-05", totalPurchasedItems: 3 },
+      { id: 11, name: "Indra", mailID: "indra@example.com", profile: "Active", joinedAt: "2024-04-12", totalPurchasedItems: 67 }];
+
+    const campaignData = [
+      { name: "Child Education Fund", category: "Education", goal: 50000, raised: 42000, status: "Active" },
+      { name: "Medical Aid for The Poor", category: "Health", goal: 75000, raised: 37000, status: "Active" },
+      { name: "Women Empowerment", category: "Social", goal: 30000, raised: 34000, status: "Completed" },
+      { name: "Disaster Relief", category: "Emergency", goal: 100000, raised: 31000, status: "Active" },
+      { name: "Animal Welfare", category: "Animals", goal: 25000, raised: 28000, status: "Completed" }
+    ];
+
+    let currentPage = 1;
+    const rowsPerPage = 5;
+    const userTableBody = document.getElementById("user-table-body");
+    const paginationWrapper = document.getElementById("paginationWrapper");
+
+    function displayTable(data, wrapper, rows, page) {
+      if (!wrapper) return;
+      wrapper.innerHTML = "";
+      page--;
+      const start = rows * page;
+      const end = start + rows;
+      const paginatedData = data.slice(start, end);
+
+      paginatedData.forEach(user => {
+        let row = `
+          <tr>
+            <td>${user.id}</td>
+            <td>${user.name}</td>
+            <td>${user.mailID}</td>
+            <td>${user.profile}</td>
+            <td>${user.joinedAt}</td>
+            <td>${user.totalPurchasedItems}</td>
+          </tr>`;
+        wrapper.innerHTML += row;
+      });
+    }
+
+    function setupPagination(data, wrapper, rows) {
+      if (!wrapper) return;
+      wrapper.innerHTML = "";
+      const pageCount = Math.ceil(data.length / rows);
+      for (let i = 1; i <= pageCount; i++) {
+        const btn = paginationButton(i, data);
+        wrapper.appendChild(btn);
+      }
+    }
+
+    function paginationButton(page, data) {
+      const button = document.createElement('button');
+      button.innerText = page;
+      if (currentPage == page) button.classList.add('active');
+
+      button.addEventListener('click', function () {
+        currentPage = page;
+        displayTable(data, userTableBody, rowsPerPage, currentPage);
+        document.querySelector('.pagination-container .active')?.classList.remove('active');
+        button.classList.add('active');
+      });
+      return button;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      displayItems('dashboard');
+
+      if (userTableBody) {
+        document.getElementById('user-count').textContent = usersList.length;
+        displayTable(usersList, userTableBody, rowsPerPage, currentPage);
+        setupPagination(usersList, paginationWrapper, rowsPerPage);
+      }
+
+      const campaignTableBody = document.getElementById('campaign-table-body');
+      if (campaignTableBody) {
+        campaignData.forEach(campaign => {
+          let row = `
+            <tr>
+              <td>${campaign.name}</td>
+              <td>${campaign.category}</td>
+              <td>₹${campaign.goal.toLocaleString()}</td>
+              <td>₹${campaign.raised.toLocaleString()}</td>
+              <td><span class="status ${campaign.status.toLowerCase()}">${campaign.status}</span></td>
+            </tr>`;
+          campaignTableBody.innerHTML += row;
+        });
+      }
+    });
+    function renderDashboardCharts() {
+      const donationGrowthOptions = {
+        series: [{
+          name: "Donations (₹)",
+          data: [12000, 18000, 25000, 20000, 32000, 28000, 36000, 41000, 38000, 45000, 48000, 52000]
+        }],
+        chart: { type: 'area', toolbar: { show: false } },
+        xaxis: {
+          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        },
+        colors: ["#3498db"],
+        dataLabels: { enabled: false },
+        title: { text: "Monthly Donation Growth", align: "center" },
+        stroke: { curve: 'smooth' }
+      };
+      new ApexCharts(document.querySelector("#donationGrowthChart"), donationGrowthOptions).render();
+
+      const topCampaignsOptions = {
+        series: [{
+          name: "Amount Raised (₹)",
+          data: [42000, 37000, 34000, 31000, 28000]
+        }],
+        chart: { type: 'bar', toolbar: { show: false } },
+        xaxis: {
+          categories: ["Child Education", "Medical Aid", "Women Empowerment", "Disaster Relief", "Animal Welfare"]
+        },
+        colors: ["#2ecc71"],
+        plotOptions: { bar: { horizontal: true } },
+        title: { text: "Top 5 Campaigns", align: "center" }
+      };
+      new ApexCharts(document.querySelector("#topCampaignsChart"), topCampaignsOptions).render();
+    }
+
+    function renderDonorsCharts() {
+      const profileCounts = usersList.reduce((acc, user) => {
+        acc[user.profile] = (acc[user.profile] || 0) + 1;
+        return acc;
+      }, {});
+
+      const profileOptions = {
+        series: Object.values(profileCounts),
+        labels: Object.keys(profileCounts),
+        chart: { type: 'donut' },
+        title: { text: 'Donor Profile Status', align: 'center' },
+        colors: ['#3498db', '#e74c3c', '#f1c40f'],
+      };
+      new ApexCharts(document.querySelector("#profileStatusChart"), profileOptions).render();
+
+      const monthlySignups = usersList.reduce((acc, user) => {
+        const month = user.joinedAt.substring(0, 7); // "YYYY-MM"
+        acc[month] = (acc[month] || 0) + 1;
+        return acc;
+      }, {});
+
+      const sortedMonths = Object.keys(monthlySignups).sort();
+      const signupData = sortedMonths.map(month => monthlySignups[month]);
+
+      const signupOptions = {
+        series: [{ name: 'New Donors', data: signupData }],
+        chart: { type: 'bar', toolbar: { show: false } },
+        xaxis: { categories: sortedMonths },
+        yaxis: { title: { text: 'Number of New Donors' } },
+        title: { text: 'New Donor Signups per Month', align: 'center' },
+        colors: ['#2ecc71']
+      };
+      new ApexCharts(document.querySelector("#monthlySignupsChart"), signupOptions).render();
+    }
+
+    function renderAnalyticsCharts() {
+      const categoryOptions = {
+        series: [42, 28, 15, 10, 5],
+        labels: ["Education", "Health", "Social", "Emergency", "Animals"],
+        chart: { type: 'pie' },
+        title: { text: "Donations by Category", align: "center" },
+      };
+      new ApexCharts(document.querySelector("#donationsByCategoryChart"), categoryOptions).render();
+
+      const fundingGoalOptions = {
+        series: [78],
+        chart: { type: 'radialBar', offsetY: -20 },
+        plotOptions: {
+          radialBar: {
+            startAngle: -135,
+            endAngle: 135,
+            dataLabels: {
+              name: { fontSize: '16px', offsetY: 120 },
+              value: { offsetY: 76, fontSize: '22px', formatter: (val) => val + "%" }
+            }
+          }
+        },
+        fill: { colors: ['#3498db'] },
+        stroke: { dashArray: 4 },
+        title: { text: "Overall Platform Funding Goal", align: "center" }
+      };
+      new ApexCharts(document.querySelector("#fundingGoalChart"), fundingGoalOptions).render();
+
+      const paymentOptions = {
+        series: [55, 30, 15],
+        labels: ["Credit Card", "UPI", "Net Banking"],
+        chart: { type: 'donut' },
+        title: { text: "Popular Payment Methods", align: "center" },
+        colors: ['#9b59b6', '#e67e22', '#1abc9c']
+      };
+      new ApexCharts(document.querySelector("#paymentMethodsChart"), paymentOptions).render();
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

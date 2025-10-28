@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <!-- <i class="bx bxl-c-plus-plus icon"></i> -->
+      <img src="" alt="logo">
+      <div class="logo_name">Stackly</div>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="Search..." />
+        <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="#" onclick="displayItems('dashboard')">
+          <i class="bx bx-grid-alt"></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+        <a href="#" onclick="displayItems('user')">
+          <i class="bx bx-user"></i>
+          <span class="links_name">User</span>
+        </a>
+        <span class="tooltip">User</span>
+      </li>
+      <!-- <li>
+          <a href="#">
+            <i class="bx bx-chat"></i>
+            <span class="links_name">Messages</span>
+          </a>
+          <span class="tooltip">Messages</span>
+        </li> -->
+      <li>
+        <a href="#" onclick="displayItems('analytics')">
+          <i class="bx bx-pie-chart-alt-2"></i>
+          <span class="links_name">Analytics</span>
+        </a>
+        <span class="tooltip">Analytics</span>
+      </li>
+      <!-- <li>
+          <a href="#">
+            <i class="bx bx-folder"></i>
+            <span class="links_name">File Manager</span>
+          </a>
+          <span class="tooltip">Files</span>
+        </li> -->
+      <li>
+        <a href="#" onclick="displayItems('orders')">
+          <i class="bx bx-cart-alt"></i>
+          <span class="links_name">Order</span>
+        </a>
+        <span class="tooltip">Order</span>
+      </li>
+      <!-- <li>
+          <a href="#">
+            <i class="bx bx-heart"></i>
+            <span class="links_name">Saved</span>
+          </a>
+          <span class="tooltip">Saved</span>
+        </li> -->
+      <li>
+        <a href="#" onclick="displayItems('settings')">
+          <i class="bx bx-cog"></i>
+          <span class="links_name">Setting</span>
+        </a>
+        <span class="tooltip">Setting</span>
+      </li>
+      <li class="profile">
+        <div class="profile-details">
+          <img src="stackly.png" alt="profileImg" />
+          <div class="name_job">
+            <div class="name">Stackly</div>
+            <div class="job">Host</div>
+          </div>
+        </div>
+        <i class="bx bx-log-out" id="log_out"></i>
+      </li>
+    </ul>
+  </div>
+
+  <section class="home-section">
+    <!-- Tab contents -->
+    <!-- <div class="welcome">
+      <h1>Welcome to The Dashboard</h1>
+
+    </div> -->
+    <div id="dashboard" style="display:none;" class="section">
+      <h1>Dashboard Overview</h1>
+      <p>Here you can see quick stats and insights.</p>
+    </div>
+    <div id="user" class="section userSection" style="display:none;">
+      <h1>User Management</h1>
+      <p>Total User Visited Without Loggin<span id="user-no-login" style="color: blue;"></span></p>
+
+       <div class="users-list" id="users-list">
+        <h2>User Data </h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Profile Status</th>
+              <th>Joined At</th>
+              <th>Total Items Purchased</th>
+            </tr>
+          </thead>
+          <tbody id="user-table-body">
+          </tbody>
+        </table>
+            <div id="pagination-wrapper" class="pagination-container"></div>
+
+        <button onclick="window.print();" class="print-records">Print Records</button>
+      </div>
+    </div>
+
+    <div id="messages" class="section" style="display:none;">
+      <h1>Messages</h1>
+      <p>Inbox, notifications, and support tickets.</p>
+    </div>
+
+    <div id="analytics" class="section" style="display:none;">
+      <h1>Analytics</h1>
+      <p>Sales reports, graphs, and performance metrics.</p>
+          <div class="charts-container">
+        <!-- ApexCharts renders into a div, not a canvas -->
+        <div class="chart-wrapper">
+            <div id="profileDonutChart"></div>
+        </div>
+        <div class="chart-wrapper">
+            <div id="monthlySignupsChart"></div>
+        </div>
+    </div>
+    </div>
+
+    <div id="orders" class="section" style="display:none;">
+      <h1>Orders</h1>
+      <p>Track orders, shipping status, and history.</p>
+    </div>
+  </section>
+
+  <script>
+    function displayItems(sectionId) {
+      document.querySelectorAll('.section').forEach(sec => {
+        sec.style.display = 'none';
+      });
+
+      document.getElementById(sectionId).style.display = 'block';
+    }
+     const usersList = [
+    { id: 1, name: "Kathiravan", mailID: "kathiravan@gmail.com", profile: "N/A", joinedAt: "2025-05-12", totalPurchasedItems: 18 },
+            { id: 2, name: "Subash", mailID: "Subash@gmail.com", profile: "N/A", joinedAt: "2026-05-13", totalPurchasedItems: 12 },
+            { id: 3, name: "Priya", mailID: "priya@example.com", profile: "Active", joinedAt: "2024-01-20", totalPurchasedItems: 45 },
+            { id: 4, name: "Arun", mailID: "arun@example.com", profile: "Active", joinedAt: "2023-11-30", totalPurchasedItems: 22 },
+            { id: 5, name: "Bhavna", mailID: "bhavna@example.com", profile: "Inactive", joinedAt: "2023-10-15", totalPurchasedItems: 5 },
+            { id: 6, name: "David", mailID: "david@example.com", profile: "Active", joinedAt: "2024-02-18", totalPurchasedItems: 31 },
+            { id: 7, name: "Catherine", mailID: "catherine@example.com", profile: "Active", joinedAt: "2024-03-01", totalPurchasedItems: 50 },
+            { id: 8, name: "Ganesh", mailID: "ganesh@example.com", profile: "N/A", joinedAt: "2025-06-10", totalPurchasedItems: 8 },
+            { id: 9, name: "Fathima", mailID: "fathima@example.com", profile: "Active", joinedAt: "2022-08-25", totalPurchasedItems: 102 },
+            { id: 10, name: "Hari", mailID: "hari@example.com", profile: "Inactive", joinedAt: "2023-05-05", totalPurchasedItems: 3 },
+            { id: 11, name: "Indra", mailID: "indra@example.com", profile: "Active", joinedAt: "2024-04-12", totalPurchasedItems: 67 }];
+    let tab = '';
+    const userList = document.getElementById('user-table-body');
+    usersList.forEach(users => {
+      tab += `
+        <tr>
+          <td>${users.id}</td>
+          <td>${users.name}</td>
+          <td>${users.mailID}</td>
+          <td>${users.profile}</td>
+          <td>${users.joinedAt}</td>
+          <td>${users.totalPurchasedItems}</td>
+
+      `
+    });
+    userList.innerHTML = tab;
+   
+    // let userNoLoginCount = document.getElementById('user-no-login');
+    // userNoLoginCount.append("   10");
+    //  function setupPagination(data, wrapper, rows) {
+    //         wrapper.innerHTML = "";
+
+    //         const pageCount = Math.ceil(data.length / rows);
+    //         for (let i = 1; i < pageCount + 1; i++) {
+    //             const btn = paginationButton(i, data);
+    //             wrapper.appendChild(btn);
+    //         }
+    //     }
+
+    //     function paginationButton(page, data) {
+    //         const button = document.createElement('button');
+    //         button.innerText = page;
+    //         button.classList.add('pagination-button');
+
+    //         if (currentPage == page) button.classList.add('active');
+
+    //         button.addEventListener('click', function () {
+    //             currentPage = page;
+    //             displayTable(data, userTableBody, rowsPerPage, currentPage);
+
+    //             let current_btn = document.querySelector('.pagination-container .active');
+    //             current_btn.classList.remove('active');
+    //             button.classList.add('active');
+    //         });
+
+    //         return button;
+    //     }
+       
+    //     function renderCharts() {
+    //          const profileCounts = usersList.reduce((acc, user) => {
+    //             acc[user.profile] = (acc[user.profile] || 0) + 1;
+    //             return acc;
+    //         }, {});
+
+    //         const donutOptions = {
+    //             series: Object.values(profileCounts),
+    //             labels: Object.keys(profileCounts),
+    //             chart: {
+    //                 type: 'donut',
+    //                 height: 350
+    //             },
+    //             title: {
+    //                 text: 'User Profile Status',
+    //                 align: 'center'
+    //             },
+    //             responsive: [{
+    //                 breakpoint: 480,
+    //                 options: {
+    //                     chart: { width: 250 },
+    //                     legend: { position: 'bottom' }
+    //                 }
+    //             }]
+    //         };
+    //         const donutChart = new ApexCharts(document.querySelector("#profileDonutChart"), donutOptions);
+    //         donutChart.render();
+
+
+    //          const monthlySignups = usersList.reduce((acc, user) => {
+    //             const month = user.joinedAt.substring(0, 7);  
+    //             acc[month] = (acc[month] || 0) + 1;
+    //             return acc;
+    //         }, {});
+            
+    //         const sortedMonths = Object.keys(monthlySignups).sort();
+    //         const signupData = sortedMonths.map(month => monthlySignups[month]);
+
+    //         const barOptions = {
+    //             series: [{
+    //                 name: 'New Users',
+    //                 data: signupData
+    //             }],
+    //             chart: {
+    //                 type: 'bar',
+    //                 height: 350
+    //             },
+    //             plotOptions: {
+    //                 bar: {
+    //                     borderRadius: 4,
+    //                     horizontal: false,
+    //                 }
+    //             },
+    //             dataLabels: {
+    //                 enabled: false
+    //             },
+    //             xaxis: {
+    //                 categories: sortedMonths,
+    //             },
+    //             title: {
+    //                 text: 'Monthly New User Signups',
+    //                 align: 'center'
+    //             },
+    //             yaxis: {
+    //                 title: { text: 'Number of Users' },
+    //                 labels: {
+    //                     formatter: (val) => val.toFixed(0)  
+    //                 }
+    //             }
+    //         };
+    //         const barChart = new ApexCharts(document.querySelector("#monthlySignupsChart"), barOptions);
+    //         barChart.render();
+    //     }
+
+
+    //      displayTable(usersList, userTableBody, rowsPerPage, currentPage);
+    //     setupPagination(usersList, paginationWrapper, rowsPerPage);
+    //     renderCharts();
+
+    let currentPage = 1;
+    const rowsPerPage = 2;
+    const userTableBody = document.getElementById("userTableBody");
+    const paginationWrapper = document.getElementById("paginationWrapper");
+
+    // Show total no login count
+    let userNoLoginCount = document.getElementById('user-no-login');
+    userNoLoginCount.textContent = "No Login Users: " + usersList.length;
+
+    // Table display
+    function displayTable(data, wrapper, rowsPerPage, page) {
+      wrapper.innerHTML = "";
+      page--;
+      const start = rowsPerPage * page;
+      const end = start + rowsPerPage;
+      const paginatedData = data.slice(start, end);
+
+      for (let user of paginatedData) {
+        let row = `<tr><td>${user.name}</td><td>${user.mailID}</td><td>${user.profile}</td></tr>`;
+        wrapper.innerHTML += row;
+      }
+    }
+
+    function setupPagination(data, wrapper, rows) {
+      wrapper.innerHTML = "";
+      const pageCount = Math.ceil(data.length / rows);
+      for (let i = 1; i <= pageCount; i++) {
+        const btn = paginationButton(i, data);
+        wrapper.appendChild(btn);
+      }
+    }
+
+    function paginationButton(page, data) {
+      const button = document.createElement('button');
+      button.innerText = page;
+      if (currentPage == page) button.classList.add('active');
+      button.addEventListener('click', function () {
+        currentPage = page;
+        displayTable(data, userTableBody, rowsPerPage, currentPage);
+        document.querySelector('.pagination-container .active')?.classList.remove('active');
+        button.classList.add('active');
+      });
+      return button;
+    }
+
+    // Render charts
+    function renderCharts() {
+      // Donut chart: Profile status
+      const profileCounts = usersList.reduce((acc, user) => {
+        acc[user.profile] = (acc[user.profile] || 0) + 1;
+        return acc;
+      }, {});
+
+      const donutChart = new ApexCharts(document.querySelector("#profileDonutChart"), {
+        series: Object.values(profileCounts),
+        labels: Object.keys(profileCounts),
+        chart: { type: 'donut', height: 350 },
+        title: { text: 'User Profile Status' }
+      });
+      donutChart.render();
+
+      // Bar chart: Monthly signups
+      const monthlySignups = usersList.reduce((acc, user) => {
+        const month = user.joinedAt.slice(0, 7); // YYYY-MM
+        acc[month] = (acc[month] || 0) + 1;
+        return acc;
+      }, {});
+
+      const sortedMonths = Object.keys(monthlySignups).sort();
+      const signupData = sortedMonths.map(m => monthlySignups[m]);
+
+      const barChart = new ApexCharts(document.querySelector("#monthlySignupsChart"), {
+        series: [{ name: 'New Users', data: signupData }],
+        chart: { type: 'bar', height: 350 },
+        xaxis: { categories: sortedMonths },
+        title: { text: 'Monthly New User Signups' }
+      });
+      barChart.render();
+    }
+
+    // Initial Load
+    displayTable(usersList, userTableBody, rowsPerPage, currentPage);
+    setupPagination(usersList, paginationWrapper, rowsPerPage);
+    renderCharts();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
