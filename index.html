@@ -12,29 +12,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div class="menu">
             <div class="logo">
-                <a href="index.html"><img src="./assets/stackly-logo1.png" alt="Stackly Logo"></a>
+                <a href="index.html"><img src="./assets/stackly-logo1.webp" alt="Stackly Logo"></a>
             </div>
             <nav class="menu-items">
                 <div class="home-nav">
-                    <a tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-                    <div class="home-select">
-                        <a href="./HomePage2/index.html">Home Page 2</a>
+                    <a href="index.html" class="home-btn active">Home</a>
+
+                    <span class="material-icons dropdown-icon" id="homeDropdownBtn">
+                        expand_more
+                    </span>
+
+                    <div class="home-select" id="homeDropdown">
+                        <a href="./homepage2/index.html">Home Page 2</a>
                     </div>
                 </div>
                 <a href="about.html">About Us</a>
-                <a href="browse-campaigns.html">Browse Campaigns</a>
-                <a href="start-fundraising.html">Start a Fundraiser</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="contact-us.html">Contact Us</a>
+                <a href="browse-campaigns.html"> Campaigns</a>
+                <a href="start-fundraising.html">Start Fund</a>
+                <a href="how-it-works.html">Process</a>
+                <a href="contact-us.html">Contact </a>
                 <a href="./dashboard/index.html">Dashboard</a>
-                <a id="loginBtn" tabindex="0">Login/signup</a>
+                <a id="loginBtn" tabindex="0">SignIn</a>
                 <a class="btn-close">Close</a>
             </nav>
             <button class="theme-btn theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
@@ -61,22 +66,24 @@
                 a brighter future.</p>
 
             <div class="hero-btn" data-aos="zoom-in">
-                <a href="start-fundraising.html">Start Fundraising</a>
-                <a href="browse-campaigns.html">Donate Now</a>
+                <a href="start-fundraising.html" class="hero-btn1">Start Fundraising</a>
+                <a href="browse-campaigns.html" class="hero-btn2">Donate Now</a>
             </div>
         </div>
 
         <div class="hero-image">
-            <img src="./assets/hero1.avif" alt="Cause 1" class="active">
-            <img src="./assets/hero2.avif" alt="Cause 2">
-            <img src="./assets/hero3.avif" alt="Cause 3">
+            <img src="./assets/hero1.webp" alt="Cause 1" class="active">
+            <img src="./assets/hero2.webp" alt="Cause 2">
+            <img src="./assets/hero3.webp" alt="Cause 3">
         </div>
     </div>
 
     <section class="impact">
-        <h1 class="head">The Difference We Make</h1>
+        <div class="section-header">
+            <h1 class="subtitle">The Difference We Make</h1>
+            <h2>Measurable impact driven by generosity and trust.</h2>
+        </div>
         <ul class="impact-icons-list">
-
             <li class="icon-item" data-aos="fade-down" data-aos-delay="100">
                 <div class="icon-circle green-bg">
                     <i class="fas fa-leaf"></i>
@@ -134,14 +141,15 @@
 
     </section>
     <div class="featured-campaigns gradient-wave-bg">
-        <h1 class="head">Featured Campaigns</h1>
-        <p class="featured-campaigns-p">Every contribution makes a difference. Explore these campaigns and be part of
-            the change.</p>
+        <div class="section-header">
+            <h1 class="subtitle">Featured Campaigns</h1>
+            <h2> Make an impact where it matters most.</h2>
+        </div>
         <div class="grid">
             <div class="campaigns-card" data-aos="fade-up" data-aos-delay="100"
                 data-campaign-title="Help Ramesh's Fight Against Cancer"
                 data-campaign-url="https://example.com/campaign/Help Ramesh Fight Cancer">
-                <div class="campaigns-image" style="    background-image: url('./assets/campaigns-img1.jpg');"></div>
+                <div class="campaigns-image" style="    background-image: url('./assets/campaigns-img1.webp');"></div>
                 <span class="urgent-badge">Urgent</span>
                 <div class="campaigns-content">
                     <h3 class="campaigns-title">Help Ramesh Fight Cancer</h3>
@@ -165,7 +173,7 @@
             <div class="campaigns-card" data-aos="fade-up" data-aos-delay="200"
                 data-campaign-title="Sponsor Education for 50 Children"
                 data-campaign-url="https://example.com/campaign/Sponsor Education for 50 Children">
-                <div class="campaigns-image" style="background-image: url('./assets/campaigns-img2.jpg');"></div>
+                <div class="campaigns-image" style="background-image: url('./assets/campaigns-img2.webp');"></div>
                 <div class="campaigns-content">
                     <h3 class="campaigns-title">Sponsor Education for 50 Children</h3>
                     <p class="campaigns-para">Provide school uniforms, books and tuition for underprivileged children to
@@ -188,7 +196,7 @@
             <div class="campaigns-card" data-aos="fade-up" data-aos-delay="300"
                 data-campaign-title=" Flood Relief for Assam Villages"
                 data-campaign-url="https://example.com/campaign/ Flood Relief for Assam Villages">
-                <div class="campaigns-image" style="background-image: url('./assets/campaigns-img2.avif');"></div>
+                <div class="campaigns-image" style="background-image: url('./assets/campaigns-img2 (1).webp');"></div>
                 <div class="campaigns-content">
                     <h3 class="campaigns-title"> Flood Relief for Assam Villages</h3>
                     <p class="campaigns-para">Families affected by recent floods need immediate food, shelter and
@@ -234,7 +242,7 @@
             <div class="campaigns-card" data-aos="fade-up" data-aos-delay="500"
                 data-campaign-title="Medical Camp for Senior Citizens"
                 data-campaign-url="https://example.com/campaign/Medical Camp for Senior Citizens">
-                <div class="campaigns-image" style="background-image: url('./assets/campaigns-img4.jpg');"></div>
+                <div class="campaigns-image" style="background-image: url('./assets/campaigns-img4.webp');"></div>
                 <div class="campaigns-content">
                     <h3 class="campaigns-title">Medical Camp for Senior Citizens</h3>
                     <p class="campaigns-para">Organize free check-ups, medicines and health awareness camps for elderly
@@ -262,8 +270,10 @@
         </div>
     </div>
     <section class="how-it-works">
-        <h1 class="head">How It Works</h1>
-        <p class="sub-head">A simple way to start making an impact</p>
+        <div class="section-header">
+            <h1 class="subtitle">How It Works</h1>
+            <h2>A simple way to start making an impact</h2>
+        </div>
         <div class="works-grid">
             <div class="works-card" data-aos="zoom-in" data-aos-delay="100">
                 <div class="works-icon">📋</div>
@@ -284,7 +294,7 @@
     </section>
 
 
-    <section id="impact-stories" class="stories-section">
+    <section id="impact-stories" class="stories-section stories">
         <div class="container">
             <div class="section-header">
                 <span class="subtitle">Our Impact</span>
@@ -294,11 +304,11 @@
             </div>
 
             <div class="stories-grid">
-                <article class="story-card" data-image="./assets/home-stories-1.jpg"
+                <article class="story-card" data-image="./assets/home-stories-1.webp"
                     data-title="Asha's Journey to the Classroom"
                     data-story="Thanks to the unwavering support from donors across the country, 10-year-old Asha received everything she needed to return to her studies with confidence. The campaign successfully funded not just her tuition, but also her uniform, books, and a school bag filled with supplies. Today, she's not just attending school—she's excelling, consistently ranking at the top of her class with a newfound passion for mathematics and science. Her dream is to become a teacher to help other children in her village. This is the real impact of providing a child with the tools for education.">
                     <div class="story-image">
-                        <img src="./assets/home-stories-1.jpg" alt="Happy child receiving educational supplies">
+                        <img src="./assets/home-stories-1.webp" alt="Happy child receiving educational supplies">
                         <span class="story-category">Education</span>
                     </div>
                     <div class="story-content">
@@ -312,11 +322,11 @@
                     </div>
                 </article>
 
-                <article class="story-card" data-image="./assets/home-stories-2.jpg"
+                <article class="story-card" data-image="./assets/home-stories-2.webp"
                     data-title="Water of Life for Sunapur Village"
                     data-story="For decades, the residents of Sunapur village faced a daily struggle for clean water, leading to widespread waterborne diseases that particularly affected children and the elderly. The 'Water for Sunapur' campaign brought together hundreds of donors to fund the construction of a deep tube well and a purification system. Since its inauguration three months ago, the well has been providing clean, safe drinking water to over 2,000 people. Local health officials have reported a staggering 80% drop in cases of cholera and typhoid, transforming the health and future of the entire community.">
                     <div class="story-image">
-                        <img src="./assets/home-stories-2.jpg" alt="Community members around a new clean water well">
+                        <img src="./assets/home-stories-2.webp" alt="Community members around a new clean water well">
                         <span class="story-category">Clean Water</span>
                     </div>
                     <div class="story-content">
@@ -410,7 +420,7 @@
 
                 <div class="testimonial-selectors">
                     <div class="testimonial-selector active" data-testimonial-id="beneficiary">
-                        <img src="./assets/testimonial1.avif" alt="Meena Sharma">
+                        <img src="./assets/testimonial1.webp" alt="Meena Sharma">
                         <div class="selector-info">
                             <h5>Rohit</h5>
                             <span>Beneficiary</span>
@@ -424,7 +434,7 @@
                         </div>
                     </div>
                     <div class="testimonial-selector" data-testimonial-id="volunteer">
-                        <img src="./assets/testimonial3.png" alt="Jessica Miller">
+                        <img src="./assets/testimonial3.webp" alt="Jessica Miller">
                         <div class="selector-info">
                             <h5>Jessica Miller</h5>
                             <span>Volunteer</span>
@@ -522,16 +532,13 @@
         <div class="footer-container" data-aos="fade-up" data-aos-delay="100">
             <div class="footer-column" id="footer-about">
                 <a class="footer-logo" href="index.html"><a href="index.html" class="logo"><img
-                            src="./assets/stackly-logo1.png" alt="Stackly Logo"></a>
+                            src="./assets/stackly-logo1.webp" alt="Stackly Logo"></a>
                 </a>
                 <p class="footer-tagline">Funding Futures, One Campaign at a Time.</p>
                 <div class="follow-us">
-                    <a href="404page.html" title="Google"> <img src="https://img.icons8.com/color/48/google-logo.png"
-                            alt="google-logo" /></a>
-                    <a href="404page.html" title="Facebook"><img
-                            src="https://img.icons8.com/cute-clipart/64/facebook.png" alt="facebook" /></a>
-                    <a href="404page.html" title="Twitter"><img src="https://img.icons8.com/fluency/50/twitter.png"
-                            alt="twitter" /></a>
+                    <a href="404page.html" title="Google"> <img src="./assets/google-logo.webp" alt="google-logo" /></a>
+                    <a href="404page.html" title="Facebook"><img src="./assets/facebook.webp" alt="facebook" /></a>
+                    <a href="404page.html" title="Twitter"><img src="./assets/twitter.webp" alt="twitter" /></a>
                 </div>
             </div>
 
@@ -540,10 +547,10 @@
                 <div class="footer-menu">
                     <a href="index.html">Home</a>
                     <a href="about.html">About Us</a>
-                    <a href="browse-campaigns.html">Browse Campaigns</a>
-                    <a href="start-fundraising.html">Start a Fundraiser</a>
-                    <a href="how-it-works.html">How It Works</a>
-                    <a href="contact-us.html">Contact Us</a>
+                    <a href="browse-campaigns.html"> Campaigns</a>
+                    <a href="start-fundraising.html">Start Fund</a>
+                    <a href="how-it-works.html">Process</a>
+                    <a href="contact-us.html">Contact</a>
                 </div>
             </div>
 
@@ -560,9 +567,10 @@
                 <h4>Join Our Newsletter</h4>
                 <div class="signup-news-letter">
                     <p>Get weekly updates on new campaigns and success stories.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email">
-                        <a href="404page.html">Subscribe</a>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Enter your email" id="newsletterEmail">
+                        <button type="submit">Subscribe</button>
+                        <small class="form-message" id="formMessage"></small>
                     </form>
                 </div>
             </div>
@@ -608,7 +616,6 @@
             </div>
         </div>
     </div>
-    <!-- Login Model -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeLoginModal">&times;</span>
@@ -618,9 +625,17 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({
+            startEvent: 'load',
             duration: 800,
-            once: true
+            easing: 'ease-out-cubic',
+            offset: 120,
+            delay: 50,
+            once: true,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+            disable: 'mobile'
         });
+
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -867,6 +882,62 @@
                 }, 2000);
             });
         });
+        const homeDropdownBtn = document.getElementById("homeDropdownBtn");
+        const homeDropdown = document.getElementById("homeDropdown");
+        const icon = document.querySelector(".dropdown-icon");
+
+        homeDropdownBtn.addEventListener("click", () => {
+            homeDropdown.classList.toggle("show");
+            icon.classList.toggle("rotate");
+        });
+        document.addEventListener("click", (e) => {
+            if (!homeDropdown.contains(e.target) && !homeDropdownBtn.contains(e.target)) {
+                homeDropdown.classList.remove("show");
+                icon.classList.remove("rotate");
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        const form = document.getElementById("newsletterForm");
+        const emailInput = document.getElementById("newsletterEmail");
+        const message = document.getElementById("formMessage");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const email = emailInput.value.trim();
+            message.className = "form-message";
+
+            if (!email) {
+                alert("Please enter your email address.");
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            showSuccess("You're in! Thanks for subscribing.");
+            emailInput.value = "";
+        });
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function showError(text) {
+            message.textContent = text;
+            message.classList.add("error");
+        }
+
+        function showSuccess(text) {
+            // message.textContent = text;
+            window.location.href = '404page.html';
+        }
     </script>
 
     <script src="script.js"></script>
