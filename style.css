@@ -71,7 +71,7 @@
  ::-webkit-scrollbar-thumb:hover {
      background-color: var(--scroll-hover);
  }
- 
+
  html {
      scrollbar-width: thin;
      scrollbar-color: var(--scroll-thumb) var(--scroll-track);
@@ -764,11 +764,9 @@
      color: var(--black)
  }
 
- /* --- Section Spacing & Layout --- */
  .how-it-works {
      padding: 100px 0;
-     background-color: #F8F9FA;
-     /* Premium Off-White */
+     background-color: var(--secondary-color);
      position: relative;
      overflow: hidden;
  }
@@ -783,12 +781,10 @@
      padding: 0 24px;
  }
 
- /* --- Typography --- */
  .section-title {
      font-family: 'Playfair Display', serif;
-     /* Use your Serif font */
      font-size: 2.5rem;
-     color: #1a1a1a;
+     color: var(--heading-color);
      margin-bottom: 16px;
      font-weight: 700;
  }
@@ -800,7 +796,6 @@
      margin-bottom: 70px;
  }
 
- /* --- The Grid --- */
  .works-grid {
      display: grid;
      grid-template-columns: repeat(1, 1fr);
@@ -808,7 +803,6 @@
      position: relative;
  }
 
- /* Desktop: 3 columns */
  @media (min-width: 768px) {
      .works-grid {
          grid-template-columns: repeat(3, 1fr);
@@ -816,16 +810,13 @@
      }
  }
 
- /* --- The Connector Line (Desktop Only) --- */
  @media (min-width: 768px) {
      .connector-line {
          position: absolute;
          top: 50px;
-         /* Aligns with center of icons */
          left: 16%;
          right: 16%;
          height: 2px;
-         /* Creates a dashed grey line */
          background-image: linear-gradient(to right, #e0e0e0 60%, rgba(255, 255, 255, 0) 0%);
          background-position: bottom;
          background-size: 16px 1px;
@@ -884,7 +875,7 @@
      font-family: 'Playfair Display', serif;
      font-size: 1.35rem;
      margin-bottom: 12px;
-     color: #1a1a1a;
+     color: var(--text-color);
      font-weight: 700;
  }
 
@@ -1958,13 +1949,81 @@
      }
  }
 
- .lazy-text {
-     font-size: 16px;
-     line-height: 1.7;
-     color: #4b5563;
+ #page-loader {
+     position: fixed;
+     inset: 0;
+     background: linear-gradient(135deg, #020617, #020617);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     z-index: 9999;
  }
 
- .lazy-text .word {
-     display: inline-block;
-     will-change: transform, opacity;
+ .loader-inner {
+     text-align: center;
+     width: 300px;
+ }
+
+ .loader-logo {
+     width: 64px;
+     height: 64px;
+     margin: 0 auto 20px;
+     border-radius: 18px;
+     background: linear-gradient(135deg, #2563eb, #22d3ee);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: #fff;
+     font-size: 26px;
+     animation: pulse 1.6s ease-in-out infinite;
+ }
+
+ .loader-text {
+     color: #e5e7eb;
+     font-size: 14px;
+     margin-bottom: 18px;
+     opacity: 0.85;
+ }
+
+ .loader-bar {
+     height: 4px;
+     width: 100%;
+     background: rgba(255, 255, 255, 0.15);
+     border-radius: 999px;
+     overflow: hidden;
+ }
+
+ .loader-bar span {
+     display: block;
+     height: 100%;
+     width: 0%;
+     background: linear-gradient(90deg, #2563eb, #22d3ee);
+     animation: load 2.6s ease forwards;
+ }
+
+ @keyframes load {
+     from {
+         width: 0%;
+     }
+
+     to {
+         width: 100%;
+     }
+ }
+
+ @keyframes pulse {
+     0% {
+         transform: scale(1);
+         opacity: 1;
+     }
+
+     50% {
+         transform: scale(1.05);
+         opacity: 0.85;
+     }
+
+     100% {
+         transform: scale(1);
+         opacity: 1;
+     }
  }

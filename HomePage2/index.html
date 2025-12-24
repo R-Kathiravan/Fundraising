@@ -12,18 +12,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <h1>STACKLY</h1>
+            </div>
+            <div class="loader-line"></div>
+        </div>
+    </div>
     <header>
         <div class="header-cls">
             <a href="index.html" class="logo">
-                <img src="./assets/stackly-logo1.png" alt="Stackly Logo">
+                <img src="./assets/stackly-logo1.webp" alt="Stackly Logo">
             </a>
             <div class="menu-items">
                 <div class="home-nav">
-                    <a tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-                    <div class="home-select">
+                    <a href="index.html" class="home-btn active">Home</a>
+
+                    <span class="material-icons dropdown-icon" id="homeDropdownBtn">
+                        expand_more
+                    </span>
+
+                    <div class="home-select" id="homeDropdown">
                         <a href="../index.html">Home Page 1</a>
                     </div>
                 </div>
@@ -32,15 +47,16 @@
                 <a href="donate-campaigns.html">Donate Campaigns</a>
                 <a href="create-campaign.html">Create Campaign</a>
                 <a href="contact.html">Contact</a>
-                <a class="menu-login loginBtn" tabindex="0">Login/Signup</a>
+                <a class="menu-login loginBtn" tabindex="0">Sign In</a>
                 <a class="close-btn">Close</a>
             </div>
             <div class="menu-sett">
                 <div class="sign-in-menu">
-                    <a class="loginBtn" tabindex="0">Login/Signup</a>
+                    <a class="loginBtn" tabindex="0">Sign In</a>
                 </div>
                 <div class="dark-light-mode">
-                    <button class="theme-toggle" id="theme-toggle"> <span class="material-symbols-outlined">
+                    <button class="theme-toggle" id="theme-toggle" title="Toggle Dark/Light Mode"> <span
+                            class="material-symbols-outlined">
                             brightness_4
                         </span>
                     </button>
@@ -51,114 +67,121 @@
             </div>
         </div>
     </header>
-    <!-- <section class="hero">
-        <div class="hero-overlay"></div>
-
-        <div class="video-container">
-            <video id="video1" class="video-player active" src="./assets/video1.mp4" muted playsinline></video>
-            <video id="video2" class="video-player" src="./assets/video2.mp4" muted playsinline></video>
-        </div>
-
-        <div class="hero-content">
-            <h1 data-aos="fade-down">Empower Your Cause. Raise More, Faster.</h1>
-            <p data-aos="fade-up">Create, manage, and track your fundraising campaigns with ease. Connect with donors
-                worldwide and make
-                every campaign a success.</p>
-            <div class="hero-links">
-                <a href="donate-campaigns.html" class="btn btn-primary" data-aos="zoom-in">Donate Campaign</a>
-                <a href="create-campaign.html" class="btn btn-secondary" data-aos="fade-up">Create Your First
-                    Campaign</a>
+    <section class="dynamic-hero">
+        <div class="hero-bg-slider">
+            <div class="slide-item active" style="background-image: url('./assets/hero-bg-1.webp');">
             </div>
-        </div>
-    </section> -->
-    <section class="hero">
-        <div class="hero-animation">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
+            <div class="slide-item" style="background-image: url('./assets/hero-bg-2.webp');">
+            </div>
+            <div class="slide-item" style="background-image: url('./assets/hero-bg-3.webp');">
+            </div>
+
+            <div class="hero-overlay"></div>
         </div>
 
-        <div class="hero-overlay-texture"></div>
+        <div class="container hero-content text-center">
+            <div class="hero-badge" data-aos="fade-down">
+                <!-- <span class="material-icons-round">public</span>
+                Impact Worldwide -->
+            </div>
 
-        <div class="hero-content text-center">
-            <h1 data-aos="fade-down">Empower Your Cause.<br>Raise More, Faster.</h1>
+            <div class="headline-slider">
+                <h1 class="active">
+                    Empower <span class="text-gradient">Education.</span><br>
+                    Build Brighter Futures.
+                </h1>
+                <h1>
+                    Provide <span class="text-gradient">Medical Care.</span><br>
+                    Save Lives Today.
+                </h1>
+                <h1>
+                    Respond to <span class="text-gradient">Disasters.</span><br>
+                    Rebuild Communities.
+                </h1>
+            </div>
+
             <p data-aos="fade-up" data-aos-delay="200">
-                Create, manage, and track your fundraising campaigns with ease.
-                Connect with donors worldwide and make every campaign a success.
+                The all-in-one platform to connect with donors worldwide and turn empathy into real impact.
             </p>
 
-            <div class="hero-links">
-                <a href="donate-campaigns.html" class="btn btn-primary" data-aos="zoom-in" data-aos-delay="300">
-                    Donate Now
-                </a>
-                <a href="create-campaign.html" class="btn btn-secondary" data-aos="fade-up" data-aos-delay="400">
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+                <a href="create-campaign.html" class="btn btn-primary">
                     Start a Campaign
                 </a>
+                <a href="donate-campaigns.html" class="btn btn-secondary">
+                    Donate Now
+                </a>
             </div>
         </div>
     </section>
-    <section class="features" data-aos="fade-down">
-        <div class="section-header">
-            <h1 class="section-head">Empower Your Fundraising Efforts</h1>
-            <p class="section-subtitle">All-in-one platform to launch, manage, and track your campaigns effortlessly.
-            </p>
-        </div>
-        <div class="features-grid">
-            <div class="features-card-container" data-aos="fade-up">
-                <div class="features-card">
-                    <div class="features-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h1 class="features-card-head">Create Campaigns Easily</h1>
-                    <div class="features-desc">
-                        <p>Launch your fundraising campaign in minutes with customizable templates.
-                            <br>
-                            Set goals, deadlines, and donation tiers without technical skills.
-                        </p>
+    <section class="premium-features" id="features">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-down">
+                <h1>Everything you need to <span class="text-gradient">succeed.</span></h1>
+                <p class="section-subtitle">All-in-one platform to launch, manage, and track your campaigns
+                    effortlessly.</p>
+            </div>
+
+            <div class="bento-grid">
+
+                <div class="bento-card span-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-content">
+                        <div class="icon-glow">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3>Create Campaigns Easily</h3>
+                        <p>Launch your fundraising campaign in minutes with customizable templates. Set goals,
+                            deadlines, and donation tiers without technical skills.</p>
+                    </div>
+                    <div class="card-decor-circle"></div>
+                </div>
+
+                <div class="bento-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-content">
+                        <div class="icon-glow">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3>Real-Time Tracking</h3>
+                        <p>Monitor contributions instantly and generate visual charts to track performance.</p>
                     </div>
                 </div>
-                <div class="features-card">
-                    <div class="features-icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <h1 class="features-card-head">Real-Time Donation Tracking</h1>
-                    <div class="features-desc">
-                        <p>Monitor contributions instantly and see live progress toward your goal.
-                            <br>
-                            Generate visual charts to track campaign performance.
-                        </p>
+
+                <div class="bento-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-content">
+                        <div class="icon-glow">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3>Secure Payments</h3>
+                        <p>Accept donations via credit cards, PayPal, and other secure gateways with encryption.</p>
                     </div>
                 </div>
-                <div class="features-card">
-                    <div class="features-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h1 class="features-card-head">Secure Payments</h1>
-                    <div class="features-desc">
-                        <p>Accept donations via credit cards, PayPal, and other secure gateways.
-                            <br>
-                            Ensure donors' information is safe with encrypted transactions.
-                        </p>
+
+                <div class="bento-card span-2" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-content">
+                        <div class="icon-glow">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </div>
+                        <h3>Automated Notifications</h3>
+                        <p>Send thank-you emails, reminders, and updates to your supporters automatically. Keep your
+                            community engaged without manual effort.</p>
+                    </div>
+                    <div class="card-decor-circle"></div>
+                </div>
+
+                <div class="bento-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-content">
+                        <div class="icon-glow">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </div>
+                        <h3>Social Sharing</h3>
+                        <p>Embed your fundraising widget on websites or blogs easily and share with one click.</p>
                     </div>
                 </div>
-                <div class="features-card">
-                    <div class="features-icon"><i class="fa-solid fa-paper-plane"></i></div>
-                    <h1 class="features-card-head">Automated Email & Notifications</h1>
-                    <div class="features-desc">
-                        <p>Send thank-you emails, reminders, and updates to your supporters automatically.
-                            <br>
-                            Keep your community engaged without manual effort.
-                        </p>
-                    </div>
-                </div>
-                <div class="features-card">
-                    <div class="features-icon"><i class="fa-solid fa-share-nodes"></i></div>
-                    <h1 class="features-card-head">Social Sharing & Embedding</h1>
-                    <div class="features-desc">
-                        <p>Share your campaigns on social media with one click.
-                            <br>
-                            Embed your fundraising widget on websites or blogs easily.
-                        </p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
-    <section class="how-it-works" data-aos="fade-up">
+    <section class="how-it-works container" data-aos="fade-up">
         <div class="section-header">
             <h1 class="section-head">How it Works</h1>
             <p class="section-subtitle">Launching your fundraising campaign is simple in 3 easy steps.</p>
@@ -195,7 +218,7 @@
             </article>
         </div>
     </section>
-    <section class="testimonial" data-aos="zoom-in">
+    <section class="testimonial container" data-aos="zoom-in">
         <div class="section-header">
             <h1 class="section-head">What our Users Say</h1>
             <p class="section-subtitle">Real stories from organizations and individuals who successfully raised funds
@@ -207,7 +230,7 @@
                     <div class="testimonial-image"><img src="./assets/testimonial-img1.webp" alt="Testimonial Person1">
                     </div>
                     <div class="testimonial-overlay">
-                        <h1 class="testimonial-name">Gayu</h1>
+                        <h1 class="testimonial-name">Gayathri</h1>
                         <p class="testimonial-role">Director of Helping Hands Foundation</p>
                     </div>
                 </div>
@@ -218,7 +241,7 @@
             </div>
             <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="300">
                 <div class="testimonial-card-front">
-                    <div class="testimonial-image"><img src="./assets/testimonial-img2.jpeg" alt="Testimonial Person2">
+                    <div class="testimonial-image"><img src="./assets/testimonial-img2.webp" alt="Testimonial Person2">
                     </div>
                     <div class="testimonial-overlay">
                         <h1 class="testimonial-name">Priya</h1>
@@ -232,7 +255,7 @@
             </div>
             <div class="testimonial-card" data-aos="fade-down" data-aos-delay="400">
                 <div class="testimonial-card-front">
-                    <div class="testimonial-image"><img src="./assets/testimonial-img3.jpg" alt="Testimonial Persion3">
+                    <div class="testimonial-image"><img src="./assets/testimonial-img3.webp" alt="Testimonial Persion3">
                     </div>
                     <div class="testimonial-overlay">
                         <h1 class="testimonial-name">Karthi</h1>
@@ -255,19 +278,19 @@
                 </div>
                 <div class="testimonial-content">
                     <div class="testimonial-desc">A wonderful experience! The platform made fundraising straightforward
-                        and impactful. Highly recommended for anyone looking to support meaningful causes."</div>
+                        and impactful. </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="blog" data-aos="fade-down">
+    <section class="blog container" data-aos="fade-down">
         <div class="section-header">
             <h1 class="section-head">From Our Blog</h1>
             <p class="section-subtitle">Insights, tips, and stories to help you launch successful fundraising campaigns.
             </p>
             <div class="blog-container">
                 <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="./assets/blog-img1.jpg" alt="Blog image For Strategies">
+                    <img src="./assets/blog-img1.webp" alt="Blog image For Strategies">
                     <div class="blog-card-content">
                         <h3>10 Proven Strategies to Boost Your Fundraising Campaign</h3>
                         <p>From setting clear goals to leveraging social media, these steps can increase participation
@@ -293,7 +316,7 @@
             </div>
         </div>
     </section>
-    <section class="cta">
+    <section class="cta container">
         <div class="section-header" data-aos="fade-down" data-aos-delay="200">
             <h1 class="section-head">Ready to Create Change?</h1>
             </p>
@@ -306,97 +329,161 @@
     </section>
     <footer class="footer" data-aos="fade-up">
         <div class="footer-container">
-            <div class="footer-logo logo" data-aos="fade-up" data-aos-delay="100">
-                <img src="./assets/stackly-logo1.png" class="logo" alt="LOGO">
-                <p class="footer-tagline">Together We Fund the Future.</p>
-                <div class="follow-us">
-                    <a href="404page.html" title="Google"> <img src="https://img.icons8.com/color/48/google-logo.png"
-                            alt="google-logo" /></a>
-                    <a href="404page.html" title="Facebook"><img
-                            src="https://img.icons8.com/cute-clipart/64/facebook.png" alt="facebook" /></a>
-                    <a href="404page.html" title="Twitter"><img src="https://img.icons8.com/fluency/50/twitter.png"
-                            alt="twitter" /></a>
-                </div>
-            </div>
-            <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
-                <h1>Quick Links</h1>
-                <a href="index.html">Home</a>
-                <a href="features.html">Features</a>
-                <a href="about.html">About</a>
-                <a href="donate-campaigns.html">Donate Campaigns</a>
-                <a href="create-campaign.html">Create Campaign</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="footer-contact-info" data-aos="fade-up" data-aos-delay="300">
-                <h1>Contact Info</h1>
-                <li>Address: <a href="https://www.google.com/maps/search/?api=1&query=stackly+Salem,+Tamil+Nadu"
-                        target="_blank" rel="noopener noreferrer">Salem
-                        TN</a></li>
-                <li>Contact Number: <a href="tel:+91 9876543210">9876543210</a></li>
-                <li>Mail To: <a href="mailto: info@thestackly.com">info@thestackly.com</a></li>
-            </div>
-            <div class="footer-legel-link" data-aos="fade-up" data-aos-delay="400">
-                <h1>Legel Links</h1>
-                <li><a href="404page.html">Privacy Policy</a></li>
-                <li><a href="404page.html">Terms of Service</a></li>
-            </div>
-            <div class="footer-newsletter" data-aos="fade-up" data-aos-delay="500">
-                <h1>Newsletter</h1>
-                <div class="news-letter">
-                    <h2>Sign up to our Newsletter</h2>
-                    <div class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" required>
-                        <button type="submit" onclick="window.location.href='404page.html'">Subscribe</button>
+            <div class="footer-grid">
+                <div class="footer-logo logo" data-aos="fade-up" data-aos-delay="100">
+                    <img src="./assets/stackly-logo1.webp" class="logo" alt="LOGO">
+                    <p class="footer-tagline">Together We Fund the Future.</p>
+                    <div class="follow-us">
+                        <a href="404page.html" title="Google"> <img src="./assets/google-logo.webp"
+                                alt="google-logo" /></a>
+                        <a href="404page.html" title="Facebook"><img src="./assets/facebook.webp" alt="facebook" /></a>
+                        <a href="404page.html" title="Twitter"><img src="./assets/twitter.webp" alt="twitter" /></a>
                     </div>
                 </div>
-            </div>
+                <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
+                    <h1>Quick Links</h1>
+                    <a href="index.html">Home</a>
+                    <a href="features.html">Features</a>
+                    <a href="about.html">About</a>
+                    <a href="donate-campaigns.html">Donate Campaigns</a>
+                    <a href="create-campaign.html">Create Campaign</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-contact-info" data-aos="fade-up" data-aos-delay="300">
+                    <h1>Contact Info</h1>
+                    <li>Address: <a href="https://www.google.com/maps/search/?api=1&query=stackly+Salem,+Tamil+Nadu"
+                            target="_blank" rel="noopener noreferrer">Salem
+                            TN</a></li>
+                    <li>Contact Number: <a href="tel:+91 9876543210">9876543210</a></li>
+                    <li>Mail To: <a href="mailto: info@thestackly.com">info@thestackly.com</a></li>
+                </div>
+                <div class="footer-legel-link" data-aos="fade-up" data-aos-delay="400">
+                    <h1>Legel Links</h1>
+                    <li><a href="404page.html">Privacy Policy</a></li>
+                    <li><a href="404page.html">Terms of Service</a></li>
+                </div>
+                <div class="footer-newsletter" data-aos="fade-up" data-aos-delay="500">
+                    <h1>Newsletter</h1>
+                    <div class="news-letter">
+                        <h2>Sign up to our Newsletter</h2>
+                        <form class="newsletter-form" id="newsletterForm">
+                            <input type="email" placeholder="Enter your email" id="newsletterEmail">
+                            <button type="submit">Subscribe</button>
+                            <small class="form-message" id="formMessage"></small>
+                        </form>
+                    </div>
+                </div>
 
-        </div>
-        <hr>
-        <div class="footer-copyright">
-            <p>© 2025 Stackly. All Rights Reserved.</p>
+            </div>
+            <hr>
+            <div class="footer-copyright">
+                <p>© 2025 Stackly. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeLoginModal">&times;</span>
-            <div id="loginContainer"><!-- Login form --></div>
+            <div id="loginContainer"></div>
         </div>
     </div>
     <script src="script.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({
+            startEvent: 'load',
             duration: 800,
-            once: true
+            easing: 'ease-out-cubic',
+            offset: 120,
+            delay: 50,
+            once: true,
+            mirror: false,
+            anchorPlacement: 'top-bottom'
         });
+
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const videoSources = ["./assets/video1.mp4", "./assets/video2.mp4", "./assets/video3.mp4"];
-            let currentVideoIndex = 0;
-            const video1 = document.getElementById('video1');
-            const video2 = document.getElementById('video2');
-            let activePlayer = video1;
-            let inactivePlayer = video2;
-            activePlayer.src = videoSources[currentVideoIndex];
-            activePlayer.play();
-            preloadNextVideo();
-            activePlayer.addEventListener('ended', switchVideo);
-            function preloadNextVideo() {
-                const nextVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-                inactivePlayer.src = videoSources[nextVideoIndex];
+        document.addEventListener("DOMContentLoaded", () => {
+            const slides = document.querySelectorAll('.slide-item');
+            const headlines = document.querySelectorAll('.headline-slider h1');
+            let currentSlide = 0;
+            const slideInterval = 2000;
+
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                headlines[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+                headlines[currentSlide].classList.add('active');
             }
-            function switchVideo() {
-                currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-                [activePlayer, inactivePlayer] = [inactivePlayer, activePlayer];
-                activePlayer.classList.add('active');
-                inactivePlayer.classList.remove('active');
-                activePlayer.play();
-                inactivePlayer.removeEventListener('ended', switchVideo);
-                activePlayer.addEventListener('ended', switchVideo);
-                preloadNextVideo();
+            setInterval(nextSlide, slideInterval);
+        });
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
+        });
+        const homeDropdownBtn = document.getElementById("homeDropdownBtn");
+        const homeDropdown = document.getElementById("homeDropdown");
+        const icon = document.querySelector(".dropdown-icon");
+
+        homeDropdownBtn.addEventListener("click", () => {
+            homeDropdown.classList.toggle("show");
+            icon.classList.toggle("rotate");
+        });
+        document.addEventListener("click", (e) => {
+            if (!homeDropdown.contains(e.target) && !homeDropdownBtn.contains(e.target)) {
+                homeDropdown.classList.remove("show");
+                icon.classList.remove("rotate");
+            }
+        });
+        const form = document.getElementById("newsletterForm");
+        const emailInput = document.getElementById("newsletterEmail");
+        const message = document.getElementById("formMessage");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const email = emailInput.value.trim();
+            message.className = "form-message";
+
+            if (!email) {
+                alert("Please enter your email address.");
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            showSuccess("You're in! Thanks for subscribing.");
+            emailInput.value = "";
+        });
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function showError(text) {
+            message.textContent = text;
+            message.classList.add("error");
+        }
+
+        function showSuccess(text) {
+            // message.textContent = text;
+            window.location.href = '404page.html';
+        }
+        window.addEventListener("load", function () {
+            const preloader = document.getElementById('preloader');
+            const body = document.body;
+            setTimeout(() => {
+                body.classList.add('loaded');
+            }, 1500);
         });
     </script>
 </body>
