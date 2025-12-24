@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 </head>
 
 <body>
@@ -30,7 +31,7 @@
                     </span>
 
                     <div class="home-select" id="homeDropdown">
-                        <a href="./homepage2/index.html">Home Page 2</a>
+                        <a href="./HomePage2/index.html">Home Page 2</a>
                     </div>
                 </div>
                 <a href="about.html">About Us</a>
@@ -61,7 +62,7 @@
         </div>
         <div class="hero-text">
             <h1 class="hero-head" data-aos="fade-down"><span>Together We Build Hope</span></h1>
-            <p data-aos="fade-up"> Join us in transforming lives through kindness and generosity. Every small
+            <p data-aos="fade-left"> Join us in transforming lives through kindness and generosity. Every small
                 contribution paves the way for
                 a brighter future.</p>
 
@@ -78,67 +79,49 @@
         </div>
     </div>
 
-    <section class="impact">
-        <div class="section-header">
-            <h1 class="subtitle">The Difference We Make</h1>
-            <h2>Measurable impact driven by generosity and trust.</h2>
-        </div>
-        <ul class="impact-icons-list">
-            <li class="icon-item" data-aos="fade-down" data-aos-delay="100">
-                <div class="icon-circle green-bg">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <span class="icon-text">Sustainability</span>
-            </li>
-
-            <li class="icon-item" data-aos="fade-down" data-aos-delay="200">
-                <div class="icon-circle red-bg">
-                    <i class="fas fa-heart-pulse"></i>
-                </div>
-                <span class="icon-text">Wellness</span>
-            </li>
-
-            <li class="icon-item" data-aos="fade-down" data-aos-delay="300">
-                <div class="icon-circle grey-bg">
-                    <i class="fas fa-book-open"></i>
-                </div>
-                <span class="icon-text">Education</span>
-            </li>
-
-            <li class="icon-item" data-aos="fade-down" data-aos-delay="400">
-                <div class="icon-circle light-grey-bg">
-                    <i class="fas fa-hands-helping"></i>
-                </div>
-                <span class="icon-text">Support</span>
-            </li>
-        </ul>
-        <div class="impact-section">
-            <div class="impact-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon"><i class="fas fa-heart"></i></div>
-                <h2 class="impact-number" data-target="3152">0</h2>
-                <p>Donors</p>
+    <section class="impact-section" id="impact-counter">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="subtitle text-white">The Difference We Make</h2>
+                <h2>Measurable impact driven by generosity and trust.</h2>
             </div>
 
-            <div class="impact-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon"><i class="fas fa-utensils"></i></div>
-                <h2 class="impact-number" data-target="12400">0</h2>
-                <p>Meals Delivered</p>
-            </div>
+            <div class="impact-grid">
 
-            <div class="impact-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon"><i class="fas fa-home"></i></div>
-                <h2 class="impact-number" data-target="875">0</h2>
-                <p>Communities Helped</p>
-            </div>
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-wrapper">
+                        <span class="material-icons-round">volunteer_activism</span>
+                    </div>
+                    <h2 class="impact-number" data-target="3152">0</h2>
+                    <p class="impact-label">Donors Joined</p>
+                </div>
 
-            <div class="impact-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon"><i class="fas fa-graduation-cap"></i></div>
-                <h2 class="impact-number" data-target="452">0</h2>
-                <p>Students Supported</p>
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-wrapper">
+                        <span class="material-icons-round">restaurant</span>
+                    </div>
+                    <h2 class="impact-number" data-target="12400">0</h2>
+                    <p class="impact-label">Meals Delivered</p>
+                </div>
+
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-wrapper">
+                        <span class="material-icons-round">roofing</span>
+                    </div>
+                    <h2 class="impact-number" data-target="875">0</h2>
+                    <p class="impact-label">Communities Helped</p>
+                </div>
+
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="icon-wrapper">
+                        <span class="material-icons-round">school</span>
+                    </div>
+                    <h2 class="impact-number" data-target="452">0</h2>
+                    <p class="impact-label">Students Supported</p>
+                </div>
+
             </div>
         </div>
-
-
     </section>
     <div class="featured-campaigns gradient-wave-bg">
         <div class="section-header">
@@ -270,25 +253,41 @@
         </div>
     </div>
     <section class="how-it-works">
-        <div class="section-header">
-            <h1 class="subtitle">How It Works</h1>
-            <h2>A simple way to start making an impact</h2>
-        </div>
-        <div class="works-grid">
-            <div class="works-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="works-icon">📋</div>
-                <h4>Start a Campaign</h4>
-                <p>Create your fundraising campaign in minutes. Share your story and set a goal.</p>
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="subtitle">How It Works</h2>
+                <h2>Make a difference in three simple steps</h2>
             </div>
-            <div class="works-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="works-icon">📢</div>
-                <h4>Share with Everyone</h4>
-                <p>Spread the word via social media, email, and messages to reach supporters.</p>
-            </div>
-            <div class="works-card" data-aos="zoom-in" data-aos-delay="300">
-                <div class="works-icon">💰</div>
-                <h4>Collect Donations</h4>
-                <p>Receive donations securely and withdraw funds when needed.</p>
+
+            <div class="works-grid relative">
+                <div class="connector-line"></div>
+
+                <div class="works-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box">
+                        <span class="step-badge">1</span>
+                        <span class="material-icons-round">volunteer_activism</span>
+                    </div>
+                    <h3>Start a Campaign</h3>
+                    <p>Tell your story, set a goal, and add a photo. It takes less than 2 minutes to go live.</p>
+                </div>
+
+                <div class="works-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box">
+                        <span class="step-badge">2</span>
+                        <span class="material-icons-round">campaign</span>
+                    </div>
+                    <h3>Share with Everyone</h3>
+                    <p>Use our built-in tools to share via WhatsApp and social media to rally your community.</p>
+                </div>
+
+                <div class="works-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-box">
+                        <span class="step-badge">3</span>
+                        <span class="material-icons-round">savings</span>
+                    </div>
+                    <h3>Collect Donations</h3>
+                    <p>Receive donations securely to your bank account and start making your impact real.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -372,7 +371,7 @@
         </div>
     </aside>
     <section id="testimonials" class="testimonial-section" data-aos="zoom-in" data-aos-delay="100">
-        <div class="container">
+        <div class="container testimonial-container">
             <div class="section-header">
                 <span class="subtitle">Testimonials</span>
                 <h2>Voices of Our Community</h2>
@@ -444,25 +443,6 @@
             </div>
         </div>
     </section>
-    <section class="cta-section" data-aos="fade-up">
-        <div class="cta-content">
-            <div class="cta-text">
-                <h2>Ready to Make a Difference?</h2>
-                <p>Your contribution, no matter the size, has the power to change lives. Join our community of
-                    supporters today and be a part of the story.</p>
-            </div>
-            <div class="cta-button-wrapper">
-                <a href="browse-campaigns.html" class="btn-donate">
-                    <span>Donate Now</span>
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                        class="bi bi-heart-fill" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-                    </svg> -->
-                </a>
-            </div>
-        </div>
-    </section>
     <section id="faq-section" class="faq-section" data-aos="fade-down" data-aos-delay="100">
         <div class="container">
             <div class="section-header">
@@ -528,6 +508,21 @@
             </div>
         </div>
     </section>
+    <section class="cta-section" data-aos="fade-up">
+        <div class="cta-content">
+            <div class="cta-text">
+                <h2>Ready to Make a Difference?</h2>
+                <p>Your contribution, no matter the size, has the power to change lives. Join our community of
+                    supporters today and be a part of the story.</p>
+            </div>
+            <div class="cta-button-wrapper">
+                <a href="browse-campaigns.html" class="btn-donate">
+                    <span>Donate Now</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <hr>
     <footer>
         <div class="footer-container" data-aos="fade-up" data-aos-delay="100">
             <div class="footer-column" id="footer-about">
@@ -939,6 +934,26 @@
             window.location.href = '404page.html';
         }
     </script>
+    <script>
+        // Split text into words
+        const lazyText = document.querySelector(".lazy-text");
+        const words = lazyText.innerText.split(" ");
+
+        lazyText.innerHTML = words
+            .map(word => `<span class="word">${word}&nbsp;</span>`)
+            .join("");
+
+        // Animate words lazily
+        gsap.from(".lazy-text .word", {
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            ease: "power3.out",
+            stagger: 0.08
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
 
     <script src="script.js"></script>
 
