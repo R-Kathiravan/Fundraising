@@ -940,9 +940,15 @@
      box-shadow: var(--card-shadow);
      overflow: hidden;
      display: flex;
-     width: 280px;
+     width: 350px;
      flex-direction: column;
      transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+
+ @media (max-width:478px) {
+     .story-card {
+         width: 280px;
+     }
  }
 
  .story-card:hover {
