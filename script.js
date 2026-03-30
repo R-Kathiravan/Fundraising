@@ -9,211 +9,42 @@ document.querySelector(".btn-close").addEventListener("click", function () {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const loginBtn = document.getElementById('loginBtn');
-    const loginModal = document.getElementById('loginModal');
-    const closeLoginModal = document.getElementById('closeLoginModal');
-    const loginContainer = document.getElementById('loginContainer');
-
-    loginBtn.addEventListener('click', () => {
-        if (!document.getElementById('loginCss')) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = 'login.css';
-            link.id = 'loginCss';
-            document.head.appendChild(link);
-        }
-
-        fetch('login.html')
-            .then(res => res.text())
-            .then(data => {
-                loginContainer.innerHTML = data; // HTML inserted
-                loginModal.style.display = 'flex';
-                attachFormJS();
-            });
+    AOS.init({
+        startEvent: 'load',
+        duration: 800,
+        easing: 'ease-out-cubic',
+        offset: 120,
+        delay: 50,
+        once: true,
+        mirror: false,
+        anchorPlacement: 'top-bottom'
     });
+    document.body.style.overflow = "hidden";
 
+    window.addEventListener("load", () => {
+        const loader = document.getElementById("page-loader");
+        setTimeout(() => {
+            loader.style.opacity = "0";
+            loader.style.pointerEvents = "none";
+            setTimeout(() => {
+                loader.style.display = "none";
+                document.body.style.overflow = "auto";
+            }, 400);
+        }, 1600);
+    });
+});
 
-    closeLoginModal.addEventListener('click', () => loginModal.style.display = 'none');
-    window.addEventListener('click', e => { if (e.target === loginModal) loginModal.style.display = 'none'; });
+const homeDropdownBtn = document.getElementById("homeDropdownBtn");
+const homeDropdown = document.getElementById("homeDropdown");
+const icon = document.querySelector(".dropdown-icon");
 
-
-    function attachFormJS() {
-        const loginTab = document.getElementById('login-tab');
-        const signupTab = document.getElementById('signup-tab');
-        const loginForm = document.getElementById('login-form');
-        const signupForm = document.getElementById('signup-form');
-        const goToSignup = document.getElementById('go-to-signup');
-        const goToLogin = document.getElementById('go-to-login');
-
-        const loginPasswordToggle = document.getElementById('login-password-toggle');
-        const loginPasswordInput = document.getElementById('login-password');
-        const signupPasswordToggle = document.getElementById('signup-password-toggle');
-        const signupPasswordInput = document.getElementById('signup-password');
-
-        loginTab.addEventListener('click', function () {
-            switchToLogin();
-        });
-
-        signupTab.addEventListener('click', function () {
-            switchToSignup();
-        });
-
-        goToSignup.addEventListener('click', function (e) {
-            e.preventDefault();
-            switchToSignup();
-        });
-
-        goToLogin.addEventListener('click', function (e) {
-            e.preventDefault();
-            switchToLogin();
-        });
-
-        function switchToLogin() {
-            loginTab.classList.add('active');
-            signupTab.classList.remove('active');
-            loginForm.classList.add('active');
-            signupForm.classList.remove('active');
-        }
-
-        function switchToSignup() {
-            signupTab.classList.add('active');
-            loginTab.classList.remove('active');
-            signupForm.classList.add('active');
-            loginForm.classList.remove('active');
-        }
-
-        loginPasswordToggle.addEventListener('click', function () {
-            togglePasswordVisibility(loginPasswordInput, loginPasswordToggle);
-        });
-
-        signupPasswordToggle.addEventListener('click', function () {
-            togglePasswordVisibility(signupPasswordInput, signupPasswordToggle);
-        });
-
-        function togglePasswordVisibility(input, toggle) {
-            if (input.type === 'password') {
-                input.type = 'text';
-                toggle.innerHTML = '<i class="fas fa-eye-slash"></i>';
-            } else {
-                input.type = 'password';
-                toggle.innerHTML = '<i class="fas fa-eye"></i>';
-            }
-        }
-
-        loginForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            if (validateLoginForm()) {
-                alert('Login successful! Redirecting to your dashboard...');
-                loginForm.reset();
-            }
-        });
-
-        signupForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            if (validateSignupForm()) {
-                alert('Account created successfully! Welcome to FundraiseHub.');
-                signupForm.reset();
-                switchToLogin();
-            }
-        });
-
-        function validateLoginForm() {
-            let isValid = true;
-            const email = document.getElementById('login-email').value.trim();
-            const password = document.getElementById('login-password').value;
-
-            if (!email) {
-                showError('login-email-error', 'Email is required');
-                isValid = false;
-            } else if (!isValidEmail(email)) {
-                showError('login-email-error', 'Please enter a valid email address');
-                isValid = false;
-            } else {
-                hideError('login-email-error');
-            }
-
-            if (!password) {
-                showError('login-password-error', 'Password is required');
-                isValid = false;
-            } else {
-                hideError('login-password-error');
-            }
-
-            return isValid;
-        }
-
-        function validateSignupForm() {
-            let isValid = true;
-            const name = document.getElementById('signup-name').value.trim();
-            const email = document.getElementById('signup-email').value.trim();
-            const password = document.getElementById('signup-password').value;
-            const confirmPassword = document.getElementById('signup-confirm-password').value;
-
-            if (!name) {
-                showError('signup-name-error', 'Full name is required');
-                isValid = false;
-            } else {
-                hideError('signup-name-error');
-            }
-
-            if (!email) {
-                showError('signup-email-error', 'Email is required');
-                isValid = false;
-            } else if (!isValidEmail(email)) {
-                showError('signup-email-error', 'Please enter a valid email address');
-                isValid = false;
-            } else {
-                hideError('signup-email-error');
-            }
-
-            if (!password) {
-                showError('signup-password-error', 'Password is required');
-                isValid = false;
-            } else if (password.length < 8) {
-                showError('signup-password-error', 'Password must be at least 8 characters');
-                isValid = false;
-            } else {
-                hideError('signup-password-error');
-            }
-
-            if (!confirmPassword) {
-                showError('signup-confirm-password-error', 'Please confirm your password');
-                isValid = false;
-            } else if (password !== confirmPassword) {
-                showError('signup-confirm-password-error', 'Passwords do not match');
-                isValid = false;
-            } else {
-                hideError('signup-confirm-password-error');
-            }
-
-            return isValid;
-        }
-
-        function isValidEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-
-        function showError(elementId, message) {
-            const errorElement = document.getElementById(elementId);
-            errorElement.textContent = message;
-            errorElement.style.display = 'block';
-        }
-
-        function hideError(elementId) {
-            const errorElement = document.getElementById(elementId);
-            errorElement.style.display = 'none';
-        }
-
-        const inputs = document.querySelectorAll('input');
-        inputs.forEach(input => {
-            input.addEventListener('blur', function () {
-                if (this.id === 'login-email' || this.id === 'login-password') {
-                    validateLoginForm();
-                } else {
-                    validateSignupForm();
-                }
-            });
-        });
+homeDropdownBtn.addEventListener("click", () => {
+    homeDropdown.classList.toggle("show");
+    icon.classList.toggle("rotate");
+});
+document.addEventListener("click", (e) => {
+    if (!homeDropdown.contains(e.target) && !homeDropdownBtn.contains(e.target)) {
+        homeDropdown.classList.remove("show");
+        icon.classList.remove("rotate");
     }
 });

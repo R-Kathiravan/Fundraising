@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundraising || Campaigns</title>
     <link rel="stylesheet" href="browse-campaigns.css">
+    <link rel="stylesheet" href="shared.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings_night_sight" />
@@ -18,23 +20,47 @@
 </head>
 
 <body>
+    <div id="page-loader">
+        <div class="loader-inner">
+            <div class="loader-logo">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
 
-    <header>
+            <p class="loader-text">Preparing your fundraising experience</p>
+
+            <div class="loader-bar">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <header id="header">
         <div class="menu">
             <div class="logo">
-                <a href="index.html"><img src="./assets/stackly-logo1.png" alt="Stackly Logo"></a>
+                <a href="index.html"><img src="./assets/stackly-logo1.webp" alt="Stackly Logo"></a>
             </div>
             <nav class="menu-items">
-                <a href="index.html">Home</a>
+                <div class="home-nav">
+                    <a href="index.html" class="home-btn">Home</a>
+
+                    <span class="material-icons dropdown-icon" id="homeDropdownBtn">
+                        expand_more
+                    </span>
+
+                    <div class="home-select" id="homeDropdown">
+                        <a href="./HomePage2/index.html">Home Page 2</a>
+                    </div>
+                </div>
                 <a href="about.html">About Us</a>
-                <a href="browse-campaigns.html" class="active-menu">Browse Campaigns</a>
-                <a href="start-fundraising.html">Start a Fundraiser</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="contact-us.html">Contact Us</a>
-                <a id="loginBtn" tabindex="0">Login/signup</a>
+                <a href="browse-campaigns.html" class="nav-active"> Campaigns</a>
+                <a href="start-fundraising.html">Start Fund</a>
+                <a href="how-it-works.html">Process</a>
+                <a href="contact-us.html">Contact </a>
+                <a href="./dashboard/index.html">Dashboard</a>
+                <a href="login.html" id="loginBtn" tabindex="0">SignIn</a>
                 <a class="btn-close">Close</a>
             </nav>
-            <button class="theme-btn  theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
+            <button class="theme-btn theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
                     settings_night_sight
                 </span></button>
             <div class="hamburger">
@@ -42,13 +68,18 @@
             </div>
         </div>
     </header>
-
-    <section class="hero">
+    <section class="sub-hero">
         <h1 data-aos="fade-down" data-aos-delay="300">Browse Campaigns</h1>
         <p data-aos="fade-up" data-aos-delay="400">Discover causes that need your support</p>
     </section>
-    <section class="campaigns">
-        <h1 class="head">Campaigns</h1>
+    <section class="campaigns container">
+        <div class="section-header">
+            <div class="sec-chips">Explore</div>
+            <h2 class="head">Browse Campaigns</h2>
+            <p class="sec-desc">
+                Discover inspiring stories and find a cause that speaks to your heart. Every contribution matters.
+            </p>
+        </div>
         <div class="controls">
             <input type="text" id="search-input" placeholder="Search campaigns...">
             <div class="sort-and-view">
@@ -70,9 +101,9 @@
         <p id="no-results">No campaigns found matching your criteria.</p>
 
         <div class="pagination">
-            <button id="prev-btn">&larr; Previous</button>
+            <button id="prev-btn"><span class="material-icons">arrow_back</span> Previous</button>
             <span id="page-info"></span>
-            <button id="next-btn">Next &rarr;</button>
+            <button id="next-btn">Next <span class="material-icons">arrow_forward</span></button>
         </div>
 
         </div>
@@ -96,9 +127,18 @@
             </div>
         </div>
     </section>
-    <section class="urgent-campaings" id="urgent-campaings">
-        <h1 class="head">Urgent Campaigns</h1>
-        <div class="campaigns-list" id="campaigns-list" data-aos="zoom-in">
+    <section class="urgent-campaings  dark-bg" id="urgent-campaings">
+        <div class="container">
+            <div class="section-header">
+                <div class="sec-chips">Critical Need</div>
+                <h2 class="head head-warm">Urgent Campaigns</h2>
+                <p class="sec-desc">
+                    These causes require immediate attention. Your support today can make a life-changing difference
+                    right now.
+                </p>
+            </div>
+            <div class="campaigns-list" id="campaigns-list" data-aos="zoom-in">
+            </div>
         </div>
     </section>
     <section class="cta" data-aos="fade-down-right">
@@ -109,7 +149,7 @@
         <div class="footer-container" data-aos="fade-up">
             <div class="footer-column" id="footer-about">
                 <a class="footer-logo" href="index.html"><a href="index.html" class="logo"><img
-                            src="./assets/stackly-logo1.png"alt="Stackly Logo"></a>
+                            src="./assets/stackly-logo1.png" alt="Stackly Logo"></a>
                 </a>
                 <p class="footer-tagline">Funding Futures, One Campaign at a Time.</p>
                 <div class="follow-us">
@@ -242,8 +282,7 @@
                 } else if (value < 50) {
                     alert(" Minimum donation is ₹50.");
                 } else {
-                    alert(" Thank you for your generous donation of ₹" + value + "!");
-                    donateInput.value = "";
+                    window.location.href = '404page.html'
                 }
             });
 
@@ -303,7 +342,10 @@
                             </div>
                             <p class="donors">${data.donors} Donors</p>
                         </div>
+                        <div class='camp-btns'>
                         <button class="donate-btn">Donate Now</button>
+                        <button class='read-btn'>Know More</button>
+                        </div>
                     </div>`;
                 item.addEventListener("click", (e) => {
                     if (!e.target.classList.contains("donate-btn")) {
@@ -530,7 +572,10 @@ ${data.img2 ? `<img src="${data.img2}" alt="${data.category}" class="details-ima
           </div>
           <p class="donors">${campaign.donors} Donors</p>
         </div>
+        <div class='camp-btns'>
         <button class="donate-btn">Donate Now</button>
+        <button class="read-btn">Read More</button>
+        </div>
       </div>
     </div>`;
 
@@ -608,7 +653,7 @@ ${data.img2 ? `<img src="${data.img2}" alt="${data.category}" class="details-ima
                     setTimeout(() => {
                         target.scrollIntoView({ behavior: "smooth", block: "center" });
                         target.classList.add("highlight");
-                     }, 300);
+                    }, 300);
                 }
             }
 

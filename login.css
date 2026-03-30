@@ -1,4 +1,4 @@
-  /* * {
+  * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -6,17 +6,17 @@
   }
 
   body {
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 20px;
-  } */
+  }
 
   .form-main-container {
       width: 100%;
-      max-width: 900px;
+      max-width: 1200px;
+      margin: auto;
       background: white;
       border-radius: 20px;
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,28 @@
       display: flex;
       flex-direction: column;
       overflow-y: scroll;
+      position: relative;
+  }
 
+  .btn-back {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 15px;
+      background-color: #ddd;
+      padding: 10px;
+      border-radius: 30px;
+  }
+
+  .btn-back:hover span {
+      transform: translateX(-6px);
+  }
+
+  .btn-back:hover{
+    background-color: white;
   }
 
   .form-header {

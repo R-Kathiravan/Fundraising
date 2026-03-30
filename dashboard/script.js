@@ -12,7 +12,6 @@ hamburger.addEventListener("click", () => {
   menuBtnChange();
   //  hamburgerBtnChange()
 });
-F
 
 function menuBtnChange() {
   if (sidebar.classList.contains("open")) {

@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         if (validateLoginForm()) {
             // Simulate successful login
-            alert('Login successful! Redirecting to your dashboard...');
-            loginForm.reset();
+            window.location.href='404page.html'
+             loginForm.reset();
         }
     });
 
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         if (validateSignupForm()) {
             // Simulate successful signup
-            alert('Account created successfully! Welcome to FundraiseHub.');
+            // alert('Account created successfully! Welcome to FundraiseHub.');
             signupForm.reset();
             switchToLogin();
         }

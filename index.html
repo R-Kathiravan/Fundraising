@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundraising | Home</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shared.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings_night_sight" />
@@ -38,7 +39,7 @@
             </div>
             <nav class="menu-items">
                 <div class="home-nav">
-                    <a href="index.html" class="home-btn active">Home</a>
+                    <a href="index.html" class="home-btn nav-active">Home</a>
 
                     <span class="material-icons dropdown-icon" id="homeDropdownBtn">
                         expand_more
@@ -54,7 +55,7 @@
                 <a href="how-it-works.html">Process</a>
                 <a href="contact-us.html">Contact </a>
                 <a href="./dashboard/index.html">Dashboard</a>
-                <a id="loginBtn" tabindex="0">SignIn</a>
+                <a href="login.html" id="loginBtn" tabindex="0">SignIn</a>
                 <a class="btn-close">Close</a>
             </nav>
             <button class="theme-btn theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
@@ -93,7 +94,7 @@
         </div>
     </div>
 
-    <section class="impact-section" id="impact-counter">
+    <section class="impact-section dark-bg" id="impact-counter">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="subtitle text-white">The Difference We Make</h2>
@@ -101,39 +102,42 @@
             </div>
 
             <div class="impact-grid">
-
-                <div class="impact-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon-wrapper">
-                        <span class="material-icons-round">volunteer_activism</span>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="impact-card">
+                        <div class="icon-wrapper">
+                            <span class="material-icons-round">volunteer_activism</span>
+                        </div>
+                        <h2 class="impact-number" data-target="3152">0</h2>
+                        <p class="impact-label">Donors Joined</p>
                     </div>
-                    <h2 class="impact-number" data-target="3152">0</h2>
-                    <p class="impact-label">Donors Joined</p>
                 </div>
-
-                <div class="impact-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon-wrapper">
-                        <span class="material-icons-round">restaurant</span>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="impact-card">
+                        <div class="icon-wrapper">
+                            <span class="material-icons-round">restaurant</span>
+                        </div>
+                        <h2 class="impact-number" data-target="12400">0</h2>
+                        <p class="impact-label">Meals Delivered</p>
                     </div>
-                    <h2 class="impact-number" data-target="12400">0</h2>
-                    <p class="impact-label">Meals Delivered</p>
                 </div>
-
-                <div class="impact-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon-wrapper">
-                        <span class="material-icons-round">roofing</span>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="impact-card">
+                        <div class="icon-wrapper">
+                            <span class="material-icons-round">roofing</span>
+                        </div>
+                        <h2 class="impact-number" data-target="875">0</h2>
+                        <p class="impact-label">Communities Helped</p>
                     </div>
-                    <h2 class="impact-number" data-target="875">0</h2>
-                    <p class="impact-label">Communities Helped</p>
                 </div>
-
-                <div class="impact-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="icon-wrapper">
-                        <span class="material-icons-round">school</span>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="impact-card">
+                        <div class="icon-wrapper">
+                            <span class="material-icons-round">school</span>
+                        </div>
+                        <h2 class="impact-number" data-target="452">0</h2>
+                        <p class="impact-label">Students Supported</p>
                     </div>
-                    <h2 class="impact-number" data-target="452">0</h2>
-                    <p class="impact-label">Students Supported</p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -266,7 +270,7 @@
 
         </div>
     </div>
-    <section class="how-it-works">
+    <section class="how-it-works dark-bg">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="subtitle">How It Works</h2>
@@ -384,7 +388,7 @@
             <p id="story-panel-text"></p>
         </div>
     </aside>
-    <section id="testimonials" class="testimonial-section" data-aos="zoom-in" data-aos-delay="100">
+    <section id="testimonials" class="testimonial-section dark-bg" data-aos="zoom-in" data-aos-delay="100">
         <div class="container testimonial-container">
             <div class="section-header">
                 <span class="subtitle">Testimonials</span>
@@ -429,6 +433,16 @@
                             <span>On-site Volunteer</span>
                         </div>
                     </div>
+                    <div class="testimonial-slide" data-testimonial-id="volunteer1">
+                        <div class="testimonial-quote-icon"></div>
+                        <p class="testimonial-quote-text">"Volunteering on the ground was a life-changing experience.
+                            Seeing the smiles on the children's faces when we handed out the new school supplies is
+                            something I will never forget. This is an organization with real heart."</p>
+                        <div class="testimonial-quote-author">
+                            <h4>Jessica Miller</h4>
+                            <span>On-site Volunteer</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="testimonial-selectors">
@@ -447,6 +461,13 @@
                         </div>
                     </div>
                     <div class="testimonial-selector" data-testimonial-id="volunteer">
+                        <img src="./assets/testimonial3.webp" alt="Jessica Miller">
+                        <div class="selector-info">
+                            <h5>Jessica Miller</h5>
+                            <span>Volunteer</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-selector" data-testimonial-id="volunteer1">
                         <img src="./assets/testimonial3.webp" alt="Jessica Miller">
                         <div class="selector-info">
                             <h5>Jessica Miller</h5>
@@ -651,33 +672,63 @@
                 var pct = parseInt(el.getAttribute('data-percent') || 0, 10);
                 requestAnimationFrame(function () { el.style.width = pct + '%'; });
             });
+
             const selectors = document.querySelectorAll('.testimonial-selector');
             const slides = document.querySelectorAll('.testimonial-slide');
+            const quoteIconSVG = document.querySelector('.testimonial-quote-icon') ? document.querySelector('.testimonial-quote-icon').innerHTML : '';
 
-            const quoteIconSVG = document.querySelector('.testimonial-quote-icon').innerHTML;
-            slides.forEach(slide => {
-                const iconDiv = slide.querySelector('.testimonial-quote-icon');
-                if (iconDiv && iconDiv.innerHTML.trim() === '') {
-                    iconDiv.innerHTML = quoteIconSVG;
+
+
+            let currentIndex = 0;
+            let testimonialTimer;
+            const timePerSlide = 3000;
+            function switchTestimonial(index) {
+                if (index >= selectors.length) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex = index;
                 }
-            });
 
-            selectors.forEach(selector => {
+                const targetSelector = selectors[currentIndex];
+                const targetId = targetSelector.dataset.testimonialId;
+
+                selectors.forEach(s => s.classList.remove('active'));
+                targetSelector.classList.add('active');
+
+                slides.forEach(slide => {
+                    if (slide.dataset.testimonialId === targetId) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+            }
+
+            // Function to start the automatic rotation
+            function startTimer() {
+                testimonialTimer = setInterval(() => {
+                    switchTestimonial(currentIndex + 1);
+                }, timePerSlide);
+            }
+
+            // Function to reset timer (used when a user clicks manually)
+            function resetTimer() {
+                clearInterval(testimonialTimer);
+                startTimer();
+            }
+
+            // Add click listeners to selectors
+            selectors.forEach((selector, index) => {
                 selector.addEventListener('click', function () {
-                    const targetId = this.dataset.testimonialId;
-
-                    selectors.forEach(s => s.classList.remove('active'));
-                    this.classList.add('active');
-
-                    slides.forEach(slide => {
-                        if (slide.dataset.testimonialId === targetId) {
-                            slide.classList.add('active');
-                        } else {
-                            slide.classList.remove('active');
-                        }
-                    });
+                    switchTestimonial(index); // Switch to clicked slide
+                    resetTimer();             // Restart the timer so they have time to read
                 });
             });
+
+            // Initialize the autoplay when the script runs (if testimonials exist)
+            if (selectors.length > 0) {
+                startTimer();
+            }
             const faqItems = document.querySelectorAll('.faq-item');
 
             faqItems.forEach(item => {
@@ -750,12 +801,12 @@
                 particle.style.cssText = `
             width: ${size}px;
             height: ${size}px;
-            top: ${Math.random() * 100}%; /* Random vertical position */
-            left: ${Math.random() * 100}%; /* Random horizontal position */
+            top: ${Math.random() * 100}%;  
+            left: ${Math.random() * 100}%;  
             opacity: ${opacity};
             animation-delay: ${delay}s;
             animation-duration: ${duration}s;
-            background: rgba(255, 255, 255, ${opacity}); /* Match opacity */
+            background: rgba(255, 255, 255, ${opacity});  
         `;
 
                 container.appendChild(particle);
@@ -890,20 +941,6 @@
                 }, 2000);
             });
         });
-        const homeDropdownBtn = document.getElementById("homeDropdownBtn");
-        const homeDropdown = document.getElementById("homeDropdown");
-        const icon = document.querySelector(".dropdown-icon");
-
-        homeDropdownBtn.addEventListener("click", () => {
-            homeDropdown.classList.toggle("show");
-            icon.classList.toggle("rotate");
-        });
-        document.addEventListener("click", (e) => {
-            if (!homeDropdown.contains(e.target) && !homeDropdownBtn.contains(e.target)) {
-                homeDropdown.classList.remove("show");
-                icon.classList.remove("rotate");
-            }
-        });
 
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
@@ -945,20 +982,7 @@
         function showSuccess(text) {
             // message.textContent = text;
             window.location.href = '404page.html';
-        }
-        document.body.style.overflow = "hidden";
-
-        window.addEventListener("load", () => {
-            const loader = document.getElementById("page-loader");
-            setTimeout(() => {
-                loader.style.opacity = "0";
-                loader.style.pointerEvents = "none";
-                setTimeout(() => {
-                    loader.style.display = "none";
-                    document.body.style.overflow = "auto";
-                }, 600);
-            }, 2600); // sync with progress bar
-        });
+        } 
     </script>
     <script src="script.js"></script>
 

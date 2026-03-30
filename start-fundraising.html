@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundraising || Start</title>
     <link rel="stylesheet" href="start-fundraising.css">
+    <link rel="stylesheet" href="shared.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings_night_sight" />
@@ -16,22 +18,47 @@
 </head>
 
 <body>
-    <header>
+    <div id="page-loader">
+        <div class="loader-inner">
+            <div class="loader-logo">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+
+            <p class="loader-text">Preparing your fundraising experience</p>
+
+            <div class="loader-bar">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <header id="header">
         <div class="menu">
             <div class="logo">
-                <a href="index.html"><img src="./assets/stackly-logo1.png" alt="Stackly Logo"></a>
+                <a href="index.html"><img src="./assets/stackly-logo1.webp" alt="Stackly Logo"></a>
             </div>
             <nav class="menu-items">
-                <a href="index.html">Home</a>
+                <div class="home-nav">
+                    <a href="index.html" class="home-btn ">Home</a>
+
+                    <span class="material-icons dropdown-icon" id="homeDropdownBtn">
+                        expand_more
+                    </span>
+
+                    <div class="home-select" id="homeDropdown">
+                        <a href="./HomePage2/index.html">Home Page 2</a>
+                    </div>
+                </div>
                 <a href="about.html">About Us</a>
-                <a href="browse-campaigns.html">Browse Campaigns</a>
-                <a href="start-fundraising.html" class="active-menu">Start a Fundraiser</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="contact-us.html">Contact Us</a>
-                <a id="loginBtn" tabindex="0">Login/signup</a>
+                <a href="browse-campaigns.html"> Campaigns</a>
+                <a href="start-fundraising.html" class="nav-active">Start Fund</a>
+                <a href="how-it-works.html">Process</a>
+                <a href="contact-us.html">Contact </a>
+                <a href="./dashboard/index.html">Dashboard</a>
+                <a href="login.html" id="loginBtn" tabindex="0">SignIn</a>
                 <a class="btn-close">Close</a>
             </nav>
-            <button class="toogle-btn theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
+            <button class="theme-btn theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
                     settings_night_sight
                 </span></button>
             <div class="hamburger">
@@ -39,8 +66,7 @@
             </div>
         </div>
     </header>
-
-    <div class="page-container" data-aos="fade-down">
+    <div class="page-container container" data-aos="fade-down">
         <aside class="stepper-nav" data-aos="fade-up">
             <h2>Create Your Campaign</h2>
             <div class="disclaimer">
@@ -227,19 +253,9 @@
                     href="404page.html">Terms of Service.</a></p>
         </div>
     </footer>
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeLoginModal">&times;</span>
-            <div id="loginContainer"><!-- Login form --></div>
-        </div>
-    </div>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true
-        });
         const themeToggle = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
         function applyTheme() {
@@ -420,7 +436,7 @@
         }
 
         function submitFundraiser() {
-            goToStep(4);
+            window.location.href = '404page.html'
         }
     </script>
 </body>

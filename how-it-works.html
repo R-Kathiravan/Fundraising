@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundraising || How it Works</title>
     <link rel="stylesheet" href="how-it-works.css">
+    <link rel="stylesheet" href="shared.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings_night_sight" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -16,22 +18,47 @@
 </head>
 
 <body>
-    <header>
+    <div id="page-loader">
+        <div class="loader-inner">
+            <div class="loader-logo">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+
+            <p class="loader-text">Preparing your fundraising experience</p>
+
+            <div class="loader-bar">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <header id="header">
         <div class="menu">
             <div class="logo">
-                <a href="index.html"><img src="./assets/stackly-logo1.png" alt="Stackly Logo"></a>
+                <a href="index.html"><img src="./assets/stackly-logo1.webp" alt="Stackly Logo"></a>
             </div>
             <nav class="menu-items">
-                <a href="index.html">Home</a>
+                <div class="home-nav">
+                    <a href="index.html" class="home-btn">Home</a>
+
+                    <span class="material-icons dropdown-icon" id="homeDropdownBtn">
+                        expand_more
+                    </span>
+
+                    <div class="home-select" id="homeDropdown">
+                        <a href="./HomePage2/index.html">Home Page 2</a>
+                    </div>
+                </div>
                 <a href="about.html">About Us</a>
-                <a href="browse-campaigns.html">Browse Campaigns</a>
-                <a href="start-fundraising.html" class="active-menu">Start a Fundraiser</a>
-                <a href="how-it-works.html">How It Works</a>
-                <a href="contact-us.html">Contact Us</a>
-                <a id="loginBtn" tabindex="0">Login/signup</a>
+                <a href="browse-campaigns.html"> Campaigns</a>
+                <a href="start-fundraising.html">Start Fund</a>
+                <a href="how-it-works.html" class="nav-active">Process</a>
+                <a href="contact-us.html">Contact </a>
+                <a href="./dashboard/index.html">Dashboard</a>
+                <a href="login.html" id="loginBtn" tabindex="0">SignIn</a>
                 <a class="btn-close">Close</a>
             </nav>
-            <button class="toogle-btn theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
+            <button class="theme-btn theme-toggle" id="theme-toggle"><span class="material-symbols-outlined">
                     settings_night_sight
                 </span></button>
             <div class="hamburger">
@@ -39,43 +66,66 @@
             </div>
         </div>
     </header>
-    <section class="hero">
+    <section class="sub-hero">
         <h1 data-aos="zoom-in" data-aos-delay="200">How It Works</h1>
         <p data-aos="zoom-out" data-aos-delay="300">Starting a fundraiser or donating is simple. In just a few steps,
             you can bring hope, raise funds, and make a
             real difference.</p>
     </section>
     <section class="process" data-aos="fade-up">
-        <h1 class="head"> The Three-Step Process (For Fundraisers)</h1>
+        <div class="section-header">
+            <div class="sec-chips">How It Works</div>
+            <h2 class="head">The Three-Step Process</h2>
+            <p class="sec-desc">
+                Starting a fundraiser shouldn't be complicated. We've streamlined the process so you can focus on what
+                truly matters: sharing your story and gathering support. Launch your campaign in minutes.
+            </p>
+        </div>
         <p class="sub-head"> </p>
         <div class="process-container">
-
-            <div class="process-content" data-aos="zoom-in" data-aos-delay="100">
-                <div class="process-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                <h1 class="process-title">1. Create Your Fundraiser</h1>
-                <p class="process-desc">Tell your story in your own words. Set your goal, add photos or a video, and
-                    provide your details. It takes less than 5 minutes to set up your campaign page, completely free.
-                </p>
+            <div class="flip-up">
+                <div class="process-content">
+                    <span class="process-icon"><i
+                            class="fa-solid fa-mobile-screen-button icon-gradient icon-gradient-action"></i></span>
+                    <h1 class="process-title">1. Create Your Fundraiser</h1>
+                    <p class="process-desc">Tell your story in your own words. Set your goal, add photos or a video, and
+                        provide your details. It takes less than 5 minutes to set up your campaign page, completely
+                        free.
+                    </p>
+                </div>
             </div>
-
-            <div class="process-content" data-aos="fade" data-aos-delay="200">
-                <div class="process-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                <h1 class="process-title">2. Share Your Story</h1>
-                <p class="process-desc">Your campaign is ready to share! Send your unique link to friends and family
-                    through WhatsApp, Facebook, Instagram, and email. Your community is your biggest strength.
-                </p>
+            <div data-aos="flip-up">
+                <div class="process-content">
+                    <span class="process-icon"><i class="fa-brands fa-whatsapp icon-gradient icon-gradient-action"></i>
+                    </span>
+                    <h1 class="process-title">2. Share Your Story</h1>
+                    <p class="process-desc">Your campaign is ready to share! Send your unique link to friends and family
+                        through WhatsApp, Facebook, Instagram, and email. Your community is your biggest strength.
+                    </p>
+                </div>
             </div>
-            <div class="process-content" data-aos="fade-down" data-aos-delay="400">
-                <div class="process-icon"><i class="fa-solid fa-hand-holding-rupee"></i></div>
+            <div data-aos="flip-up"></div>
+            <div class="process-content">
+                <span class="process-icon"><i class="material-icons icon-gradient icon-gradient-action">inbox</i>
+                </span>
                 <h1 class="process-title">3. Receive Funds Directly</h1>
                 <p class="process-desc">Donations are transferred securely and directly to your registered bank account
                     via UPI or bank transfer. Withdraw your funds at any time, even if you haven't reached your goal.
                 </p>
             </div>
         </div>
+        </div>
     </section>
-    <section class="promise" data-aos="fade-down">
-        <h1 class="head">Our Promise</h1>
+    <section class="promise dark-bg" data-aos="fade-down">
+        <div class="section-header">
+            <div class="sec-chips">Trust & Safety</div>
+            <h2 class="head head-warm">Our Promise</h2>
+            <p class="sec-desc">
+                When you use our platform, you are placing your trust in us, and we don't take that lightly. We
+                guarantee transparent communication, secure transactions, and a dedicated team working to verify every
+                campaign.
+            </p>
+        </div>
         <div class="promise-container">
             <div class="promise-card" data-aos="zoom-in" data-aos-delay="100">
                 <div class="promise-content">
@@ -116,14 +166,13 @@
     </section>
     <section class="testimonial" data-aos="zoom-in">
         <div class="section-header">
-            <h1>Success Highlights</h1>
-            <p>From Hope to Reality</p>
+            <div class="sec-chips">Success Highlights</div>
+            <h1 class="sec-head">From Hope to Reality</h1>
+            <p class="sec-desc"> See how we've made hope to Reality for our people</p>
         </div>
         <div class="testimonial-flex">
             <div class="testimonial-item">
                 <div class="testimonial-image" data-aos="zoom-in" data-aos-delay="100">
-                    <!-- <img src="https://placehold.co/600x400/3a2d5b/ffffff?text=Priya+S." -->
-                    <!-- alt="Mother and daughter smiling"> -->
                     <h1>Priya S.</h1>
                 </div>
                 <div class="testimonial-content" data-aos="fade-up" data-aos-delay="100">
@@ -139,7 +188,6 @@
             </div>
             <div class="testimonial-item alt" data-aos="zoom-out" data-aos-delay="200">
                 <div class="testimonial-image">
-                    <!-- <img src="https://placehold.co/600x400/3a2d5b/ffffff?text=Arjun+K." alt="Student in a graduation cap"> -->
                     <h1>Arjun K.</h1>
                 </div>
                 <div class="testimonial-content" data-aos="fade-down" data-aos-delay="200">
@@ -155,7 +203,6 @@
             </div>
             <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
                 <div class="testimonial-image">
-                    <!-- <img src="https://placehold.co/600x400/3a2d5b/ffffff?text=Maya+N." alt="Volunteers distributing relief supplies"> -->
                     <h1>Maya N.</h1>
                 </div>
                 <div class="testimonial-content" data-aos="zoom-in" data-aos-delay="400">
